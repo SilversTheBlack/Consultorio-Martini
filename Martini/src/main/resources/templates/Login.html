@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Consultório</title>
+    <link rel="stylesheet" href="/martini/martini/src/main/resources/static/LoginStyle.CSS">
+</head>
+
+<body>
+    <section class="Esquerda">
+        <img class="Logo"
+            src="/martini/martini/src/main/resources/static/Images/new-logo-batch---24-high-resolution-logo-transparent 5.svg"
+            alt="Logo">
+        <h1>Bem-vinda de volta</h1>
+        <div class="Separating-line"></div>
+        <p>Por favor, faça login para acessar o sistema de agendamento de consultas.</p>
+    </section>
+    <section class="Login">
+
+        <form th:action="@{/login}" method="post">
+            <h2>Login</h2>
+            <div class="Separating-line2"></div>
+            <div>
+                <input placeholder="E-mail" type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <input placeholder="Senha" type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+</body>
+
+</html>

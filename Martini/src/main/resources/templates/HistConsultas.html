@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Histórico de Consultas</title>
+    <link rel="stylesheet" th:href="@{/HIstConsultaStyle.css}" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;1,600&display=swap" />
+
+
+
+</head>
+
+<body>
+    <header class="wireframe-3-child16">
+        <img class="logo-mm-2" alt="" src="/images/LOGO MM 2.png">
+    </header>
+
+    <!-- parte central da Tela -->
+    <main>
+        <b class="histrico-de-consultas">Histórico de Consultas</b>
+        <b class="nome-do-paciente">Nome do paciente: </b>
+        <!-- Barra de pesquisa -->
+        <form th:action="@{/historico/Consultas}" method="GET">
+            <input type="text" name="keyword" th:value="${keyword}" class="wireframe-3-child6"></input>
+        </form>
+        <i class="histrico">Histórico:</i>
+        <!-- Tabela De Consultas Cadastradas -->
+        <div th:if="${consultas != null and not #lists.isEmpty(consultas)}" class="TabelaConsultas">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Observações</th>
+                        <th>Valor (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="consulta : ${consultas}">
+                        <td th:text="${consulta.cliente?.nome ?: 'N/A'}">Nome do Cliente</td>
+                        <td th:text="${consulta.data != null ? #temporals.format(consulta.data, 'dd/MM/yyyy') : 'N/A'}">
+                            dd/MM/yyyy</td>
+                        <td
+                            th:text="${consulta.horario != null ? #temporals.format(consulta.horario, 'HH:mm') : 'N/A'}">
+                            HH:mm</td>
+                        <td th:text="${consulta.obs}">Observações da consulta</td>
+                        <td th:text="${#numbers.formatDecimal(consulta.valor, 1, 'POINT', 2, 'COMMA')}">0,00</td>
+                        <td>
+                            <a th:href="@{/historico/editar/{id}(id=${consulta.IdConsulta})}">Editar</a>
+
+                            <a th:href="@{/historico/excluir/{id}(id=${consulta.IdConsulta})}"
+                                onclick="return confirm('Tem certeza que deseja excluir esta consulta?');">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <div class="wireframe-3-child">
+    </div>
+
+    <div class="wireframe-3-child18">
+    </div>
+    <div class="wireframe-3-child19">
+    </div>
+    <b class="histrico1">Histórico</b>
+    <!-- link para tela de cadastro de consultas -->
+    <a th:href="@{/consultas/novo}">
+        <b class="cadastro1" id="cadastroText1">Cadastro</b>
+    </a>
+    <!-- link tela inicial -->
+    <a th:href="@{/}"><button class="wireframe-3-child17" id="rectangle20">
+            voltar </button></a>
+    <div class="wireframe-3-child3">
+    </div>
+    <div class="wireframe-3-child4">
+    </div>
+    <div class="usurio-doutora-michele">Usuário: Doutora Michele Martins </div>
+    <!-- exceção caso nenhuma consulta seja encontrada -->
+    <div th:if="${consultas == null or #lists.isEmpty(consultas)}" class="message message-empty">
+        <p>Nenhuma consulta encontrada com os critérios da busca ou nenhum agendamento realizado.</p>
+    </div>
+
+    <div class="wireframe-3-child3">
+    </div>
+
+
+
+
+
+    <div class="wireframe-3-child3">
+    </div>
+    <div class="wireframe-3-child22">
+    </div>
+    <div class="usurio-doutora-michele1">Usuário: Doutora Michele Martins </div>
+
+
+
+
+
+
+
+
+
+
+    <a th:href="@{/}">
+        <div class="wireframe-3-child33" id="rectangle35">
+        </div>
+    </a>
+    <img class="triangulo-png-8" alt="" src="/images/triangulo png 8.png">
+
+    <a th:href="@{/}">
+        <button class="pgina-inicial2">Página Inicial</button>
+    </a>
+    <div class="wireframe-3-child34">
+    </div>
+    <b class="consultas3">Consultas</b>
+    <img class="triangulo-png-9" alt="" src="/images/triangulo png 9.png">
+
+
+
+</body>
+
+</html>

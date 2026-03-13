@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Sistema Consultório</title>
+    <link rel="stylesheet" th:href="@{/Style.css}" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" />
+</head>
+
+<body>
+
+    <header>
+        <img class="logo-mm-1" alt="" src="/images/LOGO MM 1.png">
+    </header>
+    <div class="wireframe-1-item">
+    </div>
+    <div class="usurio-doutora-michele">Usuário: Doutora Michele Martins </div>
+    
+    <!-- imagens na esquerda do site -->
+    <img class="consultaazul-icon" alt="" src="/images/consultaazul.png" id="consultaazulImage">
+
+    <img class="pessoaazul-icon" alt="" src="/images/pessoaazul.png" id="pessoaazulImage">
+
+    <img class="pastaazul-icon" alt="" src="/images/pastaazul.png" id="pastaazulImage">
+
+
+
+
+
+    <main>
+        <!-- Link para Tela de cadastro de pacientes -->
+        <a th:href="@{/cliente/novo}"><button class="wireframe-1-child2"></button>
+            <div class="wireframe-1-child4"></div>
+            <div class="pacientes">Pacientes</div>
+            <img class="usuario-azul-1-icon" alt="" src="/images/usuario_azul 1.png">
+        </a>
+
+        <!-- link para Tela de cadastro de consultas -->
+        <a th:href="@{/consultas/novo}">
+            <button class="wireframe-1-child5">
+            </button>
+            <img class="consulta-certo-2-icon" alt="" src="/images/Consulta_certo 2.png">
+
+            <div class="wireframe-1-child7">
+            </div>
+            <div class="consultas">Consultas</div>
+        </a>
+
+        <!-- link para tela de consultas agendadas -->
+        <a th:href="@{/agendamentos/consultas}"><button class="wireframe-1-child8">
+            </button>
+            <div class="wireframe-1-child10">
+            </div>
+            <img class="calendar-icon" alt="" src="/images/calendar.png">
+            <div class="agendamentos">Agendamentos</div>
+        </a>
+    </main>
+
+    </div>
+    <!-- próxima consulta do site - feito com thymeleaf-->
+     <div class="wireframe-1-inner">
+    </div>
+    <div class="ellipse-div">
+    </div>
+    <div class="rectangle-div">
+    </div>
+    <div class="wireframe-1-child1">
+    </div>
+    <img class="hora-icon" alt="" src="/images/hora.png">
+    <div th:if="${consultas != null and not #lists.isEmpty(consultas)}">
+        <div class="consulta-item1">
+            <span th:text="${#temporals.format(consultas[0].data, 'dd/MM')}" class="div1">11:00</span>
+            <div th:text="${#temporals.format(consultas[0].horario, 'HH:mm')}" class="div">23/04</div>
+        </div>
+
+        <div class="consulta-item">
+            <div class="prximo-paciente">Próximo paciente:</div>
+            <div class="observaes">Observações:</div>
+
+            <div th:text="${consultas[0].cliente?.nome ?: 'Nome não disponível'}" class="maria-julia-santos">Maria
+                Julia Santos</div>
+            <div th:text="${consultas[0].obs ?: 'Observações não disponíveis'}" class="pauta-namoro-faculdade">
+                Pauta: Namoro, Faculdade.</div>
+        </div>
+    </div>
+
+    <!-- barrinhas de pop up(feito por IA) -->
+    <section class="rectangle-parent" id="groupContainer">
+        <div class="group-child">
+        </div>
+        <div class="group-item">
+        </div>
+        <div class="group-inner">
+        </div>
+    </section>
+
+    <!-- lógica para pop up de navegação do site(feito por IA) -->
+    <div id="frameContainer" class="popup-overlay" style="display:none">
+
+        <div class="rectangle-root">
+            <div class="frame-child">
+            </div>
+            <div class="ficha-pessoal" id="popupfichaPessoalText">Ficha Pessoal</div>
+            <div class="cadastro" id="popupcadastroText">Cadastro</div>
+            <img class="frame-item" alt="" src="Line 1.svg">
+
+            <img class="frame-inner" alt="" src="Line 5.svg">
+
+            <div class="pacientes1">Pacientes</div>
+            <div class="frame-child1">
+            </div>
+            <div class="agendamentos1">Agendamentos</div>
+            <div class="sair">Sair</div>
+            <div class="histrico" id="popuphistricoText">Histórico</div>
+            <div class="cadastro1" id="popupcadastroText1">Cadastro</div>
+            <div class="line-div">
+            </div>
+            <div class="consultas1">Consultas</div>
+            <b class="opes">Opções</b>
+            <img class="consultaazul-icon1" alt="" src="/images/consultaazul.png">
+
+            <img class="pessoaazul-icon1" alt="" src="/images/pessoaazul.png">
+
+            <img class="calendar-icon1" alt="" src="/images/calendar.png">
+
+            <div class="rectangle-group">
+                <div class="group-child1">
+                </div>
+                <a th:href="@{/}">
+                    <button class="group-child2">
+                    </button>
+                </a>
+                <div class="group-child3">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- lógica em javascript do popup do site(feito por IA) -->
+        <script>
+            var popupfichaPessoalText = document.getElementById("popupfichaPessoalText");
+            if (popupfichaPessoalText) {
+                popupfichaPessoalText.addEventListener("click", function (e) {
+                    // Add your code here
+                });
+            }
+
+            var popupcadastroText = document.getElementById("popupcadastroText");
+            if (popupcadastroText) {
+                popupcadastroText.addEventListener("click", function (e) {
+                    // Add your code here
+                });
+            }
+
+            var popuphistricoText = document.getElementById("popuphistricoText");
+            if (popuphistricoText) {
+                popuphistricoText.addEventListener("click", function (e) {
+                    // Add your code here
+                });
+            }
+
+            var popupcadastroText1 = document.getElementById("popupcadastroText1");
+            if (popupcadastroText1) {
+                popupcadastroText1.addEventListener("click", function (e) {
+                    // Add your code here
+                });
+            }
+
+            var groupContainer = document.getElementById("groupContainer");
+            if (groupContainer) {
+                groupContainer.addEventListener("click", function () {
+                    var popup = document.getElementById("frameContainer");
+                    if (!popup) return;
+                    var popupStyle = popup.style;
+                    if (popupStyle) {
+                        popupStyle.display = "flex";
+                        popupStyle.zIndex = 100;
+                        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
+                        popupStyle.alignItems = "flex-start";
+                        popupStyle.justifyContent = "flex-end";
+                    }
+                    popup.setAttribute("closable", "");
+
+                    var onClick = popup.onClick || function (e) {
+                        if (e.target === popup && popup.hasAttribute("closable")) {
+                            popupStyle.display = "none";
+                        }
+                    };
+                    popup.addEventListener("click", onClick);
+                });
+            }
+
+            var consultaazulImage = document.getElementById("consultaazulImage");
+            if (consultaazulImage) {
+                consultaazulImage.addEventListener("click", function () {
+                    var popup = document.getElementById("frameContainer");
+                    if (!popup) return;
+                    var popupStyle = popup.style;
+                    if (popupStyle) {
+                        popupStyle.display = "flex";
+                        popupStyle.zIndex = 100;
+                        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
+                        popupStyle.alignItems = "flex-start";
+                        popupStyle.justifyContent = "flex-end";
+                    }
+                    popup.setAttribute("closable", "");
+
+                    var onClick = popup.onClick || function (e) {
+                        if (e.target === popup && popup.hasAttribute("closable")) {
+                            popupStyle.display = "none";
+                        }
+                    };
+                    popup.addEventListener("click", onClick);
+                });
+            }
+
+            var pessoaazulImage = document.getElementById("pessoaazulImage");
+            if (pessoaazulImage) {
+                pessoaazulImage.addEventListener("click", function () {
+                    var popup = document.getElementById("frameContainer");
+                    if (!popup) return;
+                    var popupStyle = popup.style;
+                    if (popupStyle) {
+                        popupStyle.display = "flex";
+                        popupStyle.zIndex = 100;
+                        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
+                        popupStyle.alignItems = "flex-start";
+                        popupStyle.justifyContent = "flex-end";
+                    }
+                    popup.setAttribute("closable", "");
+
+                    var onClick = popup.onClick || function (e) {
+                        if (e.target === popup && popup.hasAttribute("closable")) {
+                            popupStyle.display = "none";
+                        }
+                    };
+                    popup.addEventListener("click", onClick);
+                });
+            }
+
+            var pastaazulImage = document.getElementById("pastaazulImage");
+            if (pastaazulImage) {
+                pastaazulImage.addEventListener("click", function () {
+                    var popup = document.getElementById("frameContainer");
+                    if (!popup) return;
+                    var popupStyle = popup.style;
+                    if (popupStyle) {
+                        popupStyle.display = "flex";
+                        popupStyle.zIndex = 100;
+                        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
+                        popupStyle.alignItems = "flex-start";
+                        popupStyle.justifyContent = "flex-end";
+                    }
+                    popup.setAttribute("closable", "");
+
+                    var onClick = popup.onClick || function (e) {
+                        if (e.target === popup && popup.hasAttribute("closable")) {
+                            popupStyle.display = "none";
+                        }
+                    };
+                    popup.addEventListener("click", onClick);
+                });
+            }</script>
+</body>
+
+</html>

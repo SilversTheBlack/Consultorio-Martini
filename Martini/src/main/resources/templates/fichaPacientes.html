@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Ficha de Pacientes</title>
+    <link rel="stylesheet" th:href="@{/FichaPacientesStyle.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" />
+</head>
+
+<body>
+
+    <div class="wireframe-5">
+        <header class="wireframe-5-child">
+            <img class="logo-mm-2" alt="" src="/images/LOGO MM 2.png">
+        </header>
+
+        <!-- identificador de usuário -->
+        <div class="wireframe-5-item">
+        </div>
+        <div class="usurio-doutora-michele">Usuário: Doutora Michele Martins </div>
+
+        <!-- parte central da tela -->
+        <main>
+            <b class="pacientes-cadastrados">Pacientes Cadastrados</b>
+            <div class="pesquisar-por-nome">Pesquisar por nome:</div>
+            <form th:action="@{/clientes/listar}" method="GET" class="consultation-form">
+                <input type="text" name="keyword" th:value="${keyword}" class="wireframe-5-child20"></input>
+                <button type="submit" class="wireframe-5-child2">Pesquisar</button>
+            </form>
+            <div th:if="${clientes != null and not #lists.isEmpty(clientes)}" class="TabelaPaciente	">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Telefone</th>
+                            <th>CEP</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="cliente : ${clientes}">
+                            <td th:text="${cliente.nome ?: 'N/A'}">Nome do Cliente</td>
+                            <td th:text="${cliente.cpf ?: 'N/A'}">000.000.000-00</td>
+                            <td th:text="${cliente.telefone ?: 'N/A'}">(00) 00000-0000</td>
+                            <td th:text="${cliente.cep ?: 'N/A'}">00000-000</td>
+                            <td>
+                                <a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">Editar</a>
+                                &nbsp;|&nbsp;
+                                <a th:href="@{/clientes/deletar/{id}(id=${cliente.id})}"
+                                    onclick="return confirm('Tem certeza que deseja excluir este cliente?');">Deletar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!-- Link entre a tela de ficha pessoal e tela de Cadastro de pacientes -->
+        <div class="rectangle-div">
+        </div>
+        <div class="rectangle-icon" alt=""></div>
+        <a th:href="@{/cliente/novo}">
+            <div class="cadastro">Cadastro</div>
+        </a>
+        <div class="ficha-pessoal">Ficha Pessoal</div>
+    </div>
+
+
+
+
+    <div class="wireframe-5-child21">
+    </div>
+
+    <a th:href="@{/}">
+        <div class="wireframe-5-child22">
+        </div>
+    </a>
+    <b class="pacientes1">Pacientes</b>
+    <a th:href="@{/}"><button class="pgina-inicial"> Página Inicial</button></a>
+    <img class="triangulo-png-3" alt="" src="/images/triangulo png 3.png">
+
+    <img class="triangulo-png-4" alt="" src="/images/triangulo png 4.png">
+</body>
+
+</html>

@@ -1,0 +1,626 @@
+body {
+    margin: 0;
+    line-height: normal;
+    width: 100%;
+    position: relative;
+    background-color: #fffeea;
+    height: 67.5rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #195c71;
+    font-family: Montserrat;
+    overflow-y: auto;
+}
+
+.popup-overlay {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+}
+
+
+header {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background-color: #32b9be;
+    width: 120rem;
+    height: 9.875rem;
+    justify-content: center;
+}
+
+.wireframe-1-item {
+    position: absolute;
+    top: 11.313rem;
+    left: 92.688rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 25.875rem;
+    height: 2.063rem;
+}
+
+.usurio-doutora-michele {
+    position: absolute;
+    top: 11.625rem;
+    left: 94.688rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 21.813rem;
+    height: 1.438rem;
+}
+
+.wireframe-1-inner {
+    position: absolute;
+    top: 43.438rem;
+    left: calc(50% - 408px);
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 51rem;
+    height: 15.063rem;
+}
+
+.prximo-paciente {
+    position: absolute;
+    top: 44.938rem;
+    left: 38.875rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 12.375rem;
+    height: 1.438rem;
+    color: #195c71;
+    font-weight: bold;
+}
+
+.observaes {
+    position: absolute;
+    top: 52.063rem;
+    left: 38.875rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 12.375rem;
+    height: 1.438rem;
+    color: #195c71;
+    font-weight: bold;
+}
+
+.maria-julia-santos {
+    position: absolute;
+    top: 47.438rem;
+    left: 38.875rem;
+    font-weight: 900;
+    display: inline-block;
+    width: 12.375rem;
+    height: 1.438rem;
+    font-weight: bold;
+}
+
+.pauta-namoro-faculdade {
+    position: absolute;
+    top: 54.157rem;
+    left: 38.875rem;
+    font-weight: 900;
+    display: inline-block;
+    width: 24.55rem;
+    height: 1.438rem;
+    transform: rotate(-0.1deg);
+    transform-origin: 0 0;
+    font-weight: bold;
+}
+
+.group-child {
+    position: absolute;
+    top: 1.688rem;
+    left: 0rem;
+    background-color: #2e97b7;
+    width: 3rem;
+    height: 0.563rem;
+}
+
+.group-item {
+    position: absolute;
+    top: 0.813rem;
+    left: 0rem;
+    background-color: #2e97b7;
+    width: 3rem;
+    height: 0.625rem;
+}
+
+.group-inner {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background-color: #2e97b7;
+    width: 3rem;
+    height: 0.563rem;
+}
+
+.rectangle-parent {
+    position: absolute;
+    top: 10.688rem;
+    left: 0.875rem;
+    width: 3rem;
+    height: 2.25rem;
+}
+
+.logo-mm-1 {
+    position: absolute;
+    top: -5.437rem;
+    left: calc(50% - 168px);
+    width: 18rem;
+    height: 18rem;
+    object-fit: cover;
+    margin-top: 70px;
+}
+
+.consultaazul-icon {
+    position: absolute;
+    top: 15.563rem;
+    left: -0.312rem;
+    width: 5.063rem;
+    height: 5.063rem;
+    object-fit: cover;
+}
+
+.pessoaazul-icon {
+    position: absolute;
+    top: 28.125rem;
+    left: 0.063rem;
+    width: 4.375rem;
+    height: 4.375rem;
+    object-fit: cover;
+}
+
+.pastaazul-icon {
+    position: absolute;
+    top: 40.188rem;
+    left: -0.312rem;
+    width: 5.063rem;
+    height: 5.063rem;
+    object-fit: cover;
+}
+
+.rectangle-div {
+    position: absolute;
+    top: 51rem;
+    left: 64.625rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    width: 18.688rem;
+    height: 6.25rem;
+}
+
+.div {
+    position: absolute;
+    top: 53rem;
+    left: 71.563rem;
+    font-size: 1.875rem;
+    font-weight: 800;
+    color: #fffeea;
+    display: inline-block;
+    width: 4.813rem;
+    height: 1.125rem;
+}
+
+.div1 {
+    position: absolute;
+    top: 46.2rem;
+    left: calc(50% + 151px);
+    font-size: 1.563rem;
+    font-weight: 800;
+    text-align: center;
+    display: inline-block;
+    width: 9.125rem;
+}
+
+.wireframe-1-child1 {
+    position: absolute;
+    top: 44.188rem;
+    left: 64.625rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    width: 18.688rem;
+    height: 6.313rem;
+}
+
+.consulta-3-de {
+    position: absolute;
+    top: 45.5rem;
+    left: calc(50% + 151px);
+    font-size: 1.563rem;
+    font-weight: 800;
+    text-align: center;
+    display: inline-block;
+    width: 9.125rem;
+
+}
+
+.ellipse-div {
+    position: absolute;
+    top: 42.063rem;
+    left: 33.125rem;
+    border-radius: 50%;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 4.688rem;
+    height: 4.813rem;
+}
+
+.hora-icon {
+    position: absolute;
+    top: 42.625rem;
+    left: 33.625rem;
+    width: 3.75rem;
+    height: 3.75rem;
+    object-fit: cover;
+}
+
+.wireframe-1-child2 {
+    position: absolute;
+    top: 19.313rem;
+    left: 50.938rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 18.063rem;
+    height: 15.063rem;
+    cursor: pointer;
+
+}
+
+.wireframe-1-child4 {
+    position: absolute;
+    top: 33.5rem;
+    left: calc(50% - 97px);
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 12.188rem;
+    height: 2.063rem;
+    cursor: pointer;
+}
+
+.pacientes {
+    position: absolute;
+    top: 33.75rem;
+    left: calc(50% - 52px);
+    font-weight: 600;
+    display: inline-block;
+    width: 6.563rem;
+    height: 1.688rem;
+    color: #195c71;
+}
+
+.pacientes:hover {
+    color: #32b9be;
+}
+
+.wireframe-1-child5 {
+    position: absolute;
+    top: 19.313rem;
+    left: 24.688rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 18.063rem;
+    height: 15.063rem;
+    cursor: pointer;
+}
+
+.wireframe-1-child7 {
+    position: absolute;
+    top: 33.5rem;
+    left: calc(50% - 517px);
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 12.188rem;
+    height: 2.063rem;
+}
+
+.consultas {
+    position: absolute;
+    top: 33.75rem;
+    left: calc(50% - 472px);
+    font-weight: 600;
+    display: inline-block;
+    width: 6.563rem;
+    height: 1.688rem;
+    color: #195c71;
+}
+
+.consultas:hover {
+    color: #32b9be;
+}
+
+.consulta-certo-2-icon {
+    position: absolute;
+    top: 18.688rem;
+    left: 25.813rem;
+    width: 15.688rem;
+    height: 15.688rem;
+    object-fit: cover;
+}
+
+.wireframe-1-child8 {
+    position: absolute;
+    top: 19.313rem;
+    left: 77.813rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 18.063rem;
+    height: 15.063rem;
+    cursor: pointer;
+}
+
+.wireframe-1-child10 {
+    position: absolute;
+    top: 33.5rem;
+    left: calc(50% + 333px);
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 12.188rem;
+    height: 2.063rem;
+}
+
+.calendar-icon {
+    position: absolute;
+    top: 19.5rem;
+    left: 79.5rem;
+    width: 14.75rem;
+    height: 14.75rem;
+    object-fit: cover;
+}
+
+.agendamentos {
+    position: absolute;
+    top: 33.75rem;
+    left: calc(50% + 350px);
+    font-weight: 600;
+    display: inline-block;
+    width: 10.313rem;
+    height: 1.688rem;
+    color: #195c71;
+}
+
+.agendamentos:hover {
+    color: #32b9be;
+}
+
+.usuario-azul-1-icon {
+    position: absolute;
+    top: 20.188rem;
+    left: calc(50% - 167px);
+    width: 20.875rem;
+    height: 12.688rem;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+
+
+
+.frame-child {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background-color: #f9df94;
+    width: 18.063rem;
+    height: 57.5rem;
+}
+
+.ficha-pessoal {
+    position: absolute;
+    top: 25.125rem;
+    left: 1.813rem;
+    display: inline-block;
+    width: 11.75rem;
+    height: 1.438rem;
+    cursor: pointer;
+}
+
+.cadastro {
+    position: absolute;
+    top: 22.563rem;
+    left: 1.688rem;
+    display: inline-block;
+    width: 6.438rem;
+    height: 1.438rem;
+    cursor: pointer;
+}
+
+.frame-item {
+    position: absolute;
+    top: 20.813rem;
+    left: 4.188rem;
+    max-height: 100%;
+    width: 6.5rem;
+}
+
+.frame-inner {
+    position: absolute;
+    top: 34.673rem;
+    left: 3.813rem;
+    max-height: 100%;
+    width: 10rem;
+}
+
+.pacientes1 {
+    position: absolute;
+    top: 19.125rem;
+    left: 4.188rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 10.75rem;
+    height: 1.688rem;
+}
+
+.frame-child1 {
+    position: absolute;
+    top: 51rem;
+    left: 5.125rem;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #32b9be;
+    width: 7.813rem;
+    height: 2.5rem;
+}
+
+.agendamentos1 {
+    position: absolute;
+    top: 32.75rem;
+    left: 4.188rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 10.75rem;
+    height: 1.688rem;
+}
+
+.sair {
+    position: absolute;
+    top: 51.563rem;
+    left: 7.75rem;
+    font-weight: 900;
+    display: inline-block;
+    width: 2.625rem;
+    height: 1.688rem;
+}
+
+.histrico {
+    position: absolute;
+    top: 12.75rem;
+    left: 1.813rem;
+    display: inline-block;
+    width: 6.438rem;
+    height: 1.438rem;
+    cursor: pointer;
+}
+
+.cadastro1 {
+    position: absolute;
+    top: 10.188rem;
+    left: 1.688rem;
+    display: inline-block;
+    width: 6.438rem;
+    height: 1.438rem;
+    cursor: pointer;
+}
+
+.line-div {
+    position: absolute;
+    top: 8.531rem;
+    left: 4.094rem;
+    border-top: 1px solid #32b9be;
+    box-sizing: border-box;
+    width: 6.688rem;
+    height: 0.063rem;
+}
+
+.consultas1 {
+    position: absolute;
+    top: 6.813rem;
+    left: 4.188rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 10.75rem;
+    height: 1.688rem;
+}
+
+.opes {
+    position: absolute;
+    top: 0.75rem;
+    left: 4.75rem;
+    font-size: 1.563rem;
+    display: inline-block;
+    width: 6.688rem;
+    height: 1.813rem;
+}
+
+.consultaazul-icon1 {
+    position: absolute;
+    top: 5.125rem;
+    left: -0.875rem;
+    width: 5.063rem;
+    height: 5.063rem;
+    object-fit: cover;
+}
+
+.pessoaazul-icon1 {
+    position: absolute;
+    top: 17.813rem;
+    left: -0.562rem;
+    width: 4.375rem;
+    height: 4.375rem;
+    object-fit: cover;
+
+}
+
+.calendar-icon1 {
+    position: absolute;
+    top: 32.625rem;
+    left: 0.75rem;
+    width: 2.125rem;
+    height: 2.125rem;
+    object-fit: cover;
+}
+
+.group-child1 {
+    position: absolute;
+    top: 1.688rem;
+    left: 0rem;
+    background-color: #2e97b7;
+    width: 3rem;
+    height: 0.563rem;
+}
+
+.group-child2 {
+    position: absolute;
+    top: 0.813rem;
+    left: 0rem;
+    background-color: #2e97b7;
+    width: 3rem;
+    height: 0.625rem;
+    border: none;
+}
+
+.group-child3 {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background-color: #2e97b7;
+    width: 3rem;
+    height: 0.563rem;
+}
+
+.rectangle-group {
+    position: absolute;
+    top: 0.563rem;
+    left: 0.813rem;
+    width: 3rem;
+    height: 2.25rem;
+}
+
+.rectangle-root {
+    width: 18.063rem;
+    position: relative;
+    height: 57.625rem;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #195c71;
+}

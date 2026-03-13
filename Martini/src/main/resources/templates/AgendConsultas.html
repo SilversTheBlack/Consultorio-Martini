@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Consultas Agendadas</title>
+    <link rel="stylesheet" th:href="@{/AgendConsultasStyle.CSS}" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
+
+
+
+</head>
+
+<body>
+
+
+    <header>
+        <img class="logo-mm-3" alt="" src="/images/LOGO MM 2.png">
+    </header>
+    <div class="wireframe-6-item">
+    </div>
+    <div class="usurio-doutora-michele">Usuário: Doutora Michele Martins </div>
+    
+    <!-- Parte central da Tela -->
+    <main>
+        <b class="prximos-agendamentos">Próximos Agendamentos</b>
+        <div class="pesquisar-por-nome">Pesquisar por nome:</div>
+        <!-- Barra de pesquisa e botão de Pesquisar -->
+        <form th:action="@{/agendamentos/consultas}" method="GET" class="consultation-form">
+            <input type="text" name="keyword" th:value="${keyword}" class="wireframe-6-child1"></input>
+            <button type="submit" class="pesquisar">Pesquisar</button>
+        </form>
+        <div class="agendamentos1">Agendamentos:</div>
+        <!-- Links de navegação entre paginas -->
+        <a th:href="@{/consultas/novo}">
+            <button class="novo-agendamento">Novo agendamento</button>
+        </a>
+        <a th:href="@{/historico/consultas}">
+            <button class="histrico-de-agendamentos">
+                Histórico de agendamentos
+            </button>
+        </a>
+        <!-- Tabela De Consultas Futuras -->
+        <div th:if="${consultas != null and not #lists.isEmpty(consultas)}" class="TabelaConsultas">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Observações</th>
+                        <th>Valor (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="consulta : ${consultas}">
+                        <td th:text="${consulta.cliente?.nome ?: 'N/A'}">Nome do Cliente</td>
+                        <td th:text="${consulta.data != null ? #temporals.format(consulta.data, 'dd/MM/yyyy') : 'N/A'}">
+                            dd/MM/yyyy
+                        </td>
+                        <td
+                            th:text="${consulta.horario != null ? #temporals.format(consulta.horario, 'HH:mm') : 'N/A'}">
+                            HH:mm
+                        </td>
+                        <td th:text="${consulta.obs}">Observações da consulta</td>
+                        <td th:text="${#numbers.formatDecimal(consulta.valor, 1, 'POINT', 2, 'COMMA')}">0,00</td>
+                        <td>
+                            <a th:href="@{/agendamentos/editar/{id}(id=${consulta.IdConsulta})}">Editar</a>
+
+                            <a th:href="@{/agendamentos/excluir/{id}(id=${consulta.IdConsulta})}"
+                                onclick="return confirm('Tem certeza que deseja excluir esta consulta?');">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${consultas == null or #lists.isEmpty(consultas)}">
+            <p class="Sem-Resultados">Nenhuma consulta encontrada com os critérios da busca ou nenhum agendamento
+                realizado.</p>
+        </div>
+    </main>
+
+    <div class="rectangle-icon" alt=""></div>
+
+    <div class="agendamentos">Agendamentos</div>
+
+
+
+
+    <div class="wireframe-6-child19">
+    </div>
+    <div class="wireframe-6-child20">
+    </div>
+    <b class="agendamentos2">Agendamentos</b>
+    <a th:href="@{/}"><button class="pgina-inicial"> Página Inicial</button></a>
+    <img class="triangulo-png-3" alt="" src="/images/triangulo png 3.png">
+
+    <img class="triangulo-png-4" alt="" src="/images/triangulo png 4.png">
+
+
+
+</body>
+
+</html>

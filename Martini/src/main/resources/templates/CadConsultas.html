@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>Cadastro de Consultas</title>
+    <link rel="stylesheet" th:href="@{/CadConsultasStyle.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" />
+
+
+
+</head>
+
+<body>
+
+    <header class="wireframe-2-child">
+        <img class="logo-mm-2" alt="" src="/images/LOGO MM 2.png">
+    </header>
+
+
+    <div class="wireframe-2-item">
+    </div>
+    <div class="usurio-doutora-michele">Usuário: Doutora Michele Martins </div>
+    <div class="wireframe-2-inner">
+    </div>
+    <b class="consultas">Consultas</b>
+    <div class="rectangle-div" id="rectangle3">
+    </div>
+    <a th:href="@{/}"><button class="pgina-inicial">Página Inicial</button></a>
+    <img class="triangulo-png-3" alt="" src="/images/triangulo png 3.png">
+
+    <img class="triangulo-png-4" alt="" src="/images/triangulo png 4.png">
+
+    <div class="wireframe-2-child1">
+    </div>
+    <div class="wireframe-2-child2">
+    </div>
+
+
+
+
+    <a th:href="@{/cliente/novo}"><button class="wireframe-2-child10">
+        </button></a>
+    <form th:action="@{/consultas}" th:object="${consulta}" method="post" class="consultation-form">
+        <div class="wireframe-2-child1"></div>
+        <div class="wireframe-2-child2"></div>
+        <!-- Patient Name -->
+        <select th:field="*{cliente.id}" class="wireframe-2-child3">
+            <option value="">Selecione o Paciente</option>
+            <option th:each="cli : ${todosClientes}" th:value="${cli.id}" th:text="${cli.nome}">
+            </option>
+        </select>
+        <!-- Date -->
+        <input class="wireframe-2-child6" type="date" th:field="*{data}">
+        <!-- Time -->
+        <input class="wireframe-2-child11" type="time" th:field="*{horario}" placeholder="">
+        <!-- Value -->
+        <input type="number" step="0.01" th:field="*{valor}" id="valor" placeholder="Valor da Consulta R$"
+            class="wireframe-2-child22">
+        <!-- Observations -->
+        <input class="wireframe-2-child12" type="text" th:field="*{obs}">
+        <input type="hidden" th:field="*{idConsulta}" />
+        <div class="wireframe-2-child10"></div>
+        <div class="wireframe-2-child13" id="rectangle16"></div>
+        <div class="wireframe-2-child14"></div>
+        <div class="cadastro">Cadastro</div>
+        <b class="nova-consulta">Nova Consulta</b>
+        <div class="wireframe-2-child15"></div>
+        <div class="wireframe-2-child13" id="rectangle16">
+        </div>
+        <div class="wireframe-2-child14">
+        </div>
+        <div class="cadastro">Cadastro</div>
+        <b class="nova-consulta">Nova Consulta</b>
+        <div class="wireframe-2-child15">
+        </div>
+        <div class="wireframe-2-child16"><button type="submit" class="salvar">Salvar</button></div>
+    </form>
+    </div>
+
+    <b class="cancelar" id="cancelarText">Cancelar</b>
+    <div class="nome-do-paciente">Nome do Paciente: </div>
+    <a th:href="@{/cliente/novo}"><button class="cadastrar-novo-paciente">Cadastrar novo paciente</button></a>
+
+    <div class="valor">Valor: </div>
+    <div class="data">
+        <p class="blank-line">Data:</p>
+        <p class="blank-line">&nbsp;</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="horrio">Horário:</div>
+
+
+    <b class="observaes">Observações:</b>
+    <a th:href="@{/historico/Consultas}">
+        <div class="histrico">Histórico</div>
+    </a>
+
+</body>
+
+</html>

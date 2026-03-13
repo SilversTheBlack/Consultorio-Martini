@@ -1,0 +1,414 @@
+body {
+    margin: 0;
+    line-height: normal;
+    font-family: montserrat;
+    width: 100%;
+    position: relative;
+    background-color: #fffeea;
+    height: 67.5rem;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.688rem;
+    color: #195c71;
+    font-family: Montserrat;
+    overflow-y: auto;
+}
+
+
+.wireframe-4-child {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background-color: #32b9be;
+    width: 120rem;
+    height: 9.875rem;
+}
+
+.logo-mm-2 {
+    position: absolute;
+    top: -5.562rem;
+    left: calc(50% - 168px);
+    width: 18rem;
+    height: 18rem;
+    margin-top: 70px;
+    object-fit: cover;
+}
+
+.wireframe-4-item {
+    position: absolute;
+    top: 10.875rem;
+    left: 92.875rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 26.875rem;
+    height: 2.5rem;
+}
+
+.usurio-doutora-michele {
+    position: absolute;
+    top: 11.188rem;
+    left: 94.875rem;
+    font-size: 1.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 24.875rem;
+    height: 1.438rem;
+}
+
+.wireframe-4-inner {
+    position: absolute;
+    top: 11.5rem;
+    left: 0rem;
+    background-color: #f9df94;
+    width: 22.5rem;
+    height: 4.375rem;
+}
+
+.pacientes {
+    position: absolute;
+    top: 11.75rem;
+    left: 1.625rem;
+    font-size: 2.188rem;
+    display: flex;
+    align-items: center;
+    width: 12.813rem;
+    height: 4.375rem;
+}
+
+.rectangle-div {
+    position: absolute;
+    top: 16.688rem;
+    left: 0rem;
+    background-color: #a4dcb9;
+    width: 22.5rem;
+    height: 4.375rem;
+    cursor: pointer;
+}
+
+.pgina-inicial {
+    position: absolute;
+    top: 16.688rem;
+    left: 0rem;
+    background-color: #a4dcb9;
+    color: #195c71;
+    width: 22.5rem;
+    height: 4.375rem;
+    cursor: pointer;
+    font-size: xx-large;
+    font-weight: bolder;
+    font-family: montserrat;
+    border: none;
+}
+
+.wireframe-4-child1 {
+    position: absolute;
+    top: 16.875rem;
+    left: 34.688rem;
+    border-radius: 30px 30px 0px 0px;
+    background-color: #fffeea;
+    border: 5px solid #32b9be;
+    box-sizing: border-box;
+    width: 51.25rem;
+    height: 50.625rem;
+}
+
+.wireframe-4-child2 {
+    position: absolute;
+    top: 28.938rem;
+    left: 39.938rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 41.438rem;
+    height: 2.188rem;
+}
+
+.wireframe-4-child3 {
+    position: absolute;
+    top: 31.875rem;
+    left: 42.625rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 17.375rem;
+    height: 2.188rem;
+}
+
+.wireframe-4-child4 {
+    position: absolute;
+    top: 34.75rem;
+    left: 42rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 39.5rem;
+    height: 2.188rem;
+}
+
+.wireframe-4-child5 {
+    position: absolute;
+    top: 44.875rem;
+    left: 39.938rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 41.375rem;
+    height: 16rem;
+}
+
+.wireframe-4-child6 {
+    position: absolute;
+    top: 34.75rem;
+    left: 69.563rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 11.75rem;
+    height: 2.188rem;
+}
+
+.wireframe-4-child7 {
+    position: absolute;
+    top: 15.813rem;
+    left: 41.5rem;
+    border-radius: 16px;
+    background-color: #32b9be;
+    border: 3px solid #32b9be;
+    box-sizing: border-box;
+    width: 38.313rem;
+    height: 2.75rem;
+}
+
+.wireframe-4-child8 {
+    position: absolute;
+    top: 15.813rem;
+    left: 41.563rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #32b9be;
+    box-sizing: border-box;
+    width: 19.813rem;
+    height: 2.75rem;
+}
+
+.cadastro {
+    position: absolute;
+    top: 16.125rem;
+    left: 46.625rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 10rem;
+    height: 1.875rem;
+}
+
+.novo-paciente {
+    position: absolute;
+    top: 21.313rem;
+    left: 54.625rem;
+    display: inline-block;
+    width: 13.313rem;
+    height: 2.375rem;
+}
+
+.wireframe-4-child9 {
+    position: absolute;
+    top: 64.375rem;
+    left: 49.875rem;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #32b9be;
+    width: 21.625rem;
+    height: 3.125rem;
+    cursor: pointer;
+}
+
+.wireframe-4-child10 {
+    position: absolute;
+    top: 64.375rem;
+    left: 49.875rem;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #a4dcb9;
+    width: 11.375rem;
+    height: 3.125rem;
+}
+
+.salvar {
+    position: absolute;
+    top: 64.375rem;
+    left: 49.875rem;
+    display: inline-block;
+    color: #fffeea;
+    background-color: #a4dcb9;
+    width: 11.375rem;
+    height: 3.125rem;
+    border: none;
+    border-radius: 10px 10px 0px 0px;
+    font-size: x-large;
+}
+
+.cancelar {
+    position: absolute;
+    top: 64.813rem;
+    left: 62.188rem;
+    display: inline-block;
+    color: #fffeea;
+    width: 9.313rem;
+    height: 2.375rem;
+}
+
+.nome-do-paciente {
+    margin: 0;
+}
+
+.nome-do-paciente-container {
+    position: absolute;
+    top: 26.438rem;
+    left: 54.25rem;
+    font-size: 1.375rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 13.688rem;
+    height: 2.375rem;
+}
+
+.rg {
+    position: absolute;
+    top: 32.188rem;
+    left: 39.875rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 2.438rem;
+    height: 1.563rem;
+}
+
+.celular {
+    position: absolute;
+    top: 34.938rem;
+    left: 36.6rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 5rem;
+    height: 1.563rem;
+}
+
+.observaes {
+    position: absolute;
+    top: 42.125rem;
+    left: 55.875rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 8.938rem;
+    height: 1.563rem;
+}
+
+.gnero {
+    position: absolute;
+    top: 35.063rem;
+    left: 63.625rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 5.313rem;
+    height: 1.563rem;
+}
+
+.wireframe-4-child11 {
+    position: absolute;
+    top: 31.875rem;
+    left: 39.938rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 41.438rem;
+    height: 2.188rem;
+}
+
+.cpf {
+    position: absolute;
+    top: 32.25rem;
+    left: 36.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 2.938rem;
+    height: 1.563rem;
+}
+
+.ficha-pessoal {
+    position: absolute;
+    top: 16rem;
+    left: 64.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 13.125rem;
+    height: 1.438rem;
+    cursor: pointer;
+    color: #195c71;
+}
+
+.ficha-pessoal:hover {
+    color: #fffeea;
+}
+
+.line-div {
+    position: absolute;
+    top: 29.156rem;
+    left: 40.531rem;
+    border-right: 1px solid #000;
+    box-sizing: border-box;
+    width: 0.063rem;
+    height: 1.5rem;
+}
+
+.triangulo-png-3 {
+    position: absolute;
+    top: 17.813rem;
+    left: 1.688rem;
+    width: 2.313rem;
+    height: 2.313rem;
+    object-fit: contain;
+}
+
+.triangulo-png-4 {
+    position: absolute;
+    top: 17.813rem;
+    left: 0.688rem;
+    width: 2.313rem;
+    height: 2.313rem;
+    object-fit: contain;
+}
+
+
+
+.Cep {
+    position: absolute;
+    top: 38rem;
+    left: 36.6rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 5rem;
+    height: 1.563rem;
+}
+
+.wireframe-4-child22 {
+    position: absolute;
+    top: 37.8rem;
+    left: 39.938rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 41.438rem;
+    height: 2.188rem;
+}

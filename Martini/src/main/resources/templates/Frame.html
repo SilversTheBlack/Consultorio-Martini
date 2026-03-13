@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <link rel="stylesheet" href="./FrameStyle.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" />
+
+
+
+</head>
+
+<body>
+
+    <div class="rectangle-root">
+        <div class="frame-child">
+        </div>
+        <a th:href="@{/clientes/listar}" class="ficha-pessoal">
+            Ficha Pessoal
+        </a>
+        <a th:href="@{/cliente/novo}">
+            <div class="cadastro" id="popupcadastroText">Cadastro</div>
+        </a>
+        <img class="frame-item" alt="" src="Line 1.svg">
+
+        <img class="frame-inner" alt="" src="Line 5.svg">
+
+        <div class="pacientes1">Pacientes</div>
+        <div class="frame-child1">
+        </div>
+        <a th:href="@{agendamentos/consultas}">
+            <div class="agendamentos1">Agendamentos</div>
+        </a>
+        <div class="sair">Sair</div>
+        <a th:href="@{/historico/consultas}">
+            <div class="histrico" id="popuphistricoText">Histórico</div>
+        </a>
+        <a th:href="@{/consultas/novo}">
+            <div class="cadastro1" id="popupcadastroText1">Cadastro</div>
+        </a>
+        <div class="line-div">
+        </div>
+        <div class="consultas1">Consultas</div>
+        <b class="opes">Opções</b>
+        <img class="consultaazul-icon1" alt="" src="consultaazul.png">
+
+        <img class="pessoaazul-icon1" alt="" src="pessoaazul.png">
+
+        <img class="calendar-icon1" alt="" src="calendar.png">
+
+        <div class="rectangle-group">
+            <div class="group-child1">
+            </div>
+            <div class="group-child2">
+            </div>
+            <div class="group-child3">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        var popupfichaPessoalText = document.getElementById("popupfichaPessoalText");
+        if (popupfichaPessoalText) {
+            popupfichaPessoalText.addEventListener("click", function (e) {
+                // Add your code here
+            });
+        }
+
+        var popupcadastroText = document.getElementById("popupcadastroText");
+        if (popupcadastroText) {
+            popupcadastroText.addEventListener("click", function (e) {
+                // Add your code here
+            });
+        }
+
+        var popuphistricoText = document.getElementById("popuphistricoText");
+        if (popuphistricoText) {
+            popuphistricoText.addEventListener("click", function (e) {
+                // Add your code here
+            });
+        }
+
+        var popupcadastroText1 = document.getElementById("popupcadastroText1");
+        if (popupcadastroText1) {
+            popupcadastroText1.addEventListener("click", function (e) {
+                // Add your code here
+            });
+        }</script>
+</body>
+
+</html>

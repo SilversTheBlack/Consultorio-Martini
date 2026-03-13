@@ -1,0 +1,764 @@
+body {
+    margin: 0;
+    line-height: normal;
+    font-family: montserrat;
+    width: 100%;
+    position: relative;
+    background-color: #fffeea;
+    overflow: hidden;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #195c71;
+    overflow-y: auto;
+}
+
+
+
+
+header {
+    justify-content: center;
+    position: absolute;
+    background-color: #32b9be;
+    width: 120rem;
+    height: 9.875rem;
+}
+
+.logo-mm-2 {
+    position: absolute;
+    top: -4.812rem;
+    left: calc(50% - 168px);
+    width: 18rem;
+    height: 18rem;
+    margin-top: 70px;
+    object-fit: cover;
+}
+
+.wireframe-5-item {
+    position: absolute;
+    top: 11.5rem;
+    left: 92.438rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 25.875rem;
+    height: 2.438rem;
+}
+
+.usurio-doutora-michele {
+    position: absolute;
+    top: 12rem;
+    left: 94.438rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 21.813rem;
+    height: 1.438rem;
+}
+
+main {
+    position: absolute;
+    top: 16.875rem;
+    left: 34.625rem;
+    border-radius: 30px 30px 0px 0px;
+    background-color: #fffeea;
+    border: 5px solid #32b9be;
+    box-sizing: border-box;
+    width: 51.25rem;
+    height: 50.625rem;
+}
+
+.rectangle-div {
+    position: absolute;
+    top: 15.938rem;
+    left: 41.125rem;
+    border-radius: 16px;
+    background-color: #32b9be;
+    border: 3px solid #32b9be;
+    box-sizing: border-box;
+    width: 37.688rem;
+    height: 2.438rem;
+}
+
+.rectangle-icon {
+    position: absolute;
+    top: 16.1rem;
+    left: 59.875rem;
+    border-radius: 16px;
+    width: 18.68rem;
+    height: 2.1rem;
+    background-color: #fffeea;
+}
+
+.cadastro {
+    position: absolute;
+    top: 16.125rem;
+    left: 46.875rem;
+    font-size: 1.563rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 10rem;
+    height: 1.438rem;
+    color: #195c71;
+}
+
+.cadastro:hover {
+    color: #fffeea;
+}
+
+.pacientes-cadastrados {
+    position: absolute;
+    top: 4.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.563rem;
+    display: inline-block;
+    width: 19.25rem;
+    height: 2.375rem;
+}
+
+.wireframe-5-child1 {
+    position: absolute;
+    top: 70.594rem;
+    left: 50.844rem;
+    width: 21rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.wireframe-5-child2 {
+    position: absolute;
+    bottom: -0.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px 10px 0px 0px;
+    background-color: #a4dcb9;
+    width: 10.75rem;
+    height: 2.5rem;
+    border: none;
+    color: #fffeea;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.wireframe-5-child2:hover {
+    color: #195c71;
+    cursor: pointer;
+}
+
+.pesquisaraar {
+    position: absolute;
+    top: 65.188rem;
+    left: 55.25rem;
+    font-size: 1.563rem;
+    display: inline-block;
+    color: #fffeea;
+    width: 8.5rem;
+    height: 2.375rem;
+}
+
+.wireframe-5-child3 {
+    position: absolute;
+    top: 29.438rem;
+    left: 51.563rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 28.063rem;
+    height: 2.063rem;
+}
+
+.pesquisa-por-cpf {
+    position: absolute;
+    top: 29.688rem;
+    left: 39.125rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 12.313rem;
+    height: 1.563rem;
+}
+
+.pacientes {
+    position: absolute;
+    top: 34.688rem;
+    left: 39.125rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 7.75rem;
+    height: 1.563rem;
+}
+
+.ficha-pessoal {
+    position: absolute;
+    top: 16.125rem;
+    left: 63.375rem;
+    font-size: 1.563rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 13.125rem;
+    height: 1.438rem;
+}
+
+
+
+.line-div {
+    position: absolute;
+    top: 42.469rem;
+    left: 41.031rem;
+    border-right: 1px solid #000;
+    box-sizing: border-box;
+    width: 0.063rem;
+    height: 1.063rem;
+}
+
+.wireframe-5-child4 {
+    position: absolute;
+    top: 38.063rem;
+    left: 41.938rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 37.688rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child5 {
+    position: absolute;
+    top: 40.813rem;
+    left: 41.938rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 37.688rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child6 {
+    position: absolute;
+    top: 43.563rem;
+    left: 41.938rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 37.688rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child7 {
+    position: absolute;
+    top: 46.313rem;
+    left: 41.938rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 37.688rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child8 {
+    position: absolute;
+    top: 49.063rem;
+    left: 41.938rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 37.688rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child9 {
+    position: absolute;
+    top: 51.813rem;
+    left: 41.938rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 37.688rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child10 {
+    position: absolute;
+    top: 54.563rem;
+    left: 41.938rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 37.688rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child11 {
+    position: absolute;
+    top: 57.313rem;
+    left: 41.938rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 37.688rem;
+    height: 2.188rem;
+}
+
+.div {
+    position: absolute;
+    top: 38.375rem;
+    left: 43.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 7.563rem;
+    height: 1.75rem;
+}
+
+.julia-torres-barros {
+    position: absolute;
+    top: 38.438rem;
+    left: 52.875rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 12.875rem;
+    height: 1.75rem;
+}
+
+.carlos-jos-silva {
+    position: absolute;
+    top: 41.25rem;
+    left: 52.875rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 12.875rem;
+    height: 1.75rem;
+}
+
+.bruna-matos-oliveira {
+    position: absolute;
+    top: 44rem;
+    left: 52.875rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 15.375rem;
+    height: 1.75rem;
+}
+
+.maria-julia-dos {
+    position: absolute;
+    top: 46.75rem;
+    left: 52.875rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 15.375rem;
+    height: 1.75rem;
+}
+
+.lvia-monteiro-dourado {
+    position: absolute;
+    top: 49.5rem;
+    left: 52.875rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 23.688rem;
+    height: 1.75rem;
+}
+
+.renato-silva-andrade {
+    position: absolute;
+    top: 52.188rem;
+    left: 52.875rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 23.688rem;
+    height: 1.75rem;
+}
+
+.camila-figueira-ramos {
+    position: absolute;
+    top: 55rem;
+    left: 52.875rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 23.688rem;
+    height: 1.75rem;
+}
+
+.eduardo-tavares-meireles {
+    position: absolute;
+    top: 57.688rem;
+    left: 52.875rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+    display: inline-block;
+    width: 23.688rem;
+    height: 1.75rem;
+}
+
+.div1 {
+    position: absolute;
+    top: 41.125rem;
+    left: 43.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 7.563rem;
+    height: 1.75rem;
+}
+
+.div2 {
+    position: absolute;
+    top: 43.938rem;
+    left: 43.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 7.563rem;
+    height: 1.75rem;
+}
+
+.div3 {
+    position: absolute;
+    top: 46.625rem;
+    left: 43.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 7.563rem;
+    height: 1.75rem;
+}
+
+.div4 {
+    position: absolute;
+    top: 49.438rem;
+    left: 43.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 7.563rem;
+    height: 1.75rem;
+}
+
+.div5 {
+    position: absolute;
+    top: 52.188rem;
+    left: 43.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 7.563rem;
+    height: 1.75rem;
+}
+
+.div6 {
+    position: absolute;
+    top: 55rem;
+    left: 43.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 7.563rem;
+    height: 1.75rem;
+}
+
+.div7 {
+    position: absolute;
+    top: 57.688rem;
+    left: 43.313rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 7.563rem;
+    height: 1.75rem;
+}
+
+.wireframe-5-child12 {
+    position: absolute;
+    top: 38.063rem;
+    left: 41.125rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 38.5rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child13 {
+    position: absolute;
+    top: 40.813rem;
+    left: 41.125rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 38.5rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child14 {
+    position: absolute;
+    top: 43.563rem;
+    left: 41.125rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 38.5rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child15 {
+    position: absolute;
+    top: 46.313rem;
+    left: 41.063rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 38.563rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child16 {
+    position: absolute;
+    top: 49.063rem;
+    left: 41.063rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 38.563rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child17 {
+    position: absolute;
+    top: 51.813rem;
+    left: 41.125rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 38.5rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child18 {
+    position: absolute;
+    top: 54.563rem;
+    left: 41.125rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 38.5rem;
+    height: 2.188rem;
+}
+
+.wireframe-5-child19 {
+    position: absolute;
+    top: 57.313rem;
+    left: 41.125rem;
+    border-radius: 16px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    box-sizing: border-box;
+    width: 38.5rem;
+    height: 2.188rem;
+}
+
+.div8 {
+    position: absolute;
+    top: 38.375rem;
+    left: 41.938rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 8.938rem;
+    height: 1.75rem;
+}
+
+.div9 {
+    position: absolute;
+    top: 41.125rem;
+    left: 41.938rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 8.938rem;
+    height: 1.75rem;
+}
+
+.div10 {
+    position: absolute;
+    top: 43.938rem;
+    left: 41.938rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 8.938rem;
+    height: 1.75rem;
+}
+
+.div11 {
+    position: absolute;
+    top: 46.625rem;
+    left: 41.938rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 8.938rem;
+    height: 1.75rem;
+}
+
+.div12 {
+    position: absolute;
+    top: 49.5rem;
+    left: 41.938rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 8.938rem;
+    height: 1.75rem;
+}
+
+.div13 {
+    position: absolute;
+    top: 57.813rem;
+    left: 42rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 8.938rem;
+    height: 1.75rem;
+}
+
+.div14 {
+    position: absolute;
+    top: 55rem;
+    left: 42rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 8.938rem;
+    height: 1.75rem;
+}
+
+.div15 {
+    position: absolute;
+    top: 52.188rem;
+    left: 42rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 8.938rem;
+    height: 1.75rem;
+}
+
+.wireframe-5-child20 {
+    position: absolute;
+    top: 9.5rem;
+    left: 17rem;
+    border-radius: 16px;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 26.813rem;
+    height: 2.063rem;
+}
+
+.pesquisar-por-nome {
+    position: absolute;
+    top: 9.7rem;
+    left: 3rem;
+    font-weight: 600;
+    display: inline-block;
+    width: 13.5rem;
+    height: 1.563rem;
+}
+
+.wireframe-5-child21 {
+    position: absolute;
+    top: 11.813rem;
+    left: 0rem;
+    background-color: #f9df94;
+    width: 22.5rem;
+    height: 4.375rem;
+}
+
+.wireframe-5-child22 {
+    position: absolute;
+    top: 17.188rem;
+    left: 0rem;
+    background-color: #a4dcb9;
+    width: 22.5rem;
+    height: 4.375rem;
+
+}
+
+.pacientes1 {
+    position: absolute;
+    top: 12.063rem;
+    left: 1.625rem;
+    font-size: 2.188rem;
+    display: flex;
+    align-items: center;
+    width: 12.813rem;
+    height: 4.375rem;
+}
+
+.pgina-inicial {
+    position: absolute;
+    top: 17.188rem;
+    left: 0rem;
+    background-color: #a4dcb9;
+    width: 22.5rem;
+    height: 4.375rem;
+    font-size: 1.563rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #195c71;
+    font-size: xx-large;
+    font-weight: bolder;
+    border: none;
+}
+
+.triangulo-png-3 {
+    position: absolute;
+    top: 18.125rem;
+    left: 1.688rem;
+    width: 2.313rem;
+    height: 2.313rem;
+    object-fit: contain;
+}
+
+.triangulo-png-4 {
+    position: absolute;
+    top: 18.125rem;
+    left: 0.688rem;
+    width: 2.313rem;
+    height: 2.313rem;
+    object-fit: contain;
+}
+
+a {
+    text-decoration: none;
+    color: #195c71;
+}
+
+.TabelaPaciente {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px 30px 30px 30px;
+    background-color: #a4dcb9;
+    border: 3px solid #195c71;
+    color: #195c71;
+    width: 47rem;
+    height: 20rem;
+    text-align: center;
+    font-size: 1.1rem;
+    overflow-y: auto;
+    justify-content: center;
+}
