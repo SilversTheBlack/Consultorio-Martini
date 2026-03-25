@@ -30,16 +30,20 @@ body {
 }
 
 .Esquerda.Logo {
-    width: 10px;
+    width: 7px;
     height: 10px;
-
 }
 
-h1 {
-
+.Esquerda h1 {
     font-size: 3.5rem;
     width: 60%;
     text-align: center
+}
+
+.Esquerda p {
+    width: 80%;
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 .Separating-line {
@@ -107,4 +111,15 @@ h1 {
     font-size: 1.5rem;
     border: none;
     cursor: pointer;
+}
+
+@media (max-width: 1230px) {
+    .Esquerda {
+        display: none;
+    }
+
+    .Login {
+        width: 100%;
+        grid-area: 1 / 1;
+    }
 }

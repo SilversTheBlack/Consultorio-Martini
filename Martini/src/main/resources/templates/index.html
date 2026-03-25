@@ -18,74 +18,71 @@
     <div class="wireframe-1-item">
     </div>
     <div class="usurio-doutora-michele">Usuário: Doutora Michele Martins </div>
-    
-    <!-- imagens na esquerda do site -->
-    <img class="consultaazul-icon" alt="" src="/images/consultaazul.png" id="consultaazulImage">
-
-    <img class="pessoaazul-icon" alt="" src="/images/pessoaazul.png" id="pessoaazulImage">
-
-    <img class="pastaazul-icon" alt="" src="/images/pastaazul.png" id="pastaazulImage">
-
-
-
 
 
     <main>
-        <!-- Link para Tela de cadastro de pacientes -->
-        <a th:href="@{/cliente/novo}"><button class="wireframe-1-child2"></button>
-            <div class="wireframe-1-child4"></div>
-            <div class="pacientes">Pacientes</div>
-            <img class="usuario-azul-1-icon" alt="" src="/images/usuario_azul 1.png">
-        </a>
 
         <!-- link para Tela de cadastro de consultas -->
-        <a th:href="@{/consultas/novo}">
-            <button class="wireframe-1-child5">
-            </button>
-            <img class="consulta-certo-2-icon" alt="" src="/images/Consulta_certo 2.png">
+        <a th:href="@{/consultas/novo}" class="wireframe-1-child5">
 
+            <img class="consulta-certo-2-icon" alt="" src="/images/Consulta_certo 2.png">
             <div class="wireframe-1-child7">
+                Consultas
             </div>
-            <div class="consultas">Consultas</div>
+
         </a>
+
+
+        <!-- Link para Tela de cadastro de pacientes -->
+        <a th:href="@{/cliente/novo}" class="wireframe-1-child2">
+
+
+            <img class="usuario-azul-1-icon" alt="" src="/images/usuario_azul 1.png">
+            <div class="wireframe-1-child4">
+                Pacientes
+            </div>
+
+        </a>
+
+
 
         <!-- link para tela de consultas agendadas -->
-        <a th:href="@{/agendamentos/consultas}"><button class="wireframe-1-child8">
-            </button>
+        <a th:href="@{/agendamentos/consultas}" class="wireframe-1-child8">
+
             <div class="wireframe-1-child10">
+                Agendamentos
             </div>
             <img class="calendar-icon" alt="" src="/images/calendar.png">
-            <div class="agendamentos">Agendamentos</div>
+
+
         </a>
-    </main>
 
-    </div>
-    <!-- próxima consulta do site - feito com thymeleaf-->
-     <div class="wireframe-1-inner">
-    </div>
-    <div class="ellipse-div">
-    </div>
-    <div class="rectangle-div">
-    </div>
-    <div class="wireframe-1-child1">
-    </div>
-    <img class="hora-icon" alt="" src="/images/hora.png">
-    <div th:if="${consultas != null and not #lists.isEmpty(consultas)}">
-        <div class="consulta-item1">
-            <span th:text="${#temporals.format(consultas[0].data, 'dd/MM')}" class="div1">11:00</span>
-            <div th:text="${#temporals.format(consultas[0].horario, 'HH:mm')}" class="div">23/04</div>
+
         </div>
-
-        <div class="consulta-item">
+        <!-- próxima consulta do site - feito com thymeleaf-->
+        <section class="wireframe-1-inner">
+            <div class="ellipse-div">
+                <img class="hora-icon" alt="" src="/images/hora.png">
+            </div>
             <div class="prximo-paciente">Próximo paciente:</div>
             <div class="observaes">Observações:</div>
+            <div th:if="${consultas != null and not #lists.isEmpty(consultas)}">
+                <div class="wireframe-1-child1">
+                    <span th:text="${#temporals.format(consultas[0].data, 'dd/MM')}" class="div1">11:00</span>
+                </div>
+                <div class="rectangle-div">
+                    <div th:text="${#temporals.format(consultas[0].horario, 'HH:mm')}" class="div">23/04</div>
+                </div>
+                <div th:text="${consultas[0].cliente?.nome ?: 'Nome não disponível'}" class="maria-julia-santos">Maria
+                    Julia Santos</div>
+                <div th:text="${consultas[0].obs ?: 'Observações não disponíveis'}" class="pauta-namoro-faculdade">
+                    Pauta: Namoro, Faculdade.</div>
 
-            <div th:text="${consultas[0].cliente?.nome ?: 'Nome não disponível'}" class="maria-julia-santos">Maria
-                Julia Santos</div>
-            <div th:text="${consultas[0].obs ?: 'Observações não disponíveis'}" class="pauta-namoro-faculdade">
-                Pauta: Namoro, Faculdade.</div>
-        </div>
-    </div>
+            </div>
+        </section>
+    </main>
+
+
 
     <!-- barrinhas de pop up(feito por IA) -->
     <section class="rectangle-parent" id="groupContainer">

@@ -29,7 +29,6 @@ public class AgendConsultasController {
         this.consultaRepository = consultaRepository;
         this.clienteRepository = clienteRepository;
     }
-
     @GetMapping("/consultas")
     public String mostrarPaginaAgendamentoConsultas(
             @RequestParam(value = "keyword", required = false) String keyword,

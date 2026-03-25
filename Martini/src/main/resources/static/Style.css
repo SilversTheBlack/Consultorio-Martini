@@ -1,16 +1,24 @@
 body {
     margin: 0;
     line-height: normal;
-    width: 100%;
+    width: 100vw;
     position: relative;
     background-color: #fffeea;
-    height: 67.5rem;
+    height: 100vh;
     overflow: hidden;
     text-align: left;
     font-size: 1.25rem;
     color: #195c71;
     font-family: Montserrat;
     overflow-y: auto;
+    display: flex;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    width: 100vw;
 }
 
 .popup-overlay {
@@ -55,20 +63,23 @@ header {
 
 .wireframe-1-inner {
     position: absolute;
-    top: 43.438rem;
-    left: calc(50% - 408px);
+    top: 40rem;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 16px;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
     box-sizing: border-box;
     width: 51rem;
     height: 15.063rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .prximo-paciente {
     position: absolute;
-    top: 44.938rem;
-    left: 38.875rem;
+    top: 2rem;
+    left: 5rem;
     font-weight: 600;
     display: inline-block;
     width: 12.375rem;
@@ -79,8 +90,8 @@ header {
 
 .observaes {
     position: absolute;
-    top: 52.063rem;
-    left: 38.875rem;
+    top: 8.5rem;
+    left: 5rem;
     font-weight: 600;
     display: inline-block;
     width: 12.375rem;
@@ -91,8 +102,8 @@ header {
 
 .maria-julia-santos {
     position: absolute;
-    top: 47.438rem;
-    left: 38.875rem;
+    top: 4rem;
+    left: 5rem;
     font-weight: 900;
     display: inline-block;
     width: 12.375rem;
@@ -102,8 +113,8 @@ header {
 
 .pauta-namoro-faculdade {
     position: absolute;
-    top: 54.157rem;
-    left: 38.875rem;
+    top: 10.5rem;
+    left: 5rem;
     font-weight: 900;
     display: inline-block;
     width: 24.55rem;
@@ -151,7 +162,8 @@ header {
 .logo-mm-1 {
     position: absolute;
     top: -5.437rem;
-    left: calc(50% - 168px);
+    left: 50vw;
+    transform: translateX(-50%);
     width: 18rem;
     height: 18rem;
     object-fit: cover;
@@ -186,19 +198,24 @@ header {
 }
 
 .rectangle-div {
+    display: flex;
     position: absolute;
-    top: 51rem;
-    left: 64.625rem;
+    top: 0.7rem;
+    left: 30.5rem;
     border-radius: 16px;
     background-color: #a4dcb9;
     width: 18.688rem;
     height: 6.25rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .div {
+    z-index: 1;
     position: absolute;
-    top: 53rem;
-    left: 71.563rem;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 1.875rem;
     font-weight: 800;
     color: #fffeea;
@@ -208,9 +225,11 @@ header {
 }
 
 .div1 {
+    z-index: 1;
     position: absolute;
-    top: 46.2rem;
-    left: calc(50% + 151px);
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 1.563rem;
     font-weight: 800;
     text-align: center;
@@ -220,8 +239,8 @@ header {
 
 .wireframe-1-child1 {
     position: absolute;
-    top: 44.188rem;
-    left: 64.625rem;
+    top: 7.5rem;
+    left: 30.5rem;
     border-radius: 16px;
     background-color: #a4dcb9;
     width: 18.688rem;
@@ -242,8 +261,8 @@ header {
 
 .ellipse-div {
     position: absolute;
-    top: 42.063rem;
-    left: 33.125rem;
+    top: -1.45rem;
+    left: -1.2rem;
     border-radius: 50%;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
@@ -254,17 +273,18 @@ header {
 
 .hora-icon {
     position: absolute;
-    top: 42.625rem;
-    left: 33.625rem;
+    top: 0.4rem;
+    left: 50%;
+    transform: translateX(-50%);
     width: 3.75rem;
     height: 3.75rem;
     object-fit: cover;
 }
 
 .wireframe-1-child2 {
-    position: absolute;
+    position: relative;
     top: 19.313rem;
-    left: 50.938rem;
+    left: 0vw;
     border-radius: 16px;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
@@ -272,13 +292,17 @@ header {
     width: 18.063rem;
     height: 15.063rem;
     cursor: pointer;
+    margin: 0;
 
 }
 
+
+
 .wireframe-1-child4 {
     position: absolute;
-    top: 33.5rem;
-    left: calc(50% - 97px);
+    top: 14rem;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 16px;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
@@ -286,27 +310,20 @@ header {
     width: 12.188rem;
     height: 2.063rem;
     cursor: pointer;
-}
-
-.pacientes {
-    position: absolute;
-    top: 33.75rem;
-    left: calc(50% - 52px);
+    text-align: center;
+    font-size: 20px;
     font-weight: 600;
-    display: inline-block;
-    width: 6.563rem;
-    height: 1.688rem;
     color: #195c71;
 }
 
-.pacientes:hover {
+.wireframe-1-child4:hover {
     color: #32b9be;
 }
 
 .wireframe-1-child5 {
-    position: absolute;
+    position: relative;
     top: 19.313rem;
-    left: 24.688rem;
+
     border-radius: 16px;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
@@ -314,18 +331,26 @@ header {
     width: 18.063rem;
     height: 15.063rem;
     cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 30px;
 }
 
 .wireframe-1-child7 {
     position: absolute;
-    top: 33.5rem;
-    left: calc(50% - 517px);
+    top: 14rem;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 16px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #195c71;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
     box-sizing: border-box;
     width: 12.188rem;
     height: 2.063rem;
+    text-align: center;
+    justify-content: center;
 }
 
 .consultas {
@@ -339,23 +364,23 @@ header {
     color: #195c71;
 }
 
-.consultas:hover {
+.wireframe-1-child7:hover {
     color: #32b9be;
 }
 
 .consulta-certo-2-icon {
     position: absolute;
-    top: 18.688rem;
-    left: 25.813rem;
-    width: 15.688rem;
-    height: 15.688rem;
+    top: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    height: 15rem;
     object-fit: cover;
 }
 
 .wireframe-1-child8 {
-    position: absolute;
+    position: relative;
     top: 19.313rem;
-    left: 77.813rem;
     border-radius: 16px;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
@@ -363,12 +388,24 @@ header {
     width: 18.063rem;
     height: 15.063rem;
     cursor: pointer;
+    margin: 0;
 }
 
 .wireframe-1-child10 {
     position: absolute;
-    top: 33.5rem;
-    left: calc(50% + 333px);
+    top: 14rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+    font-size: 20px;
+    color: #195c71;
+    background-color: #fffeea;
+    border: 3px solid #a4dcb9;
+    box-sizing: border-box;
+    width: 12.188rem;
+    height: 2.063rem;
+    text-align: center;
+    justify-content: center;
     border-radius: 16px;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
@@ -377,10 +414,15 @@ header {
     height: 2.063rem;
 }
 
+.wireframe-1-child10:hover {
+    color: #32b9be;
+}
+
 .calendar-icon {
+    top: 0.3rem;
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
-    top: 19.5rem;
-    left: 79.5rem;
     width: 14.75rem;
     height: 14.75rem;
     object-fit: cover;
@@ -401,12 +443,17 @@ header {
     color: #32b9be;
 }
 
+.Cadastro-Pacientes {
+    position: flex;
+}
+
 .usuario-azul-1-icon {
     position: absolute;
-    top: 20.188rem;
-    left: calc(50% - 167px);
-    width: 20.875rem;
-    height: 12.688rem;
+    top: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14rem;
+    height: 14rem;
     object-fit: cover;
     cursor: pointer;
 }
