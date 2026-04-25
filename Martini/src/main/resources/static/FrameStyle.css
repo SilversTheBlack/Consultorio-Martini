@@ -2,13 +2,14 @@ body {
     margin: 0;
     line-height: normal;
     font-family: montserrat;
+    background-color: #195C71;
 }
 
 .frame-child {
     position: absolute;
     top: 0rem;
     left: 0rem;
-    background-color: #f9df94;
+
     width: 18.063rem;
     height: 57.5rem;
 }

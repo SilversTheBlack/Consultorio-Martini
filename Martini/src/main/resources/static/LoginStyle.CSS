@@ -1,13 +1,12 @@
 body {
     margin: 0;
     line-height: normal;
-    font-family: montserrat;
+    font-family: Sora;
     position: relative;
     display: grid;
     overflow: hidden;
     font-size: 1.688rem;
     color: whitesmoke;
-    font-family: Montserrat;
     display: grid;
     flex-direction: column;
     -ms-grid-row-span: auto;

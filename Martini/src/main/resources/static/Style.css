@@ -3,7 +3,7 @@ body {
     line-height: normal;
     width: 100vw;
     position: relative;
-    background-color: #fffeea;
+    background-color: #D8EAF0;
     height: 100vh;
     overflow: hidden;
     text-align: left;
@@ -12,6 +12,7 @@ body {
     font-family: Montserrat;
     overflow-y: auto;
     display: flex;
+    flex-wrap: wrap;
 }
 
 main {
@@ -19,6 +20,7 @@ main {
     justify-content: center;
     gap: 10rem;
     width: 100vw;
+    flex-wrap: wrap;
 }
 
 .popup-overlay {
@@ -28,15 +30,43 @@ main {
     inset: 0;
 }
 
-
 header {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    background-color: #32b9be;
-    width: 120rem;
+    display: flex;
+    background-color: #1F363D;
+    width: 100vw;
     height: 9.875rem;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header input {
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: 16px;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-left: auto;
+    margin-right: 5rem;
+}
+
+.logo-mm-1 {
+    position: relative;
+    width: 35, 5rem;
+    height: 9rem;
+    object-fit: cover;
+    align-items: center;
+}
+
+.logo-2 {
+    display: none;
+    position: absolute;
+    top: -3.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35, 5rem;
+    height: 9rem;
+    object-fit: cover;
+    margin-top: 70px;
 }
 
 .wireframe-1-item {
@@ -63,17 +93,19 @@ header {
 
 .wireframe-1-inner {
     position: absolute;
-    top: 40rem;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 2rem;
+    left: 0;
     border-radius: 16px;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
     box-sizing: border-box;
     width: 51rem;
     height: 15.063rem;
-    margin-left: auto;
-    margin-right: auto;
+    min-width: 20rem;
+    margin: 10rem auto 5rem auto;
+    position: relative;
+    transform: none;
+    min-height: 15.063rem;
 }
 
 .prximo-paciente {
@@ -128,47 +160,41 @@ header {
     position: absolute;
     top: 1.688rem;
     left: 0rem;
-    background-color: #2e97b7;
+    background-color: #FFFFFF;
     width: 3rem;
-    height: 0.563rem;
+    height: 0.3rem;
+    border-radius: 20px;
 }
 
 .group-item {
     position: absolute;
     top: 0.813rem;
     left: 0rem;
-    background-color: #2e97b7;
+    background-color: #FFFFFF;
     width: 3rem;
-    height: 0.625rem;
+    height: 0.3rem;
+    border-radius: 20px;
 }
 
 .group-inner {
     position: absolute;
     top: 0rem;
     left: 0rem;
-    background-color: #2e97b7;
+    background-color: #FFFFFF;
     width: 3rem;
-    height: 0.563rem;
+    height: 0.3rem;
+    border-radius: 20px;
 }
 
 .rectangle-parent {
-    position: absolute;
-    top: 10.688rem;
-    left: 0.875rem;
+    position: relative;
     width: 3rem;
     height: 2.25rem;
+    margin-top: 11rem;
+    margin-left: -25rem;
 }
 
-.logo-mm-1 {
-    position: absolute;
-    top: -5.437rem;
-    left: 50vw;
-    transform: translateX(-50%);
-    width: 18rem;
-    height: 18rem;
-    object-fit: cover;
-    margin-top: 70px;
-}
+
 
 .consultaazul-icon {
     position: absolute;
@@ -238,6 +264,7 @@ header {
 }
 
 .wireframe-1-child1 {
+    display: flex;
     position: absolute;
     top: 7.5rem;
     left: 30.5rem;
@@ -291,12 +318,11 @@ header {
     box-sizing: border-box;
     width: 18.063rem;
     height: 15.063rem;
+    min-width: 16.64rem;
     cursor: pointer;
     margin: 0;
 
 }
-
-
 
 .wireframe-1-child4 {
     position: absolute;
@@ -323,14 +349,15 @@ header {
 .wireframe-1-child5 {
     position: relative;
     top: 19.313rem;
-
     border-radius: 16px;
     background-color: #fffeea;
     border: 3px solid #a4dcb9;
     box-sizing: border-box;
     width: 18.063rem;
     height: 15.063rem;
+    min-width: 16.64rem;
     cursor: pointer;
+    margin-left: 3rem;
     margin-right: 10px;
     margin-bottom: 30px;
 }
@@ -387,8 +414,10 @@ header {
     box-sizing: border-box;
     width: 18.063rem;
     height: 15.063rem;
+    min-width: 16.64rem;
     cursor: pointer;
     margin: 0;
+    margin-right: 3rem;
 }
 
 .wireframe-1-child10 {
@@ -458,9 +487,6 @@ header {
     cursor: pointer;
 }
 
-
-
-
 .frame-child {
     position: absolute;
     top: 0rem;
@@ -499,7 +525,7 @@ header {
 }
 
 .frame-inner {
-    position: absolute;
+    position: relative;
     top: 34.673rem;
     left: 3.813rem;
     max-height: 100%;
@@ -670,4 +696,101 @@ header {
     text-align: left;
     font-size: 1.25rem;
     color: #195c71;
+}
+
+@media (max-width: 1138px) {
+    header {
+        height: 15rem;
+    }
+
+    body {
+        height: auto;
+        overflow-y: auto;
+        gap: 2rem;
+    }
+
+
+
+    .logo-mm-1 {
+        display: none;
+    }
+
+    .logo-2 {
+        display: inline;
+        position: absolute;
+        top: -3.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 13rem;
+        object-fit: cover;
+        margin-top: 70px;
+        z-index: 1;
+    }
+
+    .wireframe-1-child2,
+    .wireframe-1-child5,
+    .wireframe-1-child8 {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 1rem auto;
+        transform: none;
+        width: 50%;
+        height: 25%;
+        display: block;
+    }
+
+    .wireframe-1-child5 {
+        margin-top: 20rem;
+    }
+
+    .wireframe-1-inner {
+        position: relative;
+        top: 2rem;
+        left: 0;
+        margin: 2rem auto 5rem auto;
+        transform: none;
+        width: 90%;
+        height: 40%;
+        min-height: 15.063rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .rectangle-div,
+    .wireframe-1-child1 {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        z-index: 1;
+    }
+
+    .wireframe-1-child1 {
+        top: 50%;
+    }
+
+    .rectangle-div {
+        top: 75%;
+    }
+
+
+    .maria-julia-santos,
+    .pauta-namoro-faculdade {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .prximo-paciente {
+        left: 46%;
+        transform: translateX(-50%);
+    }
+
+    .observaes {
+        left: 46%;
+        transform: translateX(-50%);
+    }
+
+    header input {
+        display: none;
+    }
 }
