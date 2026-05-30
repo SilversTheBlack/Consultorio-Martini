@@ -11,75 +11,275 @@
 </head>
 
 <body>
+
+    <!-- header com barra de pesquisa **falta adicionar icone de lembrete -->
     <header>
         <img class="logo-mm-1" alt="" src="/images/new-logo-batch---24-high-resolution-logo-transparent 1.svg">
         <img class="logo-2" alt="" src="/images/new-logo-batch---24-high-resolution-logo-transparent 7.svg">
         <input type="text" class="search" placeholder="Pesquisar...">
     </header>
-    <div class="wireframe-1-item">
-    </div>
-    <div class="usurio-doutora-michele">Usuário: Doutora Michele Martini </div>
+
+    <!-- nav fixado na esquerda do site **falta adicionar os icones -->
+    <section class="nav">
+        <nav>
+            <ul>
+                <li class="linkContainer"><a th:href="@{#}">Dashboard</a></li>
+                <li class="linkContainer"><a th:href="@{#agend}">Agenda</a></li>
+                <li class="linkContainer"><a th:href="@{#pacient}">Pacientes</a></li>
+            </ul>
+        </nav>
+    </section>
 
     <main>
 
-        <!-- barrinhas de pop up(feito por IA) -->
-        <section class="rectangle-parent" id="groupContainer">
-            <div class="group-child">
+        <!-- seção do resumo de informações **falta adicionar os icones -->
+        <section class="resumo" id="dash">
+            <h2>Dashboard</h2>
+            <b>Resumo Geral</b>
+            <!-- **falta adicionar as informações do backend -->
+            <div class="resSquare">
+                <h3>Consultas Hoje</h3>
             </div>
-            <div class="group-item">
+            <div>
+                <h3>Próximas consultas</h3>
             </div>
-            <div class="group-inner">
+            <div>
+                <h3>Novos Pacientes</h3>
+            </div>
+        </section>
+
+        <!-- Seção da agenda semanal **sem modificações para cobrir todos os meses -->
+        <section class="agenda" id="agend">
+            <b>Agenda Semanal</b>
+
+            <!-- botão de link para agendamento de consultas **ainda sem funcionalidade - deve criar um popup Com o cadastro da consulta -->
+            <button id="NovaCon">Agendar Nova Consulta</button>
+
+            <!-- pop-up de cadastro de consultas -->
+            <div class="modalCons-container" id="cons-container">
+                <div class="modalCons">
+                    <h4>Cadastro de Consulta</h4>
+                    <div class="consBody">
+                        <div class="consLeft">
+                            <!-- irá mostrar o nome dos pacientes enquanto pesquisados -->
+                            <p>Nome do Paciente</p>
+                            <input type="text" class="pesqNome" id="pesqNome" placeholder="Buscar por nome ou cpf...">
+                            <!-- Deve mostrar a lista de pacientes encontrados -->
+                            <ul class="NameList">
+                                <li class="NameOpt"></li>
+                            </ul>
+                        </div>
+                        <div class="consRight">
+                            <p>Data da Consulta</p>
+                            <input type="date" class="data" id="data" placeholder="Data da Consulta">
+                            <!-- se a hora estiver indisponivel mostrar mensagem -->
+                            <p>Hora da Consulta</p>
+                            <input type="time" class="hora" id="hora" placeholder="Hora da Consulta">
+                            <p>Valor</p>
+                            <input type="text" class="valor" id="valor" placeholder="Valor">
+                        </div>
+                    </div>
+                    <div class="buttonArea">
+                        <!-- botão para salvar a consulta **ainda sem funcionalidade -->
+                        <button  class="btnSalvar" id="save">Salvar</button>
+                        <button class="btnCancelar" id="close">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabela com as consultas semanais **ainda não modificado para cobrir todos os meses -->
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Segunda</th>
+                    <th>Terça</th>
+                    <th>Quarta</th>
+                    <th>Quinta</th>
+                    <th class="null">Sexta</th>
+                </tr>
+                <tr>
+                    <td class="hora">9:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="hora">10:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="hora">11:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="hora">12:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="hora">13:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="hora">14:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="hora">15:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="hora">16:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <!-- caixa de texto para lembrete-->
+            <div class="lembre">
+                <b>Lembretes</b>
+                <textarea type="text" placeholder="Para o que precisar lembrar..."></textarea>
+                <!-- botão para salvar o lembrete **ainda sem funcionalidade -->
+                <button>salvar</button>
             </div>
         </section>
 
-        <!-- link para Tela de cadastro de consultas -->
-        <a th:href="@{/consultas/novo}" class="wireframe-1-child5">
-            <img class="consulta-certo-2-icon" alt="" src="/images/Consulta_certo 2.png">
-            <div class="wireframe-1-child7">
-                Consultas
-            </div>
-        </a>
+        <section class="pacientes" id="pacient">
+            <b class="desc">Pacientes</b>
+            <input type="text" placeholder="Buscar">
+            <b>Status:</b>
+            <select class="dropdown status">
+                <option value="todos">Todos</option>
+                <option value="ativo">Ativo</option>
+                <option value="pendente">Pendente</option>
+                <option value="inativo">Inativo</option>
+            </select>
+            <button class="pac">registrar novo paciente</button>
+            <table>
+                <tr>
+                    <th>Paciente</th>
+                    <th>CPF</th>
+                    <th>Status</th>
+                    <th>próxima sessão</th>
+                    <th>ultima sessão</th>
+                    <th></th>
+                    <th></th>
+                </tr>
 
-        <!-- Link para Tela de cadastro de pacientes -->
-        <a th:href="@{/cliente/novo}" class="wireframe-1-child2">
-            <img class="usuario-azul-1-icon" alt="" src="/images/usuario_azul 1.png">
-            <div class="wireframe-1-child4">
-                Pacientes
-            </div>
-        </a>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="perf">perfil</button></td>
+                    <td><button class="env">enviar confirmação de consulta</button></td>
 
-        <!-- link para tela de consultas agendadas -->
-        <a th:href="@{/agendamentos/consultas}" class="wireframe-1-child8">
-            <div class="wireframe-1-child10">
-                Agendamentos
-            </div>
-            <img class="calendar-icon" alt="" src="/images/calendar.png">
-        </a>
-        </div>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="perf">perfil</button></td>
+                    <td><button class="env">enviar confirmação de consulta</button></td>
 
-        <!-- próxima consulta do site - feito com thymeleaf-->
-        <section class="wireframe-1-inner">
-            <div class="ellipse-div">
-                <img class="hora-icon" alt="" src="/images/hora.png">
-            </div>
-            <div class="prximo-paciente">Próximo paciente:</div>
-            <div class="observaes">Observações:</div>
-            <div th:if="${consultas != null and not #lists.isEmpty(consultas)}">
-                <div class="wireframe-1-child1">
-                    <span th:text="${#temporals.format(consultas[0].data, 'dd/MM')}" class="div1">11:00</span>
-                </div>
-                <div class="rectangle-div">
-                    <div th:text="${#temporals.format(consultas[0].horario, 'HH:mm')}" class="div">23/04</div>
-                </div>
-                <div th:text="${consultas[0].cliente?.nome ?: 'Nome não disponível'}" class="maria-julia-santos">Maria
-                    Julia Santos</div>
-                <div th:text="${consultas[0].obs ?: 'Observações não disponíveis'}" class="pauta-namoro-faculdade">
-                    Pauta: Namoro, Faculdade.</div>
-            </div>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="perf">perfil</button></td>
+                    <td><button class="env">enviar confirmação de consulta</button></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="perf">perfil</button></td>
+                    <td><button class="env">enviar confirmação de consulta</button></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="perf">perfil</button></td>
+                    <td><button class="env">enviar confirmação de consulta</button></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="perf">perfil</button></td>
+                    <td><button class="env">enviar confirmação de consulta</button></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="perf">perfil</button></td>
+                    <td><button class="env">enviar confirmação de consulta</button></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="perf">perfil</button></td>
+                    <td><button class="env">enviar confirmação de consulta</button></td>
+
+                </tr>
+            </table>
         </section>
+
     </main>
 
     <!-- lógica para pop up de navegação do site(feito por IA) -->
+    <!-- provavelmente não será mais usado -->
     <div id="frameContainer" class="popup-overlay" style="display:none">
 
         <div class="rectangle-root">
@@ -88,7 +288,6 @@
             <div class="ficha-pessoal" id="popupfichaPessoalText">Ficha Pessoal</div>
             <div class="cadastro" id="popupcadastroText">Cadastro</div>
             <img class="frame-item" alt="" src="Line 1.svg">
-
             <img class="frame-inner" alt="" src="Line 5.svg">
 
             <div class="pacientes1">Pacientes</div>
@@ -102,11 +301,6 @@
             </div>
             <div class="consultas1">Consultas</div>
             <b class="opes">Opções</b>
-            <img class="consultaazul-icon1" alt="" src="/images/consultaazul.png">
-
-            <img class="pessoaazul-icon1" alt="" src="/images/pessoaazul.png">
-
-            <img class="calendar-icon1" alt="" src="/images/calendar.png">
 
             <div class="rectangle-group">
                 <div class="group-child1">
@@ -119,133 +313,20 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- lógica em javascript do popup do site(feito por IA) -->
         <script>
-            var popupfichaPessoalText = document.getElementById("popupfichaPessoalText");
-            if (popupfichaPessoalText) {
-                popupfichaPessoalText.addEventListener("click", function (e) {
-                    // Add your code here
-                });
-            }
+            const novaConsultaButton = document.getElementById('NovaCon');
+            const modalContainer = document.getElementById('cons-container');
+            const closeButton = document.getElementById('close');
+            novaConsultaButton.addEventListener('click', () => {
+                modalContainer.classList.add('open');
+                modalContainer.style.transition = '0.2s ease-in-out';
+            });
 
-            var popupcadastroText = document.getElementById("popupcadastroText");
-            if (popupcadastroText) {
-                popupcadastroText.addEventListener("click", function (e) {
-                    // Add your code here
-                });
-            }
-
-            var popuphistricoText = document.getElementById("popuphistricoText");
-            if (popuphistricoText) {
-                popuphistricoText.addEventListener("click", function (e) {
-                    // Add your code here
-                });
-            }
-
-            var popupcadastroText1 = document.getElementById("popupcadastroText1");
-            if (popupcadastroText1) {
-                popupcadastroText1.addEventListener("click", function (e) {
-                    // Add your code here
-                });
-            }
-
-            var groupContainer = document.getElementById("groupContainer");
-            if (groupContainer) {
-                groupContainer.addEventListener("click", function () {
-                    var popup = document.getElementById("frameContainer");
-                    if (!popup) return;
-                    var popupStyle = popup.style;
-                    if (popupStyle) {
-                        popupStyle.display = "flex";
-                        popupStyle.zIndex = 100;
-                        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
-                        popupStyle.alignItems = "flex-start";
-                        popupStyle.justifyContent = "flex-end";
-                    }
-                    popup.setAttribute("closable", "");
-
-                    var onClick = popup.onClick || function (e) {
-                        if (e.target === popup && popup.hasAttribute("closable")) {
-                            popupStyle.display = "none";
-                        }
-                    };
-                    popup.addEventListener("click", onClick);
-                });
-            }
-
-            var consultaazulImage = document.getElementById("consultaazulImage");
-            if (consultaazulImage) {
-                consultaazulImage.addEventListener("click", function () {
-                    var popup = document.getElementById("frameContainer");
-                    if (!popup) return;
-                    var popupStyle = popup.style;
-                    if (popupStyle) {
-                        popupStyle.display = "flex";
-                        popupStyle.zIndex = 100;
-                        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
-                        popupStyle.alignItems = "flex-start";
-                        popupStyle.justifyContent = "flex-end";
-                    }
-                    popup.setAttribute("closable", "");
-
-                    var onClick = popup.onClick || function (e) {
-                        if (e.target === popup && popup.hasAttribute("closable")) {
-                            popupStyle.display = "none";
-                        }
-                    };
-                    popup.addEventListener("click", onClick);
-                });
-            }
-
-            var pessoaazulImage = document.getElementById("pessoaazulImage");
-            if (pessoaazulImage) {
-                pessoaazulImage.addEventListener("click", function () {
-                    var popup = document.getElementById("frameContainer");
-                    if (!popup) return;
-                    var popupStyle = popup.style;
-                    if (popupStyle) {
-                        popupStyle.display = "flex";
-                        popupStyle.zIndex = 100;
-                        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
-                        popupStyle.alignItems = "flex-start";
-                        popupStyle.justifyContent = "flex-end";
-                    }
-                    popup.setAttribute("closable", "");
-
-                    var onClick = popup.onClick || function (e) {
-                        if (e.target === popup && popup.hasAttribute("closable")) {
-                            popupStyle.display = "none";
-                        }
-                    };
-                    popup.addEventListener("click", onClick);
-                });
-            }
-
-            var pastaazulImage = document.getElementById("pastaazulImage");
-            if (pastaazulImage) {
-                pastaazulImage.addEventListener("click", function () {
-                    var popup = document.getElementById("frameContainer");
-                    if (!popup) return;
-                    var popupStyle = popup.style;
-                    if (popupStyle) {
-                        popupStyle.display = "flex";
-                        popupStyle.zIndex = 100;
-                        popupStyle.backgroundColor = "rgba(113, 113, 113, 0.3)";
-                        popupStyle.alignItems = "flex-start";
-                        popupStyle.justifyContent = "flex-end";
-                    }
-                    popup.setAttribute("closable", "");
-
-                    var onClick = popup.onClick || function (e) {
-                        if (e.target === popup && popup.hasAttribute("closable")) {
-                            popupStyle.display = "none";
-                        }
-                    };
-                    popup.addEventListener("click", onClick);
-                });
-            }</script>
+            closeButton.addEventListener('click', () => {
+                modalContainer.classList.remove('open');
+            });
+        </script>
 </body>
+
 
 </html>

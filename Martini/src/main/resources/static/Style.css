@@ -1,25 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&family=Sora:wght@100..800&display=swap');
+
 body {
     margin: 0;
     line-height: normal;
-    width: 100vw;
     position: relative;
     background-color: #D8EAF0;
-    height: 100vh;
     overflow: hidden;
     text-align: left;
     font-size: 1.25rem;
     color: #195c71;
-    font-family: Montserrat;
+    font-family: 'Sora', sans-serif;
     overflow-y: auto;
     display: flex;
-    flex-wrap: wrap;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    gap: 10rem;
-    width: 100vw;
     flex-wrap: wrap;
 }
 
@@ -30,13 +22,17 @@ main {
     inset: 0;
 }
 
+/* Estilos do header fixado no topo da tela */
 header {
+    position: fixed;
+    top: 0;
     display: flex;
     background-color: #1F363D;
     width: 100vw;
     height: 9.875rem;
     justify-content: flex-start;
     align-items: center;
+    z-index: 1;
 }
 
 header input {
@@ -49,6 +45,602 @@ header input {
     margin-right: 5rem;
 }
 
+a {
+    text-decoration: none;
+    color: #B5EFF0;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Solway', serif;
+}
+
+/* estilos da barra de navegação lateral - esquerda */
+
+.nav {
+    display: flex;
+    position: fixed;
+    direction: column;
+    width: 20%;
+    height: calc(100vh - 9.875rem);
+    background-color: #40798C;
+    margin-top: 9.875rem;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 15rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 5rem;
+    width: 100%;
+}
+
+nav li {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: -1rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+nav li:hover {
+    background-color: #94DCDE;
+    border-radius: 8px;
+    transition: 1s;
+
+    a {
+        border-bottom: #195c71 2px solid;
+        color: #1F363D;
+        transition: 1s;
+    }
+}
+
+/* estilos da área principal */
+main {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    color: #40798C;
+    flex-wrap: wrap;
+    margin-left: 25%;
+    margin-right: 5%;
+    margin-top: 9.4rem;
+    margin-bottom: 5rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* estilos da seção de dashboard */
+.resumo h2 {
+    height: 2rem;
+    flex-basis: 100%;
+}
+
+.resumo b {
+    height: 4rem;
+    width: 15rem;
+    flex-basis: 100%;
+}
+
+.resumo {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+}
+
+.resSquare {
+    background-color: #195c71;
+}
+
+.resumo div {
+    display: flex;
+    width: 26rem;
+    height: 19.3rem;
+    background-color: #70A9A1;
+    color: #D6F1F1;
+    border-radius: 30px;
+    justify-content: center;
+
+}
+
+/* estilos da tabela de agenda e area de agendamento de consultas */
+.agenda {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 5rem;
+    scroll-padding-top: 15rem;
+}
+
+.agenda b {
+    width: 5rem;
+    height: 3.5rem;
+    flex-basis: 20rem;
+    align-content: center;
+
+}
+
+.agenda button {
+    width: 15rem;
+    height: 3.5rem;
+    margin: 0;
+    background-color: #195c71;
+    border-radius: 7px;
+    border: none;
+    color: #D6F1F1;
+    margin-left: 36.5%;
+    font-size: large;
+    cursor: pointer;
+}
+
+.agenda button:hover {
+    box-shadow: #195c71 0px 0px 5px;
+    transition: 0.5s;
+}
+
+.agenda table {
+    background-color: #195c71;
+    border-radius: 30px;
+    width: 78%;
+    height: 30rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: #D6F1F1;
+    border-spacing: 0;
+    text-align: center;
+}
+
+.agenda td {
+    border-color: #D6F1F1;
+    border-right: 3px solid;
+    width: 16.66%;
+}
+
+.agenda .null {
+    border-right: none;
+}
+
+.agenda .hora {
+    border-bottom: none;
+}
+
+.agenda th {
+    border-bottom: 3px solid;
+    border-right: 3px solid#D6F1F1;
+}
+
+/* estilo do pop-up de cadastro de consultas*/
+
+.modalCons-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.modalCons-container.open {
+    pointer-events: auto;
+    opacity: 1;
+    order: 1;
+}
+
+/* ─── caixa principal do modal ─── */
+.modalCons {
+    display: flex;
+    flex-direction: column;
+    background-color: #1b5f72;
+    border-radius: 24px;
+    width: 62rem;
+    max-width: 92vw;
+    padding: 2.5rem 3rem;
+    gap: 2rem;
+    margin-top: 10rem;
+}
+
+/* ─── título centralizado ─── */
+.modalCons h4 {
+    color: #D6F1F1;
+    font-family: 'Solway', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+}
+
+/* ─── área de duas colunas ─── */
+.consBody {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+/* ─── labels acima dos campos ─── */
+.consLabel {
+    color: #C6EAE5;
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 500;
+}
+
+/* ─── coluna esquerda (paciente) ─── */
+.consLeft {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.pesqWrapper {
+    display: flex;
+    align-items: center;
+    background-color: #f0f9f8;
+    border-radius: 12px;
+    padding: 0 1rem;
+    height: 3.2rem;
+    gap: 0.6rem;
+}
+
+.pesqIcon {
+    font-size: 1.1rem;
+    color: #195c71;
+    flex-shrink: 0;
+}
+
+.pesqNome {
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 2rem;
+    font-size: 1rem;
+    color: #195c71;
+    font-family: 'Sora', sans-serif;
+    border-radius: 8px;
+}
+
+.pesqNome::placeholder {
+    color: #6aacb8;
+}
+
+/* ─── lista de pacientes ─── */
+.NameList {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0 0;
+    background-color: #2d7a8e;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.NameOpt {
+    padding: 0.85rem 1.2rem;
+    color: #C6EAE5;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.NameOpt:hover {
+    background-color: #3d8fa3;
+}
+
+.NameOpt.selected {
+    background-color: #9dd9e0;
+    color: #1b5f72;
+    font-weight: 600;
+}
+
+/* ─── coluna direita ─── */
+.consRight {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    padding-top: 0;
+}
+
+.consRow {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.consField {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── input genérico ─── */
+.consInput {
+    background-color: #e8f6f8;
+    border: none;
+    border-radius: 10px;
+    padding: 0 1rem;
+    height: 3.2rem;
+    font-size: 1rem;
+    color: #195c71;
+    font-family: 'Sora', sans-serif;
+    outline: none;
+    min-width: 0;
+}
+
+.consInput:focus {
+    box-shadow: 0 0 0 2px #9dd9e0;
+}
+
+.modalCons .hora {
+    width: 18%;
+    height: 3rem;
+    background-color: #C6EAE5;
+    color: #195c71;
+    text-align: start;
+    border-radius: 5px;
+    padding-left: 1rem;
+    border: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 6rem;
+}
+
+/* ─── campo de valor ─── */
+.valorField {
+    width: 55%;
+}
+
+.valorInput {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ─── botões na base ─── */
+.buttonArea {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 0.5rem;
+}
+
+.btnCancelar {
+    background: transparent;
+    border: none;
+    color: #C6EAE5;
+    font-size: 1.1rem;
+    font-family: 'Sora', sans-serif;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.btnCancelar:hover {
+    background-color: rgba(198, 234, 229, 0.15);
+}
+
+.btnSalvar {
+    background-color: #3aacaa;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Sora', sans-serif;
+    padding: 0.9rem 2.2rem;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btnSalvar:hover {
+    background-color: #2e9190;
+    box-shadow: 0 0 10px rgba(58, 172, 170, 0.5);
+}
+
+
+/* estilo da parte de lembrete a direita da tabela de consultas */
+.lembre {
+    display: flex;
+    width: 20%;
+    height: 36rem;
+    background-color: #70A9A1;
+    color: #D6F1F1;
+    border-radius: 30px;
+    justify-content: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    margin-top: -3.5rem;
+}
+
+.lembre b {
+    font-size: larger;
+    margin-left: 25%;
+    font-weight: 600;
+}
+
+.lembre textarea {
+    display: flex;
+    background-color: #C6EAE5;
+    color: #195c71;
+    text-align: start;
+    border-radius: 30px;
+    width: 95%;
+    height: 26rem;
+    padding: 5%;
+    justify-items: flex-start;
+    border: none;
+    margin: 0, 0, 0, 0;
+}
+
+input,
+.lembre textarea:focus {
+    outline: none;
+}
+
+.lembre textarea::placeholder {
+    color: #195c71;
+    font-size: 20px;
+    white-space: pre-line;
+}
+
+.lembre button {
+    background-color: #195c71;
+    border-radius: 30px;
+    font-size: large;
+    width: 50%;
+    height: 3rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* estilos da parte da tabela de pacientes e do cadastro de pacientes */
+.pacientes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.pacientes .desc {
+    width: 5rem;
+    height: 3.5rem;
+    flex-basis: 100%;
+    align-content: center;
+}
+
+.pacientes input {
+    width: 18rem;
+    height: 3rem;
+    border-radius: 30px;
+    border: none;
+}
+
+.pacientes b {
+    align-content: center;
+    margin-left: 1rem;
+}
+
+.pacientes .status {
+    width: 7rem;
+    height: 2.5rem;
+    background-color: #195c71;
+    color: #D6F1F1;
+    border-radius: 16px;
+    border: none;
+    margin-left: 1rem;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.pacientes .status:focus {
+    border: none;
+    outline: none;
+}
+
+.pacientes .status option {
+    border-radius: 16px;
+    font-family: 'Sora', sans-serif;
+}
+
+.pacientes .pac {
+    width: 15rem;
+    height: 3.5rem;
+    background-color: #195c71;
+    border-radius: 7px;
+    border: none;
+    color: #D6F1F1;
+    font-size: large;
+    cursor: pointer;
+    margin-left: 43.9%;
+}
+
+.pacientes table {
+    background-color: #D8EAF0;
+    border-radius: 30px;
+    width: 100%;
+    height: 30rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: #195c71;
+    border-spacing: 0;
+    text-align: center;
+}
+
+.pacientes th,
+td {
+    border-color: #195c71;
+    border-bottom: 1px solid;
+    width: 20%;
+}
+
+.pacientes td .perf {
+    height: 51px;
+    background-color: #195c71;
+    color: whitesmoke;
+    border-radius: 16px;
+    border: none;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: larger;
+}
+
+.pacientes td .perf:hover {
+    box-shadow: #195c71 0px 0px 5px;
+    transition: 0.5s;
+}
+
+.pacientes td .env {
+    background-color: #a4dcb9;
+    color: whitesmoke;
+    border-radius: 16px;
+    border: none;
+    font-size: larger;
+}
+
+.paciente td .env:hover {
+    box-shadow: #a4dcb9 0px 0px 5px;
+    transition: 0.5s;
+}
+
+/* estilos para os logos */
 .logo-mm-1 {
     position: relative;
     width: 35, 5rem;
@@ -69,93 +661,7 @@ header input {
     margin-top: 70px;
 }
 
-.wireframe-1-item {
-    position: absolute;
-    top: 11.313rem;
-    left: 92.688rem;
-    border-radius: 16px;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 25.875rem;
-    height: 2.063rem;
-}
-
-.usurio-doutora-michele {
-    position: absolute;
-    top: 11.625rem;
-    left: 94.688rem;
-    font-weight: 600;
-    display: inline-block;
-    width: 21.813rem;
-    height: 1.438rem;
-}
-
-.wireframe-1-inner {
-    position: absolute;
-    top: 2rem;
-    left: 0;
-    border-radius: 16px;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 51rem;
-    height: 15.063rem;
-    min-width: 20rem;
-    margin: 10rem auto 5rem auto;
-    position: relative;
-    transform: none;
-    min-height: 15.063rem;
-}
-
-.prximo-paciente {
-    position: absolute;
-    top: 2rem;
-    left: 5rem;
-    font-weight: 600;
-    display: inline-block;
-    width: 12.375rem;
-    height: 1.438rem;
-    color: #195c71;
-    font-weight: bold;
-}
-
-.observaes {
-    position: absolute;
-    top: 8.5rem;
-    left: 5rem;
-    font-weight: 600;
-    display: inline-block;
-    width: 12.375rem;
-    height: 1.438rem;
-    color: #195c71;
-    font-weight: bold;
-}
-
-.maria-julia-santos {
-    position: absolute;
-    top: 4rem;
-    left: 5rem;
-    font-weight: 900;
-    display: inline-block;
-    width: 12.375rem;
-    height: 1.438rem;
-    font-weight: bold;
-}
-
-.pauta-namoro-faculdade {
-    position: absolute;
-    top: 10.5rem;
-    left: 5rem;
-    font-weight: 900;
-    display: inline-block;
-    width: 24.55rem;
-    height: 1.438rem;
-    transform: rotate(-0.1deg);
-    transform-origin: 0 0;
-    font-weight: bold;
-}
-
+/* estilos do código anterior **talvez passíveis de serem apagados */
 .group-child {
     position: absolute;
     top: 1.688rem;
@@ -186,42 +692,6 @@ header input {
     border-radius: 20px;
 }
 
-.rectangle-parent {
-    position: relative;
-    width: 3rem;
-    height: 2.25rem;
-    margin-top: 11rem;
-    margin-left: -25rem;
-}
-
-
-
-.consultaazul-icon {
-    position: absolute;
-    top: 15.563rem;
-    left: -0.312rem;
-    width: 5.063rem;
-    height: 5.063rem;
-    object-fit: cover;
-}
-
-.pessoaazul-icon {
-    position: absolute;
-    top: 28.125rem;
-    left: 0.063rem;
-    width: 4.375rem;
-    height: 4.375rem;
-    object-fit: cover;
-}
-
-.pastaazul-icon {
-    position: absolute;
-    top: 40.188rem;
-    left: -0.312rem;
-    width: 5.063rem;
-    height: 5.063rem;
-    object-fit: cover;
-}
 
 .rectangle-div {
     display: flex;
@@ -236,447 +706,7 @@ header input {
     align-items: center;
 }
 
-.div {
-    z-index: 1;
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.875rem;
-    font-weight: 800;
-    color: #fffeea;
-    display: inline-block;
-    width: 4.813rem;
-    height: 1.125rem;
-}
 
-.div1 {
-    z-index: 1;
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.563rem;
-    font-weight: 800;
-    text-align: center;
-    display: inline-block;
-    width: 9.125rem;
-}
-
-.wireframe-1-child1 {
-    display: flex;
-    position: absolute;
-    top: 7.5rem;
-    left: 30.5rem;
-    border-radius: 16px;
-    background-color: #a4dcb9;
-    width: 18.688rem;
-    height: 6.313rem;
-}
-
-.consulta-3-de {
-    position: absolute;
-    top: 45.5rem;
-    left: calc(50% + 151px);
-    font-size: 1.563rem;
-    font-weight: 800;
-    text-align: center;
-    display: inline-block;
-    width: 9.125rem;
-
-}
-
-.ellipse-div {
-    position: absolute;
-    top: -1.45rem;
-    left: -1.2rem;
-    border-radius: 50%;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 4.688rem;
-    height: 4.813rem;
-}
-
-.hora-icon {
-    position: absolute;
-    top: 0.4rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 3.75rem;
-    height: 3.75rem;
-    object-fit: cover;
-}
-
-.wireframe-1-child2 {
-    position: relative;
-    top: 19.313rem;
-    left: 0vw;
-    border-radius: 16px;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 18.063rem;
-    height: 15.063rem;
-    min-width: 16.64rem;
-    cursor: pointer;
-    margin: 0;
-
-}
-
-.wireframe-1-child4 {
-    position: absolute;
-    top: 14rem;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 16px;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 12.188rem;
-    height: 2.063rem;
-    cursor: pointer;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 600;
-    color: #195c71;
-}
-
-.wireframe-1-child4:hover {
-    color: #32b9be;
-}
-
-.wireframe-1-child5 {
-    position: relative;
-    top: 19.313rem;
-    border-radius: 16px;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 18.063rem;
-    height: 15.063rem;
-    min-width: 16.64rem;
-    cursor: pointer;
-    margin-left: 3rem;
-    margin-right: 10px;
-    margin-bottom: 30px;
-}
-
-.wireframe-1-child7 {
-    position: absolute;
-    top: 14rem;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 16px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #195c71;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 12.188rem;
-    height: 2.063rem;
-    text-align: center;
-    justify-content: center;
-}
-
-.consultas {
-    position: absolute;
-    top: 33.75rem;
-    left: calc(50% - 472px);
-    font-weight: 600;
-    display: inline-block;
-    width: 6.563rem;
-    height: 1.688rem;
-    color: #195c71;
-}
-
-.wireframe-1-child7:hover {
-    color: #32b9be;
-}
-
-.consulta-certo-2-icon {
-    position: absolute;
-    top: -0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 15rem;
-    height: 15rem;
-    object-fit: cover;
-}
-
-.wireframe-1-child8 {
-    position: relative;
-    top: 19.313rem;
-    border-radius: 16px;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 18.063rem;
-    height: 15.063rem;
-    min-width: 16.64rem;
-    cursor: pointer;
-    margin: 0;
-    margin-right: 3rem;
-}
-
-.wireframe-1-child10 {
-    position: absolute;
-    top: 14rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-weight: 600;
-    font-size: 20px;
-    color: #195c71;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 12.188rem;
-    height: 2.063rem;
-    text-align: center;
-    justify-content: center;
-    border-radius: 16px;
-    background-color: #fffeea;
-    border: 3px solid #a4dcb9;
-    box-sizing: border-box;
-    width: 12.188rem;
-    height: 2.063rem;
-}
-
-.wireframe-1-child10:hover {
-    color: #32b9be;
-}
-
-.calendar-icon {
-    top: 0.3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    width: 14.75rem;
-    height: 14.75rem;
-    object-fit: cover;
-}
-
-.agendamentos {
-    position: absolute;
-    top: 33.75rem;
-    left: calc(50% + 350px);
-    font-weight: 600;
-    display: inline-block;
-    width: 10.313rem;
-    height: 1.688rem;
-    color: #195c71;
-}
-
-.agendamentos:hover {
-    color: #32b9be;
-}
-
-.Cadastro-Pacientes {
-    position: flex;
-}
-
-.usuario-azul-1-icon {
-    position: absolute;
-    top: 0rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 14rem;
-    height: 14rem;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-.frame-child {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    background-color: #f9df94;
-    width: 18.063rem;
-    height: 57.5rem;
-}
-
-.ficha-pessoal {
-    position: absolute;
-    top: 25.125rem;
-    left: 1.813rem;
-    display: inline-block;
-    width: 11.75rem;
-    height: 1.438rem;
-    cursor: pointer;
-}
-
-.cadastro {
-    position: absolute;
-    top: 22.563rem;
-    left: 1.688rem;
-    display: inline-block;
-    width: 6.438rem;
-    height: 1.438rem;
-    cursor: pointer;
-}
-
-.frame-item {
-    position: absolute;
-    top: 20.813rem;
-    left: 4.188rem;
-    max-height: 100%;
-    width: 6.5rem;
-}
-
-.frame-inner {
-    position: relative;
-    top: 34.673rem;
-    left: 3.813rem;
-    max-height: 100%;
-    width: 10rem;
-}
-
-.pacientes1 {
-    position: absolute;
-    top: 19.125rem;
-    left: 4.188rem;
-    font-weight: 600;
-    display: inline-block;
-    width: 10.75rem;
-    height: 1.688rem;
-}
-
-.frame-child1 {
-    position: absolute;
-    top: 51rem;
-    left: 5.125rem;
-    border-radius: 10px 10px 0px 0px;
-    background-color: #32b9be;
-    width: 7.813rem;
-    height: 2.5rem;
-}
-
-.agendamentos1 {
-    position: absolute;
-    top: 32.75rem;
-    left: 4.188rem;
-    font-weight: 600;
-    display: inline-block;
-    width: 10.75rem;
-    height: 1.688rem;
-}
-
-.sair {
-    position: absolute;
-    top: 51.563rem;
-    left: 7.75rem;
-    font-weight: 900;
-    display: inline-block;
-    width: 2.625rem;
-    height: 1.688rem;
-}
-
-.histrico {
-    position: absolute;
-    top: 12.75rem;
-    left: 1.813rem;
-    display: inline-block;
-    width: 6.438rem;
-    height: 1.438rem;
-    cursor: pointer;
-}
-
-.cadastro1 {
-    position: absolute;
-    top: 10.188rem;
-    left: 1.688rem;
-    display: inline-block;
-    width: 6.438rem;
-    height: 1.438rem;
-    cursor: pointer;
-}
-
-.line-div {
-    position: absolute;
-    top: 8.531rem;
-    left: 4.094rem;
-    border-top: 1px solid #32b9be;
-    box-sizing: border-box;
-    width: 6.688rem;
-    height: 0.063rem;
-}
-
-.consultas1 {
-    position: absolute;
-    top: 6.813rem;
-    left: 4.188rem;
-    font-weight: 600;
-    display: inline-block;
-    width: 10.75rem;
-    height: 1.688rem;
-}
-
-.opes {
-    position: absolute;
-    top: 0.75rem;
-    left: 4.75rem;
-    font-size: 1.563rem;
-    display: inline-block;
-    width: 6.688rem;
-    height: 1.813rem;
-}
-
-.consultaazul-icon1 {
-    position: absolute;
-    top: 5.125rem;
-    left: -0.875rem;
-    width: 5.063rem;
-    height: 5.063rem;
-    object-fit: cover;
-}
-
-.pessoaazul-icon1 {
-    position: absolute;
-    top: 17.813rem;
-    left: -0.562rem;
-    width: 4.375rem;
-    height: 4.375rem;
-    object-fit: cover;
-
-}
-
-.calendar-icon1 {
-    position: absolute;
-    top: 32.625rem;
-    left: 0.75rem;
-    width: 2.125rem;
-    height: 2.125rem;
-    object-fit: cover;
-}
-
-.group-child1 {
-    position: absolute;
-    top: 1.688rem;
-    left: 0rem;
-    background-color: #2e97b7;
-    width: 3rem;
-    height: 0.563rem;
-}
-
-.group-child2 {
-    position: absolute;
-    top: 0.813rem;
-    left: 0rem;
-    background-color: #2e97b7;
-    width: 3rem;
-    height: 0.625rem;
-    border: none;
-}
-
-.group-child3 {
-    position: absolute;
-    top: 0rem;
-    left: 0rem;
-    background-color: #2e97b7;
-    width: 3rem;
-    height: 0.563rem;
-}
 
 .rectangle-group {
     position: absolute;
@@ -698,6 +728,7 @@ header input {
     color: #195c71;
 }
 
+/* primeira media querry do código */
 @media (max-width: 1138px) {
     header {
         height: 15rem;
