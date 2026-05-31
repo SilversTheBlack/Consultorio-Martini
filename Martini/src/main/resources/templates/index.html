@@ -52,11 +52,12 @@
         <section class="agenda" id="agend">
             <b>Agenda Semanal</b>
 
-            <!-- botão de link para agendamento de consultas **ainda sem funcionalidade - deve criar um popup Com o cadastro da consulta -->
+            <!-- botão de link para agendamento de consultas -->
             <button id="NovaCon">Agendar Nova Consulta</button>
 
-            <!-- pop-up de cadastro de consultas -->
-            <div class="modalCons-container" id="cons-container">
+            <!-- pop-up de cadastro de consultas **ainda sem funcionalidade-->
+
+            <div class="modal-container" id="cons-container">
                 <div class="modalCons">
                     <h4>Cadastro de Consulta</h4>
                     <div class="consBody">
@@ -81,7 +82,7 @@
                     </div>
                     <div class="buttonArea">
                         <!-- botão para salvar a consulta **ainda sem funcionalidade -->
-                        <button  class="btnSalvar" id="save">Salvar</button>
+                        <button class="btnSalvar" id="save">Salvar</button>
                         <button class="btnCancelar" id="close">Cancelar</button>
                     </div>
                 </div>
@@ -181,7 +182,48 @@
                 <option value="pendente">Pendente</option>
                 <option value="inativo">Inativo</option>
             </select>
+            <!-- botão de link para cadastro de pacientes -->
             <button class="pac">registrar novo paciente</button>
+            <!-- pop-up de cadastro de Pacientes **ainda sem funcionalidade-->
+            <div class="PacModal-container" id="pac-container">
+                <div class="modalPac">
+                    <h4>Cadastro de Pacientes</h4>
+                    <div class="PacBody">
+                        <p>1. Identificação</p>
+                        <p>Nome Completo</p>
+                        <input type="text" class="nome" id="nome" placeholder="Digite o nome do paciente...">
+                        <p>CPF</p>
+                        <input type="text" class="cpf" id="cpf" placeholder="Digite o CPF do paciente...">
+                        <p>2. Contatos e Dados Pessoais</p>
+                        <div class="PacLeft">
+                            <p>Celular(com DDD)</p>
+                            <input type="text" class="celular" id="celular" placeholder="(00) 0 0000-0000">
+                            <p>Email</p>
+                            <input type="email" class="email" id="email" placeholder="abcdefghijk@gmail.com">
+                            <p>3. Status</p>
+                            <select class="dropdown status">
+                                <option value="ativo">Ativo</option>
+                                <option value="pendente">Pendente</option>
+                                <option value="inativo">Inativo</option>
+                            </select>
+                        </div>
+                        <div class="PacRight">
+                            <p>Gênero</p>
+                            <select class="dropdown genero">
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="Nao-binario">Não-binário</option>
+                                <option value="Não-informar">Não informar</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="PacbuttonArea">
+                        <!-- botão para salvar a consulta **ainda sem funcionalidade -->
+                        <button class="btnAdd" id="save">Adicionar Paciente</button>
+                        <button class="btnCancelar" id="close">Cancelar</button>
+                    </div>
+                </div>
+            </div>
             <table>
                 <tr>
                     <th>Paciente</th>
@@ -277,55 +319,19 @@
         </section>
 
     </main>
+    <script>
+        const novaConsultaButton = document.getElementById('NovaCon');
+        const modalContainer = document.getElementById('cons-container');
+        const closeButton = document.getElementById('close');
+        novaConsultaButton.addEventListener('click', () => {
+            modalContainer.classList.add('open');
+            modalContainer.style.transition = '0.2s ease-in-out';
+        });
 
-    <!-- lógica para pop up de navegação do site(feito por IA) -->
-    <!-- provavelmente não será mais usado -->
-    <div id="frameContainer" class="popup-overlay" style="display:none">
-
-        <div class="rectangle-root">
-            <div class="frame-child">
-            </div>
-            <div class="ficha-pessoal" id="popupfichaPessoalText">Ficha Pessoal</div>
-            <div class="cadastro" id="popupcadastroText">Cadastro</div>
-            <img class="frame-item" alt="" src="Line 1.svg">
-            <img class="frame-inner" alt="" src="Line 5.svg">
-
-            <div class="pacientes1">Pacientes</div>
-            <div class="frame-child1">
-            </div>
-            <div class="agendamentos1">Agendamentos</div>
-            <div class="sair">Sair</div>
-            <div class="histrico" id="popuphistricoText">Histórico</div>
-            <div class="cadastro1" id="popupcadastroText1">Cadastro</div>
-            <div class="line-div">
-            </div>
-            <div class="consultas1">Consultas</div>
-            <b class="opes">Opções</b>
-
-            <div class="rectangle-group">
-                <div class="group-child1">
-                </div>
-                <a th:href="@{/}">
-                    <button class="group-child2">
-                    </button>
-                </a>
-                <div class="group-child3">
-                </div>
-            </div>
-        </div>
-        <script>
-            const novaConsultaButton = document.getElementById('NovaCon');
-            const modalContainer = document.getElementById('cons-container');
-            const closeButton = document.getElementById('close');
-            novaConsultaButton.addEventListener('click', () => {
-                modalContainer.classList.add('open');
-                modalContainer.style.transition = '0.2s ease-in-out';
-            });
-
-            closeButton.addEventListener('click', () => {
-                modalContainer.classList.remove('open');
-            });
-        </script>
+        closeButton.addEventListener('click', () => {
+            modalContainer.classList.remove('open');
+        });
+    </script>
 </body>
 
 

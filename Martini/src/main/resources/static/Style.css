@@ -241,7 +241,7 @@ button {
 
 /* estilo do pop-up de cadastro de consultas*/
 
-.modalCons-container {
+.modal-container {
     display: flex;
     position: fixed;
     top: 0;
@@ -255,7 +255,27 @@ button {
     opacity: 0;
 }
 
-.modalCons-container.open {
+.modal-container.open {
+    pointer-events: auto;
+    opacity: 1;
+    order: 1;
+}
+
+.PacModal-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.PacModal-container.open {
     pointer-events: auto;
     opacity: 1;
     order: 1;
@@ -373,6 +393,7 @@ button {
     flex: 1;
     gap: 1.5rem;
     justify-content: flex-start;
+    align-items: flex-start;
     padding-top: 0;
 }
 
@@ -401,6 +422,11 @@ button {
     min-width: 0;
 }
 
+.modalCons input {
+    border: none;
+    border-radius: 10px;
+}
+
 .consInput:focus {
     box-shadow: 0 0 0 2px #9dd9e0;
 }
@@ -416,7 +442,26 @@ button {
     border: none;
     margin-left: 2rem;
     margin-right: 2rem;
-    margin-top: 6rem;
+
+}
+
+.modalCons .hora:focus {
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 2px #9dd9e0;
+}
+
+.modalCons .data {
+    width: 22%;
+    height: 3rem;
+    background-color: #C6EAE5;
+    color: #195c71;
+    text-align: start;
+    border-radius: 5px;
+    padding-left: 1rem;
+    border: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 /* ─── campo de valor ─── */
@@ -429,11 +474,25 @@ button {
     box-sizing: border-box;
 }
 
+.modalCons .valor {
+    width: 15%;
+    height: 3rem;
+    background-color: #C6EAE5;
+    color: #195c71;
+    text-align: start;
+    border-radius: 5px;
+    padding-left: 1rem;
+    border: none;
+    margin-left: 2rem;
+}
+
 /* ─── botões na base ─── */
 .buttonArea {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    width: 30%;
+    margin-left: auto;
     gap: 2rem;
     padding-top: 0.5rem;
 }
