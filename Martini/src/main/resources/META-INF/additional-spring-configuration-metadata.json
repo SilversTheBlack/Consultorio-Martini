@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "ms.cpf.url",
+      "type": "java.lang.String",
+      "description": "URL base do microsserviço de validação de CPF."
+    },
+    {
+      "name": "ms.email.url",
+      "type": "java.lang.String",
+      "description": "URL base do microsserviço de validação de e-mail."
+    }
+  ]
+}

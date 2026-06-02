@@ -13,4 +13,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
      @Query("SELECT cl FROM Cliente cl WHERE LOWER(cl.nome) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     List<Cliente> findByNomeContainingIgnoreCase(@Param("keyword") String keyword);
 
+    long countByStatus(String status);
+
 }

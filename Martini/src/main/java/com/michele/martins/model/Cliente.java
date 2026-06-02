@@ -20,7 +20,37 @@ public class Cliente {
 
     private String obs;
 
+    private String status;
+
+    private String email;
+
+    private String genero;
+
     // Getters e Setters
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 
     public String getObs() {
         return obs;

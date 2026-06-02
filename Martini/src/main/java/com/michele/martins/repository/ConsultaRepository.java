@@ -3,7 +3,9 @@ package com.michele.martins.repository;
 import com.michele.martins.model.Consulta;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,6 +21,13 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
             @Param("currentDate") LocalDate currentDate);
 
     // New method: Find all consultations after current date
-    // Spring Data JPA can derive this query from the method name:
     List<Consulta> findByDataAfter(LocalDate currentDate);
+
+    long countByData(LocalDate data);
+
+    long countByDataAndHorarioAfter(LocalDate data, LocalTime horario);
+
+    Optional<Consulta> findFirstByClienteIdAndDataGreaterThanEqualOrderByDataAsc(Long clienteId, LocalDate data);
+
+    Optional<Consulta> findFirstByClienteIdAndDataLessThanOrderByDataDesc(Long clienteId, LocalDate data);
 }

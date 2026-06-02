@@ -8,6 +8,8 @@
     <link rel="stylesheet" th:href="@{/Style.css}" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 
 <body>
@@ -36,22 +38,25 @@
         <section class="resumo" id="dash">
             <h2>Dashboard</h2>
             <b>Resumo Geral</b>
-            <!-- **falta adicionar as informações do backend -->
             <div class="resSquare">
                 <h3>Consultas Hoje</h3>
+                <span th:text="${consultasHoje}">0</span>
             </div>
-            <div>
-                <h3>Próximas consultas</h3>
+            <div class="resSquare">
+                <h3>Consultas Restantes</h3>
+                <span th:text="${consultasFaltam}">0</span>
             </div>
-            <div>
-                <h3>Novos Pacientes</h3>
+            <div class="resSquare">
+                <h3>Pacientes Ativos</h3>
+                <span th:text="${pacientesAtivos}">0</span>
             </div>
         </section>
 
-        <!-- Seção da agenda semanal **sem modificações para cobrir todos os meses -->
+        <!-- Seção da agenda semanal -->
         <section class="agenda" id="agend">
             <b>Agenda Semanal</b>
 
+            <button class="btnTodasCons">Todas as consultas</button>
             <!-- botão de link para agendamento de consultas -->
             <button id="NovaCon">Agendar Nova Consulta</button>
 
@@ -63,27 +68,33 @@
                     <div class="consBody">
                         <div class="consLeft">
                             <!-- irá mostrar o nome dos pacientes enquanto pesquisados -->
-                            <p>Nome do Paciente</p>
-                            <input type="text" class="pesqNome" id="pesqNome" placeholder="Buscar por nome ou cpf...">
+                            <p class="consLabel">Selecionar Paciente</p>
+                            <input type="text" class="pesqNome" id="pesqNome" placeholder="Buscar por nome ou CPF...">
                             <!-- Deve mostrar a lista de pacientes encontrados -->
-                            <ul class="NameList">
-                                <li class="NameOpt"></li>
-                            </ul>
+                            <ul class="NameList" id="NameList"></ul>
                         </div>
                         <div class="consRight">
-                            <p>Data da Consulta</p>
-                            <input type="date" class="data" id="data" placeholder="Data da Consulta">
-                            <!-- se a hora estiver indisponivel mostrar mensagem -->
-                            <p>Hora da Consulta</p>
-                            <input type="time" class="hora" id="hora" placeholder="Hora da Consulta">
-                            <p>Valor</p>
-                            <input type="text" class="valor" id="valor" placeholder="Valor">
+                            <div class="consRow">
+                                <div class="consField">
+                                    <p class="consLabel">Data</p>
+                                    <input type="date" class="consInput data" id="data">
+                                </div>
+                                <div class="consField">
+                                    <p class="consLabel">Hora</p>
+                                    <!-- se a hora estiver indisponivel mostrar mensagem -->
+                                    <input type="time" class="consInput hora" id="hora">
+                                </div>
+                            </div>
+                            <div class="consField valorField">
+                                <p class="consLabel">Valor</p>
+                                <input type="text" class="consInput valorInput valor" id="valor" placeholder="R$ 0,00">
+                            </div>
                         </div>
                     </div>
                     <div class="buttonArea">
                         <!-- botão para salvar a consulta **ainda sem funcionalidade -->
-                        <button class="btnSalvar" id="save">Salvar</button>
                         <button class="btnCancelar" id="close">Cancelar</button>
+                        <button class="btnSalvar" id="save">Marcar Consulta</button>
                     </div>
                 </div>
             </div>
@@ -174,9 +185,9 @@
 
         <section class="pacientes" id="pacient">
             <b class="desc">Pacientes</b>
-            <input type="text" placeholder="Buscar">
+            <input type="text" id="searchPac" placeholder="Buscar">
             <b>Status:</b>
-            <select class="dropdown status">
+            <select class="dropdown status" id="filterStatus">
                 <option value="todos">Todos</option>
                 <option value="ativo">Ativo</option>
                 <option value="pendente">Pendente</option>
@@ -187,150 +198,308 @@
             <!-- pop-up de cadastro de Pacientes **ainda sem funcionalidade-->
             <div class="PacModal-container" id="pac-container">
                 <div class="modalPac">
-                    <h4>Cadastro de Pacientes</h4>
+                    <h4>Novo Paciente – Adicionar</h4>
                     <div class="PacBody">
-                        <p>1. Identificação</p>
-                        <p>Nome Completo</p>
-                        <input type="text" class="nome" id="nome" placeholder="Digite o nome do paciente...">
-                        <p>CPF</p>
-                        <input type="text" class="cpf" id="cpf" placeholder="Digite o CPF do paciente...">
-                        <p>2. Contatos e Dados Pessoais</p>
-                        <div class="PacLeft">
-                            <p>Celular(com DDD)</p>
-                            <input type="text" class="celular" id="celular" placeholder="(00) 0 0000-0000">
-                            <p>Email</p>
-                            <input type="email" class="email" id="email" placeholder="abcdefghijk@gmail.com">
-                            <p>3. Status</p>
-                            <select class="dropdown status">
-                                <option value="ativo">Ativo</option>
-                                <option value="pendente">Pendente</option>
-                                <option value="inativo">Inativo</option>
-                            </select>
+                        <!-- 1. Identificação -->
+                        <p class="pacSection">1. Identificação</p>
+                        <div class="consField">
+                            <p class="consLabel">Nome Completo</p>
+                            <input type="text" class="consInput nome" id="nome"
+                                placeholder="Digite o nome do paciente...">
                         </div>
-                        <div class="PacRight">
-                            <p>Gênero</p>
-                            <select class="dropdown genero">
-                                <option value="masculino">Masculino</option>
-                                <option value="feminino">Feminino</option>
-                                <option value="Nao-binario">Não-binário</option>
-                                <option value="Não-informar">Não informar</option>
+                        <div class="consField">
+                            <p class="consLabel">CPF</p>
+                            <input type="text" class="consInput cpf" id="cpf" placeholder="Digite o CPF do paciente...">
+                        </div>
+                        <!-- 2. Contatos e Dados Pessoais -->
+                        <p class="pacSection">2. Contatos e Dados Pessoais</p>
+                        <div class="consRow">
+                            <div class="PacLeft">
+                                <div class="consField">
+                                    <p class="consLabel">Celular (com DDD)</p>
+                                    <input type="text" class="consInput celular" id="celular"
+                                        placeholder="(00) 0 0000-0000">
+                                </div>
+                                <div class="consField">
+                                    <p class="consLabel">E-mail</p>
+                                    <input type="email" class="consInput email" id="email"
+                                        placeholder="abcdefghijk@gmail.com">
+                                </div>
+                            </div>
+                            <div class="PacRight">
+                                <div class="consField">
+                                    <p class="consLabel">Gênero</p>
+                                    <select class="consInput genero">
+                                        <option value="feminino">Feminino</option>
+                                        <option value="masculino">Masculino</option>
+                                        <option value="Nao-binario">Não-binário</option>
+                                        <option value="Não-informar">Prefiro não Informar</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 3. Status -->
+                        <p class="pacSection">3. Status</p>
+                        <div class="consField">
+                            <p class="consLabel">Status do Paciente</p>
+                            <select class="consInput statusPac">
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
+                                <option value="pendente">Pendente</option>
                             </select>
                         </div>
                     </div>
                     <div class="PacbuttonArea">
-                        <!-- botão para salvar a consulta **ainda sem funcionalidade -->
-                        <button class="btnAdd" id="save">Adicionar Paciente</button>
-                        <button class="btnCancelar" id="close">Cancelar</button>
+                        <!-- botão para salvar o paciente **ainda sem funcionalidade -->
+                        <button class="btnCancelar" id="closePac">Cancelar</button>
+                        <button class="btnAdd" id="savePac">Adicionar Paciente</button>
                     </div>
                 </div>
             </div>
-            <table>
-                <tr>
-                    <th>Paciente</th>
-                    <th>CPF</th>
-                    <th>Status</th>
-                    <th>próxima sessão</th>
-                    <th>ultima sessão</th>
-                    <th></th>
-                    <th></th>
-                </tr>
+            <div th:if="${clientes != null and not #lists.isEmpty(clientes)}">
+                <table id="tabelaPacientes">
+                    <tr>
+                        <th>Paciente</th>
+                        <th>CPF</th>
+                        <th>Status</th>
+                        <th>próxima sessão</th>
+                        <th>ultima sessão</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
 
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="perf">perfil</button></td>
-                    <td><button class="env">enviar confirmação de consulta</button></td>
-
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="perf">perfil</button></td>
-                    <td><button class="env">enviar confirmação de consulta</button></td>
-
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="perf">perfil</button></td>
-                    <td><button class="env">enviar confirmação de consulta</button></td>
-
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="perf">perfil</button></td>
-                    <td><button class="env">enviar confirmação de consulta</button></td>
-
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="perf">perfil</button></td>
-                    <td><button class="env">enviar confirmação de consulta</button></td>
-
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="perf">perfil</button></td>
-                    <td><button class="env">enviar confirmação de consulta</button></td>
-
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="perf">perfil</button></td>
-                    <td><button class="env">enviar confirmação de consulta</button></td>
-
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button class="perf">perfil</button></td>
-                    <td><button class="env">enviar confirmação de consulta</button></td>
-
-                </tr>
-            </table>
+                    <tr>
+                    <tr th:each="cliente : ${clientes}"
+                        th:attr="data-nome=${cliente.nome},data-cpf=${cliente.cpf},data-status=${cliente.status}">
+                        <td th:text="${cliente.nome ?: 'N/A'}">Nome do Cliente</td>
+                        <td th:text="${cliente.cpf ?: 'N/A'}">000.000.000-00</td>
+                        <td th:text="${cliente.status ?: 'N/A'}">Status</td>
+                        <td id="proxTab">00/00/0000</td>
+                        <td id="antTab">00/00/0000</td>
+                        <td><button class="perf" th:attr="data-id=${cliente.id}">perfil</button></td>
+                        <td><button class="env">enviar confirmação de consulta</button></td>
+                    </tr>
+                </table>
+            </div>
         </section>
+
+        <!-- pop-up de perfil do paciente -->
+        <div class="PerfilModal-container" id="perfil-container">
+            <div class="modalPerfil">
+                <button class="btnFecharPerfil" id="closePerfil">&#x2715;</button>
+                <h4>Perfil do Paciente</h4>
+                <p class="perfilNomePaciente" id="perfilNome">—</p>
+                <div class="perfilBody">
+                    <div class="perfilLeft">
+                        <div class="consField">
+                            <p class="consLabel">CPF</p>
+                            <div class="perfilInfo" id="perfilCpf">—</div>
+                        </div>
+                        <div class="consField">
+                            <p class="consLabel">Celular (com DDD)</p>
+                            <div class="perfilInfo" id="perfilTelefone">—</div>
+                        </div>
+                        <div class="consField">
+                            <p class="consLabel">E-mail</p>
+                            <div class="perfilInfo" id="perfilEmail">—</div>
+                        </div>
+                        <div class="consField">
+                            <p class="consLabel">Gênero</p>
+                            <div class="perfilInfo" id="perfilGenero">—</div>
+                        </div>
+                    </div>
+                    <div class="perfilRight">
+                        <p class="pacSection">Histórico Consultas</p>
+                        <div class="consField">
+                            <p class="consLabel">Próxima Consulta</p>
+                            <div class="perfilInfo" id="perfilProxima">—</div>
+                        </div>
+                        <div class="consField">
+                            <p class="consLabel">Consulta Anterior</p>
+                            <div class="perfilInfo" id="perfilAnterior">—</div>
+                        </div>
+                        <div class="consField">
+                            <p class="consLabel">Status</p>
+                            <div class="perfilInfo" id="perfilStatus">—</div>
+                        </div>
+                        <div class="perfilActions">
+                            <!-- **ainda sem funcionalidade -->
+                            <button class="btnEditar">Editar Dados</button>
+                            <button class="btnSalvar">Agendar Consulta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
     <script>
+        // ─── toastify ───
+        function toast(mensagem, tipo = 'erro') {
+            const cores = {
+                sucesso: '#3aacaa',
+                erro:    '#e05c5c',
+                aviso:   '#e0a85c'
+            };
+            Toastify({
+                text: mensagem,
+                duration: 3000,
+                gravity: 'top',
+                position: 'right',
+                style: { background: cores[tipo] ?? cores.erro },
+                stopOnFocus: true
+            }).showToast();
+        }
+
+        // ─── modal de consultas ───
         const novaConsultaButton = document.getElementById('NovaCon');
         const modalContainer = document.getElementById('cons-container');
-        const closeButton = document.getElementById('close');
         novaConsultaButton.addEventListener('click', () => {
             modalContainer.classList.add('open');
             modalContainer.style.transition = '0.2s ease-in-out';
         });
-
-        closeButton.addEventListener('click', () => {
+        document.getElementById('close').addEventListener('click', () => {
             modalContainer.classList.remove('open');
         });
+
+        // busca de pacientes no modal de consultas
+        let clienteSelecionadoId = null;
+        document.getElementById('pesqNome').addEventListener('input', async (e) => {
+            const nome = e.target.value.trim();
+            const list = document.getElementById('NameList');
+            if (nome.length < 2) { list.innerHTML = ''; return; }
+
+            const res = await fetch(`/api/clientes/buscar?nome=${encodeURIComponent(nome)}`);
+            const clientes = await res.json();
+            list.innerHTML = '';
+            clientes.forEach(c => {
+                const li = document.createElement('li');
+                li.className = 'NameOpt';
+                li.textContent = c.nome;
+                li.addEventListener('click', () => {
+                    clienteSelecionadoId = c.id;
+                    document.getElementById('pesqNome').value = c.nome;
+                    list.innerHTML = '';
+                });
+                list.appendChild(li);
+            });
+        });
+
+
+        
+
+        // salvar consulta
+        document.getElementById('save').addEventListener('click', async () => {
+            if (!clienteSelecionadoId) { toast('Selecione um paciente', 'aviso'); return; }
+            const payload = {
+                clienteId: clienteSelecionadoId,
+                data: document.getElementById('data').value,
+                horario: document.getElementById('hora').value,
+                valor: parseFloat(document.getElementById('valor').value) || 0
+            };
+            const res = await fetch('/api/consultas', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (res.ok) {
+                modalContainer.classList.remove('open');
+                toast('Consulta marcada com sucesso!', 'sucesso');
+                setTimeout(() => location.reload(), 1500);
+            } else {
+                toast(data.erro || 'Erro ao salvar consulta', 'erro');
+            }
+        });
+
+        // ─── busca e filtro da tabela de pacientes ───
+        function filtrarPacientes() {
+            const termo = document.getElementById('searchPac').value.toLowerCase();
+            const status = document.getElementById('filterStatus').value;
+            const tabela = document.getElementById('tabelaPacientes');
+            if (!tabela) return;
+
+            tabela.querySelectorAll('tr[data-nome]').forEach(tr => {
+                const nome   = (tr.dataset.nome  ?? '').toLowerCase();
+                const cpf    = (tr.dataset.cpf   ?? '').toLowerCase();
+                const stPac  = (tr.dataset.status ?? '').toLowerCase();
+
+                const bateBusca  = !termo  || nome.includes(termo) || cpf.includes(termo);
+                const bateStatus = status === 'todos' || stPac === status;
+
+                tr.style.display = bateBusca && bateStatus ? '' : 'none';
+            });
+        }
+
+        document.getElementById('searchPac')?.addEventListener('input', filtrarPacientes);
+        document.getElementById('filterStatus')?.addEventListener('change', filtrarPacientes);
+
+        // ─── modal de perfil do paciente ───
+        const perfilContainer = document.getElementById('perfil-container');
+        document.getElementById('closePerfil').addEventListener('click', () => {
+            perfilContainer.classList.remove('open');
+        });
+
+
+
+        document.querySelectorAll('button.perf').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.id;
+                const res = await fetch(`/api/clientes/${id}/perfil`);
+                const p = await res.json();
+
+                document.getElementById('perfilNome').textContent = p.nome || '—';
+                document.getElementById('perfilCpf').textContent = p.cpf || '—';
+                document.getElementById('perfilTelefone').textContent = p.telefone || '—';
+                document.getElementById('perfilEmail').textContent = p.email || '—';
+                document.getElementById('perfilGenero').textContent = p.genero || '—';
+                document.getElementById('perfilProxima').textContent = p.proximaConsulta || '—';
+                document.getElementById('perfilAnterior').textContent = p.consultaAnterior || '—';
+                document.getElementById('perfilStatus').textContent = p.status || '—';
+
+                perfilContainer.classList.add('open');
+                perfilContainer.style.transition = '0.2s ease-in-out';
+            });
+        });
+
+        // ─── modal de pacientes ───
+        const novoPacienteButton = document.querySelector('button.pac');
+        const pacModalContainer = document.getElementById('pac-container');
+        novoPacienteButton.addEventListener('click', () => {
+            pacModalContainer.classList.add('open');
+            pacModalContainer.style.transition = '0.2s ease-in-out';
+        });
+        document.getElementById('closePac').addEventListener('click', () => {
+            pacModalContainer.classList.remove('open');
+        });
+
+        // salvar paciente
+        document.getElementById('savePac').addEventListener('click', async () => {
+            const payload = {
+                nome: document.getElementById('nome').value,
+                cpf: document.getElementById('cpf').value,
+                telefone: document.getElementById('celular').value,
+                email: document.getElementById('email').value,
+                genero: document.querySelector('select.genero').value,
+                status: document.querySelector('select.statusPac').value
+            };
+            const res = await fetch('/api/clientes', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (res.ok) {
+                pacModalContainer.classList.remove('open');
+                toast('Paciente cadastrado com sucesso!', 'sucesso');
+                setTimeout(() => location.reload(), 1500);
+            } else {
+                toast(data.erro || 'Erro ao salvar paciente', 'erro');
+            }
+        });
+
+
+        
     </script>
 </body>
 
