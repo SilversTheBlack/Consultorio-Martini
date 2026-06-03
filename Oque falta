@@ -1,0 +1,42 @@
+do Gabriel:
+Dashboard*
+Reposicionar os dados do dashboard
+
+Cadastro de pacientes*
+formatar o nome para a primeira letra de cada palavra ser maiúscula
+formatar o cpf para ser escrito sempre com ". . -"
+formatar o numero para que os primeiros 2 números(DDD) sejam dentro de (), que tenha espaço entre o "9" e o resto do numero, e que os 8 números sejam separados no meio por um traço
+
+perfil de paciente*
+habilitar edição em todos os campos menos no cpf 
+habilitar link para 
+
+*geral
+Deixar responsivo!!
+mudar o microsserviço de validação de e-mail para um que valide se o e-mail recebe e envia e-mails!
+
+Lembrete*
+salvar o texto que for escrito na "textarea"
+
+
+Botão de todas as consultas*
+abrir um pop-up que mostre os dados de todas as consultas com uma barra de pesquisa(que nem a tabela de pacientes)
+
+
+da Stephanie:
+Cadastro de consulta*
+Delimitar em quais horários a consulta pode ser marcada(possivelmente com limite de opções entre horários)
+Não permitir que duas consultas sejam marcadas ao mesmo tempo
+permitir que seja marcado do inicio ao final da sessão
+
+*Informações da consulta
+fazer.
+
+Tabela de consultas*
+Mostrar as consultas posicionadas de acordo com o horário e o dia da semana
+
+*geral!
+adicionar microsserviço de envio de e-mails(e adicionar a funcionalidade)!!
+
+
+
