@@ -32,7 +32,7 @@ header {
     top: 0;
     display: flex;
     background-color: #1F363D;
-    width: 100vw;
+    width: 100%;
     height: 9.875rem;
     justify-content: flex-start;
     align-items: center;
@@ -67,7 +67,7 @@ h3 {
     position: fixed;
     direction: column;
     width: 20%;
-    height: calc(100vh - 9.875rem);
+    height: calc(100% - 9.875rem);
     background-color: #40798C;
     margin-top: 9.875rem;
     justify-content: center;
@@ -133,7 +133,6 @@ main {
     margin-top: 9.4rem;
     margin-bottom: 5rem;
 }
-
 button {
     cursor: pointer;
 }
@@ -142,6 +141,22 @@ button {
 .resumo h2 {
     height: 2rem;
     flex-basis: 100%;
+}
+.resumo h3{
+    height: 1.5rem;
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.resumo span {
+    height: 7rem;
+    width: 15rem;
+    color: #C6EAE5;
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    flex-basis: 100%;
+    
 }
 
 .resumo b {
@@ -173,6 +188,7 @@ button {
     color: #D6F1F1;
     border-radius: 30px;
     justify-content: center;
+    flex-wrap: wrap;
 
 }
 
