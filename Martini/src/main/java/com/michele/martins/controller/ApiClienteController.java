@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -71,6 +72,26 @@ public class ApiClienteController {
         return ResponseEntity.ok(response);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Map<String, String>> atualizar(@PathVariable Long id, @RequestBody Cliente dados) {
+        Cliente cliente = clienteRepository.findById(id).orElse(null);
+        if (cliente == null) return ResponseEntity.notFound().build();
+
+        // CPF nunca é alterado
+        cliente.setNome(dados.getNome());
+        cliente.setTelefone(dados.getTelefone());
+        cliente.setEmail(dados.getEmail());
+        cliente.setGenero(dados.getGenero());
+        cliente.setStatus(dados.getStatus());
+
+        try {
+            clienteRepository.save(cliente);
+            return ResponseEntity.ok(Map.of("mensagem", "Paciente atualizado com sucesso"));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(Map.of("erro", "Erro ao atualizar paciente"));
+        }
+    }
+
     @PostMapping
     public ResponseEntity<Map<String, String>> salvar(@RequestBody Cliente cliente) {
         // valida CPF
@@ -97,9 +118,18 @@ public class ApiClienteController {
                     .body(Map.of("erro", "Serviço de validação de e-mail indisponível"));
         }
 
+        // verifica CPF duplicado
+        String cpfLimpo = cliente.getCpf() != null ? cliente.getCpf().replaceAll("[^0-9]", "") : "";
+        String cpfFormatado = cliente.getCpf() != null ? cliente.getCpf() : "";
+        if (clienteRepository.existsByCpf(cpfFormatado) || clienteRepository.existsByCpf(cpfLimpo)) {
+            return ResponseEntity.badRequest().body(Map.of("erro", "Já existe um paciente cadastrado com este CPF"));
+        }
+
         try {
             clienteRepository.save(cliente);
             return ResponseEntity.ok(Map.of("mensagem", "Paciente salvo com sucesso"));
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.badRequest().body(Map.of("erro", "Já existe um paciente cadastrado com este CPF"));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(Map.of("erro", "Erro ao salvar paciente"));
         }

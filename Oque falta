@@ -6,15 +6,16 @@ Cadastro de pacientes*
 formatar o nome para a primeira letra de cada palavra ser maiúscula - feito
 formatar o cpf para ser escrito sempre com ". . -" - feito
 formatar o numero para que os primeiros 2 números(DDD) sejam dentro de (), que tenha espaço entre o "9" e o resto do numero, e que os 8 números sejam separados no meio por um traço - feito
-nao permitir que dois pacientes com o mesmo cpf sejam cadastrados 
+nao permitir que dois pacientes com o mesmo cpf sejam cadastrados  - feito
 
-perfil de paciente*
-habilitar edição em todos os campos menos no cpf 
-habilitar link para cadastro de consultas - feito
+perfil de paciente* 
+habilitar edição em todos os campos menos no cpf - feito
+habilitar link para cadastro de consultas - feito  
 
 *geral
 Deixar responsivo!!
 mudar o microsserviço de validação de e-mail para um que valide se o e-mail recebe e envia e-mails!
+arrumar os links de navegação
 
 Lembrete*
 salvar o texto que for escrito na "textarea"
@@ -22,7 +23,6 @@ salvar o texto que for escrito na "textarea"
 
 Botão de todas as consultas*
 abrir um pop-up que mostre os dados de todas as consultas com uma barra de pesquisa(que nem a tabela de pacientes)
-
 
 da Stephanie:
 Cadastro de consulta*

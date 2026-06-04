@@ -12,6 +12,7 @@ public class Cliente {
 
     private String nome;
 
+    @Column(unique = true)
     private String cpf;
 
     private String telefone;

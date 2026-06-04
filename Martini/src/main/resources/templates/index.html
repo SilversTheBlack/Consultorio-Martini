@@ -288,24 +288,30 @@
             <div class="modalPerfil">
                 <button class="btnFecharPerfil" id="closePerfil">&#x2715;</button>
                 <h4>Perfil do Paciente</h4>
-                <p class="perfilNomePaciente" id="perfilNome">—</p>
+                <input class="perfilNomePaciente perfilInput" id="perfilNomeInput" readonly>
                 <div class="perfilBody">
                     <div class="perfilLeft">
                         <div class="consField">
                             <p class="consLabel">CPF</p>
+                            <!-- CPF nunca é editável -->
                             <div class="perfilInfo" id="perfilCpf">—</div>
                         </div>
                         <div class="consField">
                             <p class="consLabel">Celular (com DDD)</p>
-                            <div class="perfilInfo" id="perfilTelefone">—</div>
+                            <input class="perfilInfo perfilInput" id="perfilTelefoneInput" readonly>
                         </div>
                         <div class="consField">
                             <p class="consLabel">E-mail</p>
-                            <div class="perfilInfo" id="perfilEmail">—</div>
+                            <input class="perfilInfo perfilInput" id="perfilEmailInput" readonly>
                         </div>
                         <div class="consField">
                             <p class="consLabel">Gênero</p>
-                            <div class="perfilInfo" id="perfilGenero">—</div>
+                            <select class="perfilInfo perfilSelect" id="perfilGeneroSelect" disabled>
+                                <option value="feminino">Feminino</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="Nao-binario">Não-binário</option>
+                                <option value="Não-informar">Prefiro não Informar</option>
+                            </select>
                         </div>
                     </div>
                     <div class="perfilRight">
@@ -320,18 +326,22 @@
                         </div>
                         <div class="consField">
                             <p class="consLabel">Status</p>
-                            <div class="perfilInfo" id="perfilStatus">—</div>
+                            <select class="perfilInfo perfilSelect" id="perfilStatusSelect" disabled>
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
+                                <option value="pendente">Pendente</option>
+                            </select>
                         </div>
                         <div class="perfilActions">
-                            <!-- **ainda sem funcionalidade -->
-                            <button class="btnEditar">Editar Dados</button>
+                            <button class="btnEditar" id="btnEditar">Editar Dados</button>
+                            <button class="btnSalvarEdicao" id="btnSalvarEdicao" style="display:none">Salvar Alterações</button>
                             <button class="btnSalvar" id="btnAgend">Agendar Consulta</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    
     </main>
     <script>
         // ─── toastify ───
@@ -439,7 +449,7 @@
             else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/,               '$1.$2');
             this.value = v;
         });
-
+        
         // máscara de celular: (00) 0 0000-0000 / (00) 0000-0000
         document.getElementById('celular')?.addEventListener('input', function () {
             let v = this.value.replace(/\D/g, '').slice(0, 11);
@@ -449,18 +459,36 @@
             else if (v.length > 0)  v = v.replace(/(\d{0,2})/,                      '($1');
             this.value = v;
         });
-
+        
         // capitaliza primeira letra de cada palavra no campo nome
         document.getElementById('nome')?.addEventListener('input', function () {
             const pos = this.selectionStart;
             this.value = this.value.replace(/(?:^|\s)\S/g, c => c.toUpperCase());
             this.setSelectionRange(pos, pos);
         });
-
-        // ─── pop-up de perfil do paciente ───
+        
+        // ─── modal de perfil do paciente ───
         const perfilContainer = document.getElementById('perfil-container');
+        let perfilClienteId = null;
+
+        function sairModoEdicao() {
+            perfilContainer.querySelectorAll('.perfilInput').forEach(i => i.setAttribute('readonly', ''));
+            perfilContainer.querySelectorAll('.perfilSelect').forEach(s => s.setAttribute('disabled', ''));
+            document.getElementById('btnSalvarEdicao').style.display = 'none';
+            document.getElementById('btnEditar').textContent = 'Editar Dados';
+        }
+
+        function setSelectValue(select, valor) {
+            if (!valor || valor === '—') return;
+            const opt = Array.from(select.options).find(
+                o => o.value.toLowerCase() === valor.toLowerCase() || o.text.toLowerCase() === valor.toLowerCase()
+            );
+            if (opt) select.value = opt.value;
+        }
+
         document.getElementById('closePerfil').addEventListener('click', () => {
             perfilContainer.classList.remove('open');
+            sairModoEdicao();
         });
 
         document.getElementById('btnAgend').addEventListener('click', () => {
@@ -468,22 +496,58 @@
             novaConsultaButton.click();
         });
 
+        document.getElementById('btnEditar').addEventListener('click', () => {
+            const emEdicao = !document.getElementById('perfilNomeInput').hasAttribute('readonly');
+            if (emEdicao) {
+                sairModoEdicao();
+            } else {
+                perfilContainer.querySelectorAll('.perfilInput').forEach(i => i.removeAttribute('readonly'));
+                perfilContainer.querySelectorAll('.perfilSelect').forEach(s => s.removeAttribute('disabled'));
+                document.getElementById('btnSalvarEdicao').style.display = '';
+                document.getElementById('btnEditar').textContent = 'Cancelar';
+            }
+        });
+
+        document.getElementById('btnSalvarEdicao').addEventListener('click', async () => {
+            const payload = {
+                nome:     document.getElementById('perfilNomeInput').value,
+                telefone: document.getElementById('perfilTelefoneInput').value,
+                email:    document.getElementById('perfilEmailInput').value,
+                genero:   document.getElementById('perfilGeneroSelect').value,
+                status:   document.getElementById('perfilStatusSelect').value
+            };
+            const res = await fetch(`/api/clientes/${perfilClienteId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            if (res.ok) {
+                toast('Dados atualizados com sucesso!', 'sucesso');
+                sairModoEdicao();
+                setTimeout(() => location.reload(), 1500);
+            } else {
+                toast(data.erro || 'Erro ao atualizar paciente', 'erro');
+            }
+        });
 
         document.querySelectorAll('button.perf').forEach(btn => {
             btn.addEventListener('click', async () => {
                 const id = btn.dataset.id;
+                perfilClienteId = id;
                 const res = await fetch(`/api/clientes/${id}/perfil`);
                 const p = await res.json();
 
-                document.getElementById('perfilNome').textContent = p.nome || '—';
-                document.getElementById('perfilCpf').textContent = p.cpf || '—';
-                document.getElementById('perfilTelefone').textContent = p.telefone || '—';
-                document.getElementById('perfilEmail').textContent = p.email || '—';
-                document.getElementById('perfilGenero').textContent = p.genero || '—';
-                document.getElementById('perfilProxima').textContent = p.proximaConsulta || '—';
+                document.getElementById('perfilNomeInput').value     = p.nome     || '';
+                document.getElementById('perfilCpf').textContent     = p.cpf      || '—';
+                document.getElementById('perfilTelefoneInput').value = p.telefone || '';
+                document.getElementById('perfilEmailInput').value    = p.email    || '';
+                setSelectValue(document.getElementById('perfilGeneroSelect'), p.genero);
+                setSelectValue(document.getElementById('perfilStatusSelect'), p.status);
+                document.getElementById('perfilProxima').textContent  = p.proximaConsulta  || '—';
                 document.getElementById('perfilAnterior').textContent = p.consultaAnterior || '—';
-                document.getElementById('perfilStatus').textContent = p.status || '—';
 
+                sairModoEdicao();
                 perfilContainer.classList.add('open');
                 perfilContainer.style.transition = '0.2s ease-in-out';
             });

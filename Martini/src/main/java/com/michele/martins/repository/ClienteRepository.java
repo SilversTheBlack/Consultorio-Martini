@@ -15,4 +15,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     long countByStatus(String status);
 
+    boolean existsByCpf(String cpf);
+
 }
