@@ -2,20 +2,21 @@ do Gabriel:
 Dashboard*
 Reposicionar os dados do dashboard - feito
 
-Cadastro de pacientes*
-formatar o nome para a primeira letra de cada palavra ser maiúscula - feito
-formatar o cpf para ser escrito sempre com ". . -" - feito
-formatar o numero para que os primeiros 2 números(DDD) sejam dentro de (), que tenha espaço entre o "9" e o resto do numero, e que os 8 números sejam separados no meio por um traço - feito
-nao permitir que dois pacientes com o mesmo cpf sejam cadastrados  - feito
+Cadastro de pacientes* 
+formatar o nome para a primeira letra de cada palavra ser maiúscula - feito 
+formatar o cpf para ser escrito sempre com ". . -" - feito 
+formatar o numero para que os primeiros 2 números(DDD) sejam dentro de (), que tenha espaço entre o "9" e o resto do numero, e que os 8 números sejam separados no meio por um traço - feito 
+nao permitir que dois pacientes com o mesmo cpf sejam cadastrados  - feito 
 
 perfil de paciente* 
-habilitar edição em todos os campos menos no cpf - feito
-habilitar link para cadastro de consultas - feito  
+habilitar edição em todos os campos menos no cpf - feito 
+habilitar link para cadastro de consultas - feito 
 
 *geral
 Deixar responsivo!!
 mudar o microsserviço de validação de e-mail para um que valide se o e-mail recebe e envia e-mails!
 arrumar os links de navegação
+adicionar divisória entre sessões
 
 Lembrete*
 salvar o texto que for escrito na "textarea"
