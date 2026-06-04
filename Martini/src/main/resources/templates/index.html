@@ -325,7 +325,7 @@
                         <div class="perfilActions">
                             <!-- **ainda sem funcionalidade -->
                             <button class="btnEditar">Editar Dados</button>
-                            <button class="btnSalvar">Agendar Consulta</button>
+                            <button class="btnSalvar" id="btnAgend">Agendar Consulta</button>
                         </div>
                     </div>
                 </div>
@@ -351,7 +351,7 @@
             }).showToast();
         }
 
-        // ─── modal de consultas ───
+        // ─── pop-up de consultas ───
         const novaConsultaButton = document.getElementById('NovaCon');
         const modalContainer = document.getElementById('cons-container');
         novaConsultaButton.addEventListener('click', () => {
@@ -362,7 +362,7 @@
             modalContainer.classList.remove('open');
         });
 
-        // busca de pacientes no modal de consultas
+        // busca de pacientes no pop-up de consultas
         let clienteSelecionadoId = null;
         document.getElementById('pesqNome').addEventListener('input', async (e) => {
             const nome = e.target.value.trim();
@@ -384,9 +384,6 @@
                 list.appendChild(li);
             });
         });
-
-
-        
 
         // salvar consulta
         document.getElementById('save').addEventListener('click', async () => {
@@ -434,12 +431,42 @@
         document.getElementById('searchPac')?.addEventListener('input', filtrarPacientes);
         document.getElementById('filterStatus')?.addEventListener('change', filtrarPacientes);
 
-        // ─── modal de perfil do paciente ───
+        // máscara de CPF: 000.000.000-00
+        document.getElementById('cpf')?.addEventListener('input', function () {
+            let v = this.value.replace(/\D/g, '').slice(0, 11);
+            if      (v.length > 9) v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
+            else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{0,3})/,        '$1.$2.$3');
+            else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/,               '$1.$2');
+            this.value = v;
+        });
+
+        // máscara de celular: (00) 0 0000-0000 / (00) 0000-0000
+        document.getElementById('celular')?.addEventListener('input', function () {
+            let v = this.value.replace(/\D/g, '').slice(0, 11);
+            if      (v.length > 10) v = v.replace(/(\d{2})(\d{1})(\d{4})(\d{0,4})/, '($1) $2 $3-$4');
+            else if (v.length > 6)  v = v.replace(/(\d{2})(\d{4})(\d{0,4})/,        '($1) $2-$3');
+            else if (v.length > 2)  v = v.replace(/(\d{2})(\d{0,4})/,               '($1) $2');
+            else if (v.length > 0)  v = v.replace(/(\d{0,2})/,                      '($1');
+            this.value = v;
+        });
+
+        // capitaliza primeira letra de cada palavra no campo nome
+        document.getElementById('nome')?.addEventListener('input', function () {
+            const pos = this.selectionStart;
+            this.value = this.value.replace(/(?:^|\s)\S/g, c => c.toUpperCase());
+            this.setSelectionRange(pos, pos);
+        });
+
+        // ─── pop-up de perfil do paciente ───
         const perfilContainer = document.getElementById('perfil-container');
         document.getElementById('closePerfil').addEventListener('click', () => {
             perfilContainer.classList.remove('open');
         });
 
+        document.getElementById('btnAgend').addEventListener('click', () => {
+            perfilContainer.classList.remove('open');
+            novaConsultaButton.click();
+        });
 
 
         document.querySelectorAll('button.perf').forEach(btn => {
@@ -462,7 +489,7 @@
             });
         });
 
-        // ─── modal de pacientes ───
+        // ─── pop-up de pacientes ───
         const novoPacienteButton = document.querySelector('button.pac');
         const pacModalContainer = document.getElementById('pac-container');
         novoPacienteButton.addEventListener('click', () => {
