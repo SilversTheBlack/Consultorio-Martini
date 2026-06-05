@@ -77,6 +77,21 @@ public class ApiClienteController {
         Cliente cliente = clienteRepository.findById(id).orElse(null);
         if (cliente == null) return ResponseEntity.notFound().build();
 
+        // valida e-mail se foi alterado
+        if (dados.getEmail() != null && !dados.getEmail().equals(cliente.getEmail())) {
+            try {
+                String urlEmail = msEmailUrl + "/validar?email=" + dados.getEmail();
+                @SuppressWarnings("unchecked")
+                Map<String, Object> respostaEmail = restTemplate.getForObject(urlEmail, Map.class);
+                if (respostaEmail == null || !Boolean.TRUE.equals(respostaEmail.get("valido"))) {
+                    return ResponseEntity.badRequest().body(Map.of("erro", "E-mail inválido"));
+                }
+            } catch (RestClientException e) {
+                return ResponseEntity.internalServerError()
+                        .body(Map.of("erro", "Serviço de validação de e-mail indisponível"));
+            }
+        }
+
         // CPF nunca é alterado
         cliente.setNome(dados.getNome());
         cliente.setTelefone(dados.getTelefone());

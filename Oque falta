@@ -12,9 +12,15 @@ perfil de paciente*
 habilitar edição em todos os campos menos no cpf - feito 
 habilitar link para cadastro de consultas - feito 
 
+tabela de pacientes*
+mostrar a ultima e proxima sessão - feito
+
+Botão de todas as consultas*
+abrir um pop-up que mostre os dados de todas as consultas com uma barra de pesquisa(que nem a tabela de pacientes) - feito
+
 *geral
 Deixar responsivo!!
-mudar o microsserviço de validação de e-mail para um que valide se o e-mail recebe e envia e-mails!
+mudar o microsserviço de validação de e-mail para um que valide se o e-mail recebe e envia e-mails! - feito
 arrumar os links de navegação
 adicionar divisória entre sessões
 
@@ -22,8 +28,7 @@ Lembrete*
 salvar o texto que for escrito na "textarea"
 
 
-Botão de todas as consultas*
-abrir um pop-up que mostre os dados de todas as consultas com uma barra de pesquisa(que nem a tabela de pacientes)
+
 
 da Stephanie:
 Cadastro de consulta*

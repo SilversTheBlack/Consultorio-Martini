@@ -18,7 +18,6 @@
     <header>
         <img class="logo-mm-1" alt="" src="/images/new-logo-batch---24-high-resolution-logo-transparent 1.svg">
         <img class="logo-2" alt="" src="/images/new-logo-batch---24-high-resolution-logo-transparent 7.svg">
-        <input type="text" class="search" placeholder="Pesquisar...">
     </header>
 
     <!-- nav fixado na esquerda do site **falta adicionar os icones -->
@@ -274,14 +273,42 @@
                         <td th:text="${cliente.nome ?: 'N/A'}">Nome do Cliente</td>
                         <td th:text="${cliente.cpf ?: 'N/A'}">000.000.000-00</td>
                         <td th:text="${cliente.status ?: 'N/A'}">Status</td>
-                        <td id="proxTab">00/00/0000</td>
-                        <td id="antTab">00/00/0000</td>
+                        <td th:text="${cliente.proximaConsulta}">—</td>
+                        <td th:text="${cliente.consultaAnterior}">—</td>
                         <td><button class="perf" th:attr="data-id=${cliente.id}">perfil</button></td>
                         <td><button class="env">enviar confirmação de consulta</button></td>
                     </tr>
                 </table>
             </div>
         </section>
+
+        <!-- pop-up de histórico de consultas -->
+        <div class="ConsHistModal-container" id="hist-container">
+            <div class="modalConsHist">
+                <h4>Histórico de Consultas</h4>
+                <div class="histHeader">
+                    <input type="text" class="histSearch" id="searchHist" placeholder="Nome, CPF, e-mail, telefone e data">
+                    <button class="btnFiltros">Filtros</button>
+                </div>
+                <div class="histTableWrapper">
+                    <table class="histTable">
+                        <thead>
+                            <tr>
+                                <th>Data &amp; Hora</th>
+                                <th>Paciente</th>
+                                <th>CPF</th>
+                                <th>Valor</th>
+                                <th>Visualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="histTableBody"></tbody>
+                    </table>
+                </div>
+                <div class="histFooter">
+                    <button class="btnVoltar" id="closeHist">Voltar</button>
+                </div>
+            </div>
+        </div>
 
         <!-- pop-up de perfil do paciente -->
         <div class="PerfilModal-container" id="perfil-container">
@@ -460,6 +487,17 @@
             this.value = v;
         });
         
+        // máscara de valor: R$ 0,00
+        document.getElementById('valor')?.addEventListener('input', function () {
+            let digits = this.value.replace(/\D/g, '');
+            if (!digits) { this.value = ''; return; }
+            digits = digits.replace(/^0+/, '') || '0';
+            while (digits.length < 3) digits = '0' + digits;
+            const cents = digits.slice(-2);
+            const reais = digits.slice(0, -2).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            this.value = 'R$ ' + reais + ',' + cents;
+        });
+
         // capitaliza primeira letra de cada palavra no campo nome
         document.getElementById('nome')?.addEventListener('input', function () {
             const pos = this.selectionStart;
@@ -550,6 +588,40 @@
                 sairModoEdicao();
                 perfilContainer.classList.add('open');
                 perfilContainer.style.transition = '0.2s ease-in-out';
+            });
+        });
+
+        // ─── pop-up de histórico de consultas ───
+        const histContainer = document.getElementById('hist-container');
+
+        document.querySelector('.btnTodasCons').addEventListener('click', async () => {
+            const res = await fetch('/api/consultas');
+            const consultas = await res.json();
+            const tbody = document.getElementById('histTableBody');
+            tbody.innerHTML = '';
+            consultas.forEach(c => {
+                const tr = document.createElement('tr');
+                tr.dataset.busca = `${c.paciente} ${c.cpf} ${c.dataHora}`.toLowerCase();
+                tr.innerHTML = `
+                    <td>${c.dataHora}</td>
+                    <td>${c.paciente}</td>
+                    <td>${c.cpf}</td>
+                    <td>${c.valor}</td>
+                    <td><button class="btnVisualizarCons">Visualizar Consulta</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+            histContainer.classList.add('open');
+        });
+
+        document.getElementById('closeHist').addEventListener('click', () => {
+            histContainer.classList.remove('open');
+        });
+
+        document.getElementById('searchHist').addEventListener('input', function () {
+            const termo = this.value.toLowerCase();
+            document.querySelectorAll('#histTableBody tr').forEach(tr => {
+                tr.style.display = tr.dataset.busca.includes(termo) ? '' : 'none';
             });
         });
 

@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "abstract.api.key",
+      "type": "java.lang.String",
+      "description": "Chave de API da AbstractAPI para validação de e-mail."
+    },
+    {
+      "name": "abstract.api.url",
+      "type": "java.lang.String",
+      "description": "URL base da AbstractAPI para validação de e-mail."
+    }
+  ]
+}
