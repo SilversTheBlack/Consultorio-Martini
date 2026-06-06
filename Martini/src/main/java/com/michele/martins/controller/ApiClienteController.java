@@ -15,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -147,6 +148,39 @@ public class ApiClienteController {
             return ResponseEntity.badRequest().body(Map.of("erro", "Já existe um paciente cadastrado com este CPF"));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(Map.of("erro", "Erro ao salvar paciente"));
+        }
+    }
+
+    @PostMapping("/{id}/enviar-confirmacao")
+    public ResponseEntity<Map<String, String>> enviarConfirmacao(@PathVariable Long id) {
+        Cliente cliente = clienteRepository.findById(id).orElse(null);
+        if (cliente == null) return ResponseEntity.notFound().build();
+
+        LocalDate hoje = LocalDate.now();
+        Optional<Consulta> proximaConsulta = consultaRepository
+                .findFirstByClienteIdAndDataGreaterThanEqualOrderByDataAsc(id, hoje);
+
+        if (proximaConsulta.isEmpty()) {
+            return ResponseEntity.badRequest().body(Map.of("erro", "Nenhuma consulta futura encontrada para este paciente."));
+        }
+
+        Consulta consulta = proximaConsulta.get();
+
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("destinatario", cliente.getEmail());
+        payload.put("nomePaciente", cliente.getNome());
+        payload.put("data", consulta.getData().toString());
+        payload.put("horarioInicio", consulta.getHorario().toString());
+        payload.put("horarioFim", consulta.getHorarioFim() != null ? consulta.getHorarioFim().toString() : "");
+        payload.put("valor", consulta.getValor());
+
+        try {
+            String urlEmail = msEmailUrl + "/email/confirmacao-consulta";
+            restTemplate.postForObject(urlEmail, payload, Map.class);
+            return ResponseEntity.ok(Map.of("mensagem", "E-mail de confirmação enviado com sucesso"));
+        } catch (RestClientException e) {
+            return ResponseEntity.internalServerError()
+                    .body(Map.of("erro", "Serviço de e-mail indisponível. E-mail não foi enviado."));
         }
     }
 }

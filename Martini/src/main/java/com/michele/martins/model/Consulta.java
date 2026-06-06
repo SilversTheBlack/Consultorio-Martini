@@ -20,6 +20,8 @@ public class Consulta {
 
     private LocalTime horario;
 
+    private LocalTime horarioFim;
+
     private float valor;
 
     private String obs;
@@ -56,6 +58,14 @@ public class Consulta {
 
     public void setHorario(LocalTime horario) {
         this.horario = horario;
+    }
+
+    public LocalTime getHorarioFim() {
+        return horarioFim;
+    }
+
+    public void setHorarioFim(LocalTime horarioFim) {
+        this.horarioFim = horarioFim;
     }
 
     public float getValor() {

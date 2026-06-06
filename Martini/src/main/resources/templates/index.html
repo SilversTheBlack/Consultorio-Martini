@@ -9,7 +9,9 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js" defer></script>
 </head>
 
 <body>
@@ -18,6 +20,7 @@
     <header>
         <img class="logo-mm-1" alt="" src="/images/new-logo-batch---24-high-resolution-logo-transparent 1.svg">
         <img class="logo-2" alt="" src="/images/new-logo-batch---24-high-resolution-logo-transparent 7.svg">
+        <input type="text" class="search" placeholder="Pesquisar...">
     </header>
 
     <!-- nav fixado na esquerda do site **falta adicionar os icones -->
@@ -53,13 +56,15 @@
 
         <!-- Seção da agenda semanal -->
         <section class="agenda" id="agend">
-            <b>Agenda Semanal</b>
+            <div class="agenda-top">
+                <b>Agenda Semanal</b>
+                <div class="agenda-actions">
+                    <button class="agenda-btn agenda-btn-secondary btnTodasCons" type="button">Todas as consultas</button>
+                    <button class="agenda-btn agenda-btn-primary" id="NovaCon" type="button">Agendar Nova Consulta</button>
+                </div>
+            </div>
 
-            <button class="btnTodasCons">Todas as consultas</button>
-            <!-- botão de link para agendamento de consultas -->
-            <button id="NovaCon">Agendar Nova Consulta</button>
-
-            <!-- pop-up de cadastro de consultas **ainda sem funcionalidade-->
+            <!-- pop-up de cadastro de consultas -->
 
             <div class="modal-container" id="cons-container">
                 <div class="modalCons">
@@ -78,10 +83,37 @@
                                     <p class="consLabel">Data</p>
                                     <input type="date" class="consInput data" id="data">
                                 </div>
+                            </div>
+                            <div class="consRow">
                                 <div class="consField">
-                                    <p class="consLabel">Hora</p>
-                                    <!-- se a hora estiver indisponivel mostrar mensagem -->
-                                    <input type="time" class="consInput hora" id="hora">
+                                    <p class="consLabel">Horário Início</p>
+                                    <select class="consInput horaInicio" id="horaInicio">
+                                        <option value="">Selecione...</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                    </select>
+                                </div>
+                                <div class="consField">
+                                    <p class="consLabel">Horário Fim</p>
+                                    <select class="consInput horaFim" id="horaFim">
+                                        <option value="">Selecione...</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="12:00">12:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="consField valorField">
@@ -91,94 +123,57 @@
                         </div>
                     </div>
                     <div class="buttonArea">
-                        <!-- botão para salvar a consulta **ainda sem funcionalidade -->
+                        <!-- botão para salvar a consulta -->
                         <button class="btnCancelar" id="close">Cancelar</button>
                         <button class="btnSalvar" id="save">Marcar Consulta</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Tabela com as consultas semanais **ainda não modificado para cobrir todos os meses -->
-            <table>
-                <tr>
-                    <th></th>
-                    <th>Segunda</th>
-                    <th>Terça</th>
-                    <th>Quarta</th>
-                    <th>Quinta</th>
-                    <th class="null">Sexta</th>
-                </tr>
-                <tr>
-                    <td class="hora">9:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="hora">10:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="hora">11:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="hora">12:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="hora">13:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="hora">14:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="hora">15:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="hora">16:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-            <!-- caixa de texto para lembrete-->
-            <div class="lembre">
-                <b>Lembretes</b>
-                <textarea type="text" placeholder="Para o que precisar lembrar..."></textarea>
-                <!-- botão para salvar o lembrete **ainda sem funcionalidade -->
-                <button>salvar</button>
+            <div class="agenda-content">
+                <div class="calendar-wrapper">
+                    <div id="calendar"></div>
+                </div>
+
+                <!-- caixa de texto para lembrete-->
+                <div class="lembre">
+                    <b>Lembretes</b>
+                    <textarea id="lembreteTexto" placeholder="Para o que precisar lembrar..."></textarea>
+                    <!-- botão para salvar o lembrete -->
+                    <button id="salvarLembrete">salvar</button>
+                </div>
+            </div>
+
+            <!-- Modal de detalhes da consulta -->
+            <div class="modal-container" id="detalhe-cons-container">
+                <div class="modalCons">
+                    <h4>Detalhes da Consulta</h4>
+                    <div class="consBody">
+                        <div class="consField">
+                            <p class="consLabel">Paciente</p>
+                            <div class="perfilInfo" id="detalhePaciente"></div>
+                        </div>
+                        <div class="consRow">
+                            <div class="consField">
+                                <p class="consLabel">Data</p>
+                                <div class="perfilInfo" id="detalheData"></div>
+                            </div>
+                            <div class="consField">
+                                <p class="consLabel">Horário</p>
+                                <div class="perfilInfo" id="detalheHorario"></div>
+                            </div>
+                        </div>
+                        <div class="consField">
+                            <p class="consLabel">Valor</p>
+                            <div class="perfilInfo" id="detalheValor"></div>
+                        </div>
+                    </div>
+                    <div class="buttonArea">
+                        <button class="btnCancelar" id="detalheClose">Fechar</button>
+                        <button class="btnExcluir" id="detalheExcluir">Excluir</button>
+                        <button class="btnSalvar" id="detalheEditar">Editar</button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -276,7 +271,7 @@
                         <td th:text="${cliente.proximaConsulta}">—</td>
                         <td th:text="${cliente.consultaAnterior}">—</td>
                         <td><button class="perf" th:attr="data-id=${cliente.id}">perfil</button></td>
-                        <td><button class="env">enviar confirmação de consulta</button></td>
+                        <td><button class="env" th:attr="data-id=${cliente.id}">enviar confirmação de consulta</button></td>
                     </tr>
                 </table>
             </div>
@@ -368,301 +363,498 @@
                 </div>
             </div>
         </div>
-    
+
     </main>
     <script>
-        // ─── toastify ───
-        function toast(mensagem, tipo = 'erro') {
-            const cores = {
-                sucesso: '#3aacaa',
-                erro:    '#e05c5c',
-                aviso:   '#e0a85c'
+        document.addEventListener('DOMContentLoaded', () => {
+            // ─── toastify ───
+            function toast(mensagem, tipo = 'erro') {
+                const cores = {
+                    sucesso: '#3aacaa',
+                    erro:    '#e05c5c',
+                    aviso:   '#e0a85c'
+                };
+                if (window.Toastify) {
+                    Toastify({
+                        text: mensagem,
+                        duration: 3000,
+                        gravity: 'top',
+                        position: 'right',
+                        style: { background: cores[tipo] ?? cores.erro },
+                        stopOnFocus: true
+                    }).showToast();
+                } else {
+                    console[tipo === 'erro' ? 'error' : 'log'](mensagem);
+                }
+            }
+
+            const formatarHora = (valor) => {
+                if (!valor) return '';
+                return String(valor).slice(0, 5);
             };
-            Toastify({
-                text: mensagem,
-                duration: 3000,
-                gravity: 'top',
-                position: 'right',
-                style: { background: cores[tipo] ?? cores.erro },
-                stopOnFocus: true
-            }).showToast();
-        }
 
-        // ─── pop-up de consultas ───
-        const novaConsultaButton = document.getElementById('NovaCon');
-        const modalContainer = document.getElementById('cons-container');
-        novaConsultaButton.addEventListener('click', () => {
-            modalContainer.classList.add('open');
-            modalContainer.style.transition = '0.2s ease-in-out';
-        });
-        document.getElementById('close').addEventListener('click', () => {
-            modalContainer.classList.remove('open');
-        });
+            const formatarMoeda = (valor) => {
+                const numero = Number(valor || 0);
+                return numero.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            };
 
-        // busca de pacientes no pop-up de consultas
-        let clienteSelecionadoId = null;
-        document.getElementById('pesqNome').addEventListener('input', async (e) => {
-            const nome = e.target.value.trim();
-            const list = document.getElementById('NameList');
-            if (nome.length < 2) { list.innerHTML = ''; return; }
+            const valorNumerico = (valor) => {
+                if (!valor) return 0;
+                return Number(String(valor).replace('R$', '').replace(/\s/g, '').replace('.', '').replace(',', '.')) || 0;
+            };
 
-            const res = await fetch(`/api/clientes/buscar?nome=${encodeURIComponent(nome)}`);
-            const clientes = await res.json();
-            list.innerHTML = '';
-            clientes.forEach(c => {
-                const li = document.createElement('li');
-                li.className = 'NameOpt';
-                li.textContent = c.nome;
-                li.addEventListener('click', () => {
-                    clienteSelecionadoId = c.id;
-                    document.getElementById('pesqNome').value = c.nome;
-                    list.innerHTML = '';
+            // ─── lembrete localStorage ───
+            const lembreteTexto = document.getElementById('lembreteTexto');
+            const salvarLembrete = document.getElementById('salvarLembrete');
+            if (lembreteTexto) {
+                lembreteTexto.value = localStorage.getItem('lembrete') || '';
+            }
+            salvarLembrete?.addEventListener('click', () => {
+                localStorage.setItem('lembrete', lembreteTexto.value);
+                toast('Lembrete salvo!', 'sucesso');
+            });
+
+            // ─── calendário (FullCalendar) ───
+            const calendarEl = document.getElementById('calendar');
+            let calendar = null;
+            let consultaSelecionadaId = null;
+
+            function normalizarEvento(evento) {
+                const props = evento.extendedProps || {};
+                return {
+                    id: evento.id,
+                    title: evento.title || props.paciente || 'Consulta',
+                    start: evento.start,
+                    end: evento.end,
+                    extendedProps: {
+                        ...props,
+                        paciente: props.paciente || evento.title || 'Paciente',
+                        valor: props.valor ?? evento.valor ?? 0,
+                        clienteId: props.clienteId ?? evento.clienteId
+                    }
+                };
+            }
+
+            if (calendarEl && window.FullCalendar) {
+                calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'timeGridWeek',
+                    locale: 'pt-br',
+                    height: '100%',
+                    expandRows: true,
+                    allDaySlot: false,
+                    nowIndicator: true,
+                    slotMinTime: '09:00:00',
+                    slotMaxTime: '18:00:00',
+                    slotDuration: '01:00:00',
+                    hiddenDays: [0, 6],
+                    businessHours: {
+                        daysOfWeek: [1, 2, 3, 4, 5],
+                        startTime: '09:00',
+                        endTime: '18:00'
+                    },
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'timeGridWeek,timeGridDay'
+                    },
+                    buttonText: {
+                        today: 'Hoje',
+                        week: 'Semana',
+                        day: 'Dia'
+                    },
+                    events: async (_info, successCallback, failureCallback) => {
+                        try {
+                            const res = await fetch('/api/consultas/calendario');
+                            if (!res.ok) throw new Error('Falha ao buscar consultas');
+                            const eventos = await res.json();
+                            successCallback(Array.isArray(eventos) ? eventos.map(normalizarEvento) : []);
+                        } catch (error) {
+                            console.error(error);
+                            toast('Não foi possível carregar as consultas no calendário.', 'erro');
+                            failureCallback(error);
+                        }
+                    },
+                    dateClick: (info) => {
+                        abrirModalConsulta();
+                        document.getElementById('data').value = info.dateStr.split('T')[0];
+                        if (info.dateStr.includes('T')) {
+                            document.getElementById('horaInicio').value = formatarHora(info.dateStr.split('T')[1]);
+                        }
+                    },
+                    eventClick: (info) => {
+                        const evento = info.event;
+                        consultaSelecionadaId = evento.id;
+                        document.getElementById('detalhePaciente').textContent = evento.extendedProps.paciente || evento.title;
+                        document.getElementById('detalheData').textContent = evento.start ? evento.start.toLocaleDateString('pt-BR') : '—';
+                        document.getElementById('detalheHorario').textContent = `${evento.start ? evento.start.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }) : '—'} - ${evento.end ? evento.end.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }) : '—'}`;
+                        document.getElementById('detalheValor').textContent = formatarMoeda(evento.extendedProps.valor);
+                        document.getElementById('detalhe-cons-container').classList.add('open');
+                    }
                 });
-                list.appendChild(li);
-            });
-        });
-
-        // salvar consulta
-        document.getElementById('save').addEventListener('click', async () => {
-            if (!clienteSelecionadoId) { toast('Selecione um paciente', 'aviso'); return; }
-            const payload = {
-                clienteId: clienteSelecionadoId,
-                data: document.getElementById('data').value,
-                horario: document.getElementById('hora').value,
-                valor: parseFloat(document.getElementById('valor').value) || 0
-            };
-            const res = await fetch('/api/consultas', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            const data = await res.json();
-            if (res.ok) {
-                modalContainer.classList.remove('open');
-                toast('Consulta marcada com sucesso!', 'sucesso');
-                setTimeout(() => location.reload(), 1500);
-            } else {
-                toast(data.erro || 'Erro ao salvar consulta', 'erro');
+                calendar.render();
             }
-        });
 
-        // ─── busca e filtro da tabela de pacientes ───
-        function filtrarPacientes() {
-            const termo = document.getElementById('searchPac').value.toLowerCase();
-            const status = document.getElementById('filterStatus').value;
-            const tabela = document.getElementById('tabelaPacientes');
-            if (!tabela) return;
+            // ─── pop-up de consultas ───
+            const novaConsultaButton = document.getElementById('NovaCon');
+            const modalContainer = document.getElementById('cons-container');
+            const detalheContainer = document.getElementById('detalhe-cons-container');
+            let clienteSelecionadoId = null;
+            let consultaEmEdicaoId = null;
 
-            tabela.querySelectorAll('tr[data-nome]').forEach(tr => {
-                const nome   = (tr.dataset.nome  ?? '').toLowerCase();
-                const cpf    = (tr.dataset.cpf   ?? '').toLowerCase();
-                const stPac  = (tr.dataset.status ?? '').toLowerCase();
+            function limparModalConsulta() {
+                clienteSelecionadoId = null;
+                consultaEmEdicaoId = null;
+                document.getElementById('pesqNome').value = '';
+                document.getElementById('NameList').innerHTML = '';
+                document.getElementById('data').value = '';
+                document.getElementById('horaInicio').value = '';
+                document.getElementById('horaFim').value = '';
+                document.getElementById('valor').value = '';
+                document.getElementById('save').textContent = 'Marcar Consulta';
+            }
 
-                const bateBusca  = !termo  || nome.includes(termo) || cpf.includes(termo);
-                const bateStatus = status === 'todos' || stPac === status;
+            function abrirModalConsulta() {
+                limparModalConsulta();
+                modalContainer.classList.add('open');
+            }
 
-                tr.style.display = bateBusca && bateStatus ? '' : 'none';
+            novaConsultaButton?.addEventListener('click', abrirModalConsulta);
+            document.getElementById('close')?.addEventListener('click', () => modalContainer.classList.remove('open'));
+            document.getElementById('detalheClose')?.addEventListener('click', () => detalheContainer.classList.remove('open'));
+
+            // busca de pacientes no pop-up de consultas
+            document.getElementById('pesqNome')?.addEventListener('input', async (e) => {
+                const nome = e.target.value.trim();
+                const list = document.getElementById('NameList');
+                clienteSelecionadoId = null;
+                if (nome.length < 2) { list.innerHTML = ''; return; }
+                try {
+                    const res = await fetch(`/api/clientes/buscar?nome=${encodeURIComponent(nome)}`);
+                    const clientes = await res.json();
+                    list.innerHTML = '';
+                    clientes.forEach(c => {
+                        const li = document.createElement('li');
+                        li.className = 'NameOpt';
+                        li.textContent = `${c.nome}${c.cpf ? ' - ' + c.cpf : ''}`;
+                        li.addEventListener('click', () => {
+                            clienteSelecionadoId = c.id;
+                            document.getElementById('pesqNome').value = c.nome;
+                            list.innerHTML = '';
+                        });
+                        list.appendChild(li);
+                    });
+                } catch (error) {
+                    console.error(error);
+                    toast('Erro ao buscar pacientes.', 'erro');
+                }
             });
-        }
 
-        document.getElementById('searchPac')?.addEventListener('input', filtrarPacientes);
-        document.getElementById('filterStatus')?.addEventListener('change', filtrarPacientes);
+            // máscara de valor: R$ 0,00
+            document.getElementById('valor')?.addEventListener('input', function () {
+                let digits = this.value.replace(/\D/g, '');
+                if (!digits) { this.value = ''; return; }
+                digits = digits.replace(/^0+/, '') || '0';
+                while (digits.length < 3) digits = '0' + digits;
+                const cents = digits.slice(-2);
+                const reais = digits.slice(0, -2).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                this.value = 'R$ ' + reais + ',' + cents;
+            });
 
-        // máscara de CPF: 000.000.000-00
-        document.getElementById('cpf')?.addEventListener('input', function () {
-            let v = this.value.replace(/\D/g, '').slice(0, 11);
-            if      (v.length > 9) v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
-            else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{0,3})/,        '$1.$2.$3');
-            else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/,               '$1.$2');
-            this.value = v;
-        });
-        
-        // máscara de celular: (00) 0 0000-0000 / (00) 0000-0000
-        document.getElementById('celular')?.addEventListener('input', function () {
-            let v = this.value.replace(/\D/g, '').slice(0, 11);
-            if      (v.length > 10) v = v.replace(/(\d{2})(\d{1})(\d{4})(\d{0,4})/, '($1) $2 $3-$4');
-            else if (v.length > 6)  v = v.replace(/(\d{2})(\d{4})(\d{0,4})/,        '($1) $2-$3');
-            else if (v.length > 2)  v = v.replace(/(\d{2})(\d{0,4})/,               '($1) $2');
-            else if (v.length > 0)  v = v.replace(/(\d{0,2})/,                      '($1');
-            this.value = v;
-        });
-        
-        // máscara de valor: R$ 0,00
-        document.getElementById('valor')?.addEventListener('input', function () {
-            let digits = this.value.replace(/\D/g, '');
-            if (!digits) { this.value = ''; return; }
-            digits = digits.replace(/^0+/, '') || '0';
-            while (digits.length < 3) digits = '0' + digits;
-            const cents = digits.slice(-2);
-            const reais = digits.slice(0, -2).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-            this.value = 'R$ ' + reais + ',' + cents;
-        });
+            // salvar/criar/editar consulta
+            document.getElementById('save')?.addEventListener('click', async () => {
+                const payload = {
+                    clienteId: clienteSelecionadoId,
+                    data: document.getElementById('data').value,
+                    horario: document.getElementById('horaInicio').value,
+                    horarioFim: document.getElementById('horaFim').value,
+                    valor: valorNumerico(document.getElementById('valor').value)
+                };
+                if (!payload.clienteId) { toast('Selecione um paciente.', 'aviso'); return; }
+                if (!payload.data) { toast('Informe a data da consulta.', 'aviso'); return; }
+                if (!payload.horario || !payload.horarioFim) { toast('Informe o horário inicial e final.', 'aviso'); return; }
+                if (payload.horarioFim <= payload.horario) { toast('O horário final deve ser maior que o horário inicial.', 'aviso'); return; }
+                if (!payload.valor) { toast('Informe o valor da consulta.', 'aviso'); return; }
 
-        // capitaliza primeira letra de cada palavra no campo nome
-        document.getElementById('nome')?.addEventListener('input', function () {
-            const pos = this.selectionStart;
-            this.value = this.value.replace(/(?:^|\s)\S/g, c => c.toUpperCase());
-            this.setSelectionRange(pos, pos);
-        });
-        
-        // ─── modal de perfil do paciente ───
-        const perfilContainer = document.getElementById('perfil-container');
-        let perfilClienteId = null;
+                const url = consultaEmEdicaoId ? `/api/consultas/${consultaEmEdicaoId}` : '/api/consultas';
+                const method = consultaEmEdicaoId ? 'PUT' : 'POST';
+                try {
+                    const res = await fetch(url, {
+                        method,
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const data = await res.json();
+                    if (res.ok) {
+                        modalContainer.classList.remove('open');
+                        toast(consultaEmEdicaoId ? 'Consulta atualizada com sucesso!' : 'Consulta marcada com sucesso!', 'sucesso');
+                        calendar?.refetchEvents();
+                    } else {
+                        toast(data.erro || 'Erro ao salvar consulta', 'erro');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    toast('Falha de comunicação ao salvar consulta.', 'erro');
+                }
+            });
 
-        function sairModoEdicao() {
-            perfilContainer.querySelectorAll('.perfilInput').forEach(i => i.setAttribute('readonly', ''));
-            perfilContainer.querySelectorAll('.perfilSelect').forEach(s => s.setAttribute('disabled', ''));
-            document.getElementById('btnSalvarEdicao').style.display = 'none';
-            document.getElementById('btnEditar').textContent = 'Editar Dados';
-        }
+            document.getElementById('detalheExcluir')?.addEventListener('click', async () => {
+                if (!consultaSelecionadaId) return;
+                if (!confirm('Confirma exclusão da consulta?')) return;
+                try {
+                    const res = await fetch(`/api/consultas/${consultaSelecionadaId}`, { method: 'DELETE' });
+                    if (res.ok) {
+                        detalheContainer.classList.remove('open');
+                        toast('Consulta excluída com sucesso!', 'sucesso');
+                        calendar?.refetchEvents();
+                    } else {
+                        toast('Erro ao excluir consulta.', 'erro');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    toast('Falha de comunicação ao excluir consulta.', 'erro');
+                }
+            });
 
-        function setSelectValue(select, valor) {
-            if (!valor || valor === '—') return;
-            const opt = Array.from(select.options).find(
-                o => o.value.toLowerCase() === valor.toLowerCase() || o.text.toLowerCase() === valor.toLowerCase()
-            );
-            if (opt) select.value = opt.value;
-        }
+            document.getElementById('detalheEditar')?.addEventListener('click', async () => {
+                if (!consultaSelecionadaId) return;
+                try {
+                    const res = await fetch(`/api/consultas/${consultaSelecionadaId}`);
+                    if (!res.ok) throw new Error('Consulta não encontrada');
+                    const c = await res.json();
+                    consultaEmEdicaoId = c.idConsulta || c.id || consultaSelecionadaId;
+                    clienteSelecionadoId = c.cliente?.id || c.clienteId || c.extendedProps?.clienteId;
+                    document.getElementById('pesqNome').value = c.cliente?.nome || c.paciente || '';
+                    document.getElementById('data').value = c.data || '';
+                    document.getElementById('horaInicio').value = formatarHora(c.horario);
+                    document.getElementById('horaFim').value = formatarHora(c.horarioFim);
+                    document.getElementById('valor').value = c.valor ?? '';
+                    document.getElementById('save').textContent = 'Atualizar Consulta';
+                    detalheContainer.classList.remove('open');
+                    modalContainer.classList.add('open');
+                } catch (error) {
+                    console.error(error);
+                    toast('Erro ao carregar consulta para edição.', 'erro');
+                }
+            });
 
-        document.getElementById('closePerfil').addEventListener('click', () => {
-            perfilContainer.classList.remove('open');
-            sairModoEdicao();
-        });
+            // ─── pop-up de histórico de consultas ───
+            const histContainer = document.getElementById('hist-container');
 
-        document.getElementById('btnAgend').addEventListener('click', () => {
-            perfilContainer.classList.remove('open');
-            novaConsultaButton.click();
-        });
+            document.querySelector('.btnTodasCons')?.addEventListener('click', async () => {
+                try {
+                    const res = await fetch('/api/consultas');
+                    const consultas = await res.json();
+                    const tbody = document.getElementById('histTableBody');
+                    tbody.innerHTML = '';
+                    consultas.forEach(c => {
+                        const tr = document.createElement('tr');
+                        tr.dataset.busca = `${c.paciente} ${c.cpf} ${c.dataHora}`.toLowerCase();
+                        tr.innerHTML = `
+                            <td>${c.dataHora}</td>
+                            <td>${c.paciente}</td>
+                            <td>${c.cpf}</td>
+                            <td>${c.valor}</td>
+                            <td><button class="btnVisualizarCons">Visualizar Consulta</button></td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                    histContainer.classList.add('open');
+                } catch (error) {
+                    console.error(error);
+                    toast('Erro ao carregar histórico de consultas.', 'erro');
+                }
+            });
 
-        document.getElementById('btnEditar').addEventListener('click', () => {
-            const emEdicao = !document.getElementById('perfilNomeInput').hasAttribute('readonly');
-            if (emEdicao) {
+            document.getElementById('closeHist')?.addEventListener('click', () => {
+                histContainer.classList.remove('open');
+            });
+
+            document.getElementById('searchHist')?.addEventListener('input', function () {
+                const termo = this.value.toLowerCase();
+                document.querySelectorAll('#histTableBody tr').forEach(tr => {
+                    tr.style.display = tr.dataset.busca.includes(termo) ? '' : 'none';
+                });
+            });
+
+            // ─── busca e filtro da tabela de pacientes ───
+            function filtrarPacientes() {
+                const termo = document.getElementById('searchPac').value.toLowerCase();
+                const status = document.getElementById('filterStatus').value;
+                const tabela = document.getElementById('tabelaPacientes');
+                if (!tabela) return;
+                tabela.querySelectorAll('tr[data-nome]').forEach(tr => {
+                    const nome   = (tr.dataset.nome  ?? '').toLowerCase();
+                    const cpf    = (tr.dataset.cpf   ?? '').toLowerCase();
+                    const stPac  = (tr.dataset.status ?? '').toLowerCase();
+                    const bateBusca  = !termo  || nome.includes(termo) || cpf.includes(termo);
+                    const bateStatus = status === 'todos' || stPac === status;
+                    tr.style.display = bateBusca && bateStatus ? '' : 'none';
+                });
+            }
+
+            document.getElementById('searchPac')?.addEventListener('input', filtrarPacientes);
+            document.getElementById('filterStatus')?.addEventListener('change', filtrarPacientes);
+
+            // máscara de CPF: 000.000.000-00
+            document.getElementById('cpf')?.addEventListener('input', function () {
+                let v = this.value.replace(/\D/g, '').slice(0, 11);
+                if      (v.length > 9) v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
+                else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{0,3})/,        '$1.$2.$3');
+                else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/,               '$1.$2');
+                this.value = v;
+            });
+
+            // máscara de celular: (00) 0 0000-0000 / (00) 0000-0000
+            document.getElementById('celular')?.addEventListener('input', function () {
+                let v = this.value.replace(/\D/g, '').slice(0, 11);
+                if      (v.length > 10) v = v.replace(/(\d{2})(\d{1})(\d{4})(\d{0,4})/, '($1) $2 $3-$4');
+                else if (v.length > 6)  v = v.replace(/(\d{2})(\d{4})(\d{0,4})/,        '($1) $2-$3');
+                else if (v.length > 2)  v = v.replace(/(\d{2})(\d{0,4})/,               '($1) $2');
+                else if (v.length > 0)  v = v.replace(/(\d{0,2})/,                      '($1');
+                this.value = v;
+            });
+
+            // capitaliza primeira letra de cada palavra no campo nome
+            document.getElementById('nome')?.addEventListener('input', function () {
+                const pos = this.selectionStart;
+                this.value = this.value.replace(/(?:^|\s)\S/g, c => c.toUpperCase());
+                this.setSelectionRange(pos, pos);
+            });
+
+            // ─── modal de perfil do paciente ───
+            const perfilContainer = document.getElementById('perfil-container');
+            let perfilClienteId = null;
+
+            function sairModoEdicao() {
+                if (!perfilContainer) return;
+                perfilContainer.querySelectorAll('.perfilInput').forEach(i => i.setAttribute('readonly', ''));
+                perfilContainer.querySelectorAll('.perfilSelect').forEach(s => s.setAttribute('disabled', ''));
+                document.getElementById('btnSalvarEdicao').style.display = 'none';
+                document.getElementById('btnEditar').textContent = 'Editar Dados';
+            }
+
+            function setSelectValue(select, valor) {
+                if (!select || !valor || valor === '—') return;
+                const opt = Array.from(select.options).find(
+                    o => o.value.toLowerCase() === valor.toLowerCase() || o.text.toLowerCase() === valor.toLowerCase()
+                );
+                if (opt) select.value = opt.value;
+            }
+
+            document.getElementById('closePerfil')?.addEventListener('click', () => {
+                perfilContainer.classList.remove('open');
                 sairModoEdicao();
-            } else {
-                perfilContainer.querySelectorAll('.perfilInput').forEach(i => i.removeAttribute('readonly'));
-                perfilContainer.querySelectorAll('.perfilSelect').forEach(s => s.removeAttribute('disabled'));
-                document.getElementById('btnSalvarEdicao').style.display = '';
-                document.getElementById('btnEditar').textContent = 'Cancelar';
-            }
-        });
-
-        document.getElementById('btnSalvarEdicao').addEventListener('click', async () => {
-            const payload = {
-                nome:     document.getElementById('perfilNomeInput').value,
-                telefone: document.getElementById('perfilTelefoneInput').value,
-                email:    document.getElementById('perfilEmailInput').value,
-                genero:   document.getElementById('perfilGeneroSelect').value,
-                status:   document.getElementById('perfilStatusSelect').value
-            };
-            const res = await fetch(`/api/clientes/${perfilClienteId}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
             });
-            const data = await res.json();
-            if (res.ok) {
-                toast('Dados atualizados com sucesso!', 'sucesso');
-                sairModoEdicao();
-                setTimeout(() => location.reload(), 1500);
-            } else {
-                toast(data.erro || 'Erro ao atualizar paciente', 'erro');
-            }
-        });
 
-        document.querySelectorAll('button.perf').forEach(btn => {
-            btn.addEventListener('click', async () => {
-                const id = btn.dataset.id;
-                perfilClienteId = id;
-                const res = await fetch(`/api/clientes/${id}/perfil`);
-                const p = await res.json();
+            document.getElementById('btnAgend')?.addEventListener('click', () => {
+                perfilContainer.classList.remove('open');
+                abrirModalConsulta();
+            });
 
-                document.getElementById('perfilNomeInput').value     = p.nome     || '';
-                document.getElementById('perfilCpf').textContent     = p.cpf      || '—';
-                document.getElementById('perfilTelefoneInput').value = p.telefone || '';
-                document.getElementById('perfilEmailInput').value    = p.email    || '';
-                setSelectValue(document.getElementById('perfilGeneroSelect'), p.genero);
-                setSelectValue(document.getElementById('perfilStatusSelect'), p.status);
-                document.getElementById('perfilProxima').textContent  = p.proximaConsulta  || '—';
-                document.getElementById('perfilAnterior').textContent = p.consultaAnterior || '—';
+            document.getElementById('btnEditar')?.addEventListener('click', () => {
+                const emEdicao = !document.getElementById('perfilNomeInput').hasAttribute('readonly');
+                if (emEdicao) {
+                    sairModoEdicao();
+                } else {
+                    perfilContainer.querySelectorAll('.perfilInput').forEach(i => i.removeAttribute('readonly'));
+                    perfilContainer.querySelectorAll('.perfilSelect').forEach(s => s.removeAttribute('disabled'));
+                    document.getElementById('btnSalvarEdicao').style.display = '';
+                    document.getElementById('btnEditar').textContent = 'Cancelar';
+                }
+            });
 
-                sairModoEdicao();
-                perfilContainer.classList.add('open');
-                perfilContainer.style.transition = '0.2s ease-in-out';
+            document.getElementById('btnSalvarEdicao')?.addEventListener('click', async () => {
+                const payload = {
+                    nome:     document.getElementById('perfilNomeInput').value,
+                    telefone: document.getElementById('perfilTelefoneInput').value,
+                    email:    document.getElementById('perfilEmailInput').value,
+                    genero:   document.getElementById('perfilGeneroSelect').value,
+                    status:   document.getElementById('perfilStatusSelect').value
+                };
+                const res = await fetch(`/api/clientes/${perfilClienteId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    toast('Dados atualizados com sucesso!', 'sucesso');
+                    sairModoEdicao();
+                    setTimeout(() => location.reload(), 1500);
+                } else {
+                    toast(data.erro || 'Erro ao atualizar paciente', 'erro');
+                }
+            });
+
+            document.querySelectorAll('button.perf').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const id = btn.dataset.id;
+                    perfilClienteId = id;
+                    const res = await fetch(`/api/clientes/${id}/perfil`);
+                    const p = await res.json();
+                    document.getElementById('perfilNomeInput').value     = p.nome     || '';
+                    document.getElementById('perfilCpf').textContent     = p.cpf      || '—';
+                    document.getElementById('perfilTelefoneInput').value = p.telefone || '';
+                    document.getElementById('perfilEmailInput').value    = p.email    || '';
+                    setSelectValue(document.getElementById('perfilGeneroSelect'), p.genero);
+                    setSelectValue(document.getElementById('perfilStatusSelect'), p.status);
+                    document.getElementById('perfilProxima').textContent  = p.proximaConsulta  || '—';
+                    document.getElementById('perfilAnterior').textContent = p.consultaAnterior || '—';
+                    sairModoEdicao();
+                    perfilContainer.classList.add('open');
+                });
+            });
+
+            // ─── enviar confirmação de consulta ───
+            document.querySelectorAll('button.env').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const id = btn.dataset.id;
+                    try {
+                        const res = await fetch(`/api/clientes/${id}/enviar-confirmacao`, { method: 'POST' });
+                        const data = await res.json();
+                        if (res.ok) {
+                            toast('E-mail de confirmação enviado!', 'sucesso');
+                        } else {
+                            toast(data.erro || 'Erro ao enviar e-mail', 'erro');
+                        }
+                    } catch (error) {
+                        console.error(error);
+                        toast('Falha de comunicação ao enviar e-mail.', 'erro');
+                    }
+                });
+            });
+
+            // ─── pop-up de pacientes ───
+            const novoPacienteButton = document.querySelector('button.pac');
+            const pacModalContainer = document.getElementById('pac-container');
+            novoPacienteButton?.addEventListener('click', () => pacModalContainer.classList.add('open'));
+            document.getElementById('closePac')?.addEventListener('click', () => pacModalContainer.classList.remove('open'));
+
+            // salvar paciente
+            document.getElementById('savePac')?.addEventListener('click', async () => {
+                const payload = {
+                    nome: document.getElementById('nome').value,
+                    cpf: document.getElementById('cpf').value,
+                    telefone: document.getElementById('celular').value,
+                    email: document.getElementById('email').value,
+                    genero: document.querySelector('select.genero').value,
+                    status: document.querySelector('select.statusPac').value
+                };
+                const res = await fetch('/api/clientes', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    pacModalContainer.classList.remove('open');
+                    toast('Paciente cadastrado com sucesso!', 'sucesso');
+                    setTimeout(() => location.reload(), 1500);
+                } else {
+                    toast(data.erro || 'Erro ao salvar paciente', 'erro');
+                }
             });
         });
-
-        // ─── pop-up de histórico de consultas ───
-        const histContainer = document.getElementById('hist-container');
-
-        document.querySelector('.btnTodasCons').addEventListener('click', async () => {
-            const res = await fetch('/api/consultas');
-            const consultas = await res.json();
-            const tbody = document.getElementById('histTableBody');
-            tbody.innerHTML = '';
-            consultas.forEach(c => {
-                const tr = document.createElement('tr');
-                tr.dataset.busca = `${c.paciente} ${c.cpf} ${c.dataHora}`.toLowerCase();
-                tr.innerHTML = `
-                    <td>${c.dataHora}</td>
-                    <td>${c.paciente}</td>
-                    <td>${c.cpf}</td>
-                    <td>${c.valor}</td>
-                    <td><button class="btnVisualizarCons">Visualizar Consulta</button></td>
-                `;
-                tbody.appendChild(tr);
-            });
-            histContainer.classList.add('open');
-        });
-
-        document.getElementById('closeHist').addEventListener('click', () => {
-            histContainer.classList.remove('open');
-        });
-
-        document.getElementById('searchHist').addEventListener('input', function () {
-            const termo = this.value.toLowerCase();
-            document.querySelectorAll('#histTableBody tr').forEach(tr => {
-                tr.style.display = tr.dataset.busca.includes(termo) ? '' : 'none';
-            });
-        });
-
-        // ─── pop-up de pacientes ───
-        const novoPacienteButton = document.querySelector('button.pac');
-        const pacModalContainer = document.getElementById('pac-container');
-        novoPacienteButton.addEventListener('click', () => {
-            pacModalContainer.classList.add('open');
-            pacModalContainer.style.transition = '0.2s ease-in-out';
-        });
-        document.getElementById('closePac').addEventListener('click', () => {
-            pacModalContainer.classList.remove('open');
-        });
-
-        // salvar paciente
-        document.getElementById('savePac').addEventListener('click', async () => {
-            const payload = {
-                nome: document.getElementById('nome').value,
-                cpf: document.getElementById('cpf').value,
-                telefone: document.getElementById('celular').value,
-                email: document.getElementById('email').value,
-                genero: document.querySelector('select.genero').value,
-                status: document.querySelector('select.statusPac').value
-            };
-            const res = await fetch('/api/clientes', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            const data = await res.json();
-            if (res.ok) {
-                pacModalContainer.classList.remove('open');
-                toast('Paciente cadastrado com sucesso!', 'sucesso');
-                setTimeout(() => location.reload(), 1500);
-            } else {
-                toast(data.erro || 'Erro ao salvar paciente', 'erro');
-            }
-        });
-
-
-        
     </script>
 </body>
 

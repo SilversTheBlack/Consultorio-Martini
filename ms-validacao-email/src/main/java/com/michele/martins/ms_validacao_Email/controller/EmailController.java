@@ -15,18 +15,6 @@ public class EmailController {
     @Autowired
     private EmailService emailService;
 
-    @GetMapping("/validar")
-    public ResponseEntity<Map<String, Object>> validar(@RequestParam String email) {
-        boolean valido = validarEmail(email);
-        return ResponseEntity.ok(Map.of("valido", valido, "email", email));
-    }
-
-    private boolean validarEmail(String email) {
-        if (email == null || email.isBlank()) return false;
-        String regex = "^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$";
-        return email.matches(regex);
-    }
-
     @PostMapping("/email/confirmacao-consulta")
     public ResponseEntity<Map<String, String>> enviarConfirmacao(@RequestBody Map<String, Object> payload) {
         try {

@@ -30,4 +30,24 @@ public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
     Optional<Consulta> findFirstByClienteIdAndDataGreaterThanEqualOrderByDataAsc(Long clienteId, LocalDate data);
 
     Optional<Consulta> findFirstByClienteIdAndDataLessThanOrderByDataDesc(Long clienteId, LocalDate data);
+
+    @Query("SELECT COUNT(c) > 0 FROM Consulta c " +
+           "WHERE c.data = :data " +
+           "AND c.horarioFim IS NOT NULL " +
+           "AND c.horario < :horarioFim " +
+           "AND c.horarioFim > :horarioInicio")
+    boolean existsOverlappingConsulta(@Param("data") LocalDate data,
+                                      @Param("horarioInicio") LocalTime horarioInicio,
+                                      @Param("horarioFim") LocalTime horarioFim);
+
+    @Query("SELECT COUNT(c) > 0 FROM Consulta c " +
+           "WHERE c.idConsulta <> :id " +
+           "AND c.data = :data " +
+           "AND c.horarioFim IS NOT NULL " +
+           "AND c.horario < :horarioFim " +
+           "AND c.horarioFim > :horarioInicio")
+    boolean existsOverlappingConsultaExcludingId(@Param("data") LocalDate data,
+                                                 @Param("horarioInicio") LocalTime horarioInicio,
+                                                 @Param("horarioFim") LocalTime horarioFim,
+                                                 @Param("id") Long id);
 }
