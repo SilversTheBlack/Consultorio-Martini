@@ -36,7 +36,7 @@ header {
     height: 9.875rem;
     justify-content: flex-start;
     align-items: center;
-    z-index: 1;
+    z-index: 100;
 }
 
 header input {
@@ -1453,7 +1453,7 @@ td {
 #calendar .fc-scroller,
 #calendar .fc-scroller-liquid-absolute {
     overflow: auto !important;
-    z-index:100;
+    z-index:1;
 }
 
 #calendar .fc-toolbar.fc-header-toolbar {
