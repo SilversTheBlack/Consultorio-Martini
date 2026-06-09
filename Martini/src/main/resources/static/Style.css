@@ -1,5 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&family=Sora:wght@100..800&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll margin to compensate fixed header */
+#dash,
+#agend,
+#pacient {
+    scroll-margin-top: 170px;
+}
+
+/* Highlight animation for accessed section */
+.section-highlight {
+    animation: sectionFocus 0.7s ease;
+}
+
+@keyframes sectionFocus {
+    0% {
+        opacity: 0.75;
+        transform: translateY(12px);
+        filter: brightness(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: brightness(1);
+    }
+}
+
+/* Transição suave nos links do menu lateral */
+.nav a,
+.menu-lateral a {
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav a:hover,
+.menu-lateral a:hover {
+    transform: translateX(6px);
+}
+
+.nav a:active,
+.menu-lateral a:active {
+    transform: translateX(4px) scale(0.97);
+}
+
 body {
     margin: 0;
     line-height: normal;
@@ -61,6 +106,11 @@ h3 {
 }
 
 /* estilos da barra de navegação lateral - esquerda */
+
+/* espaçamento extra entre botões de agenda e o calendário */
+.agenda-actions {
+    margin-bottom: 28px; /* espaço confortável */
+}
 
 .nav {
     display: flex;
@@ -261,11 +311,89 @@ button {
     table-layout: fixed;
 }
 
-.agenda td {
+.agenda > table td {
     border-color: #D6F1F1;
     border-right: 3px solid;
     width: 16.66%;
 }
+
+/* FullCalendar event positioning fix */
+
+
+/* Slight shift of event cards to the right for better column alignment */
+.fc .fc-timegrid-event {
+    margin-left: 8px !important;   /* move a bit right inside the column */
+    margin-right: 0 !important;
+}
+
+
+/* Remove borders on last column (sexta‑feira) */
+.fc .fc-timegrid-col:last-child,
+.fc .fc-col-header-cell:last-child {
+    border-left: none !important;
+    border-right: none !important;
+}
+
+/* Ajuste da barra superior do FullCalendar – botão Hoje */
+.fc .fc-toolbar {
+    align-items: center !important;
+}
+.fc .fc-toolbar-chunk {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+.fc .fc-button {
+    white-space: nowrap !important;
+}
+.fc .fc-today-button {
+    min-width: 80px !important;
+    max-width: 110px !important;
+    padding: 6px 12px !important;
+    flex: 0 0 auto !important;
+}
+.fc .fc-toolbar {
+    align-items: center !important;
+}
+.fc .fc-toolbar-chunk {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+.fc .fc-button {
+    white-space: nowrap !important;
+}
+.fc .fc-today-button {
+    min-width: 80px !important;
+    max-width: 110px !important;
+    padding: 6px 12px !important;
+    flex: 0 0 auto !important;
+}
+
+/* Remover a linha vertical da última coluna (sexta‑feira) */
+.fc .fc-timegrid-col:last-child,
+.fc .fc-col-header-cell:last-child {
+    border-right: none !important;
+}
+#calendar .fc .fc-timegrid-event,
+#calendar .fc .fc-daygrid-event {
+    left: auto !important;
+    right: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    transform: none !important;
+}
+
+/* Ensure event containers stretch correctly */
+#calendar .fc .fc-timegrid-event-harness,
+#calendar .fc .fc-daygrid-event-harness {
+    width: auto !important;
+    left: auto !important;
+    right: auto !important;
+}
+
 
 .agenda .null {
     border-right: none;
@@ -1280,7 +1408,52 @@ td {
         height: 15rem;
     }
 
-    body {
+    html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll margin to compensate fixed header */
+#dash,
+#agend,
+#pacient {
+    scroll-margin-top: 170px;
+}
+
+/* Highlight animation for accessed section */
+.section-highlight {
+    animation: sectionFocus 0.7s ease;
+}
+
+@keyframes sectionFocus {
+    0% {
+        opacity: 0.75;
+        transform: translateY(12px);
+        filter: brightness(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: brightness(1);
+    }
+}
+
+/* Transição suave nos links do menu lateral */
+.nav a,
+.menu-lateral a {
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav a:hover,
+.menu-lateral a:hover {
+    transform: translateX(6px);
+}
+
+.nav a:active,
+.menu-lateral a:active {
+    transform: translateX(4px) scale(0.97);
+}
+
+body {
         height: auto;
         overflow-y: auto;
         gap: 2rem;
