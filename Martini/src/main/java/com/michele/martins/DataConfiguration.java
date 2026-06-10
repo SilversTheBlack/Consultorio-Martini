@@ -20,7 +20,7 @@ public class DataConfiguration {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/martins"); 
         dataSource.setUsername("root");
-        dataSource.setPassword("310702");
+        dataSource.setPassword("damnedkkk1");
      
         try (Connection connection = dataSource.getConnection()) {
         	System.out.println("------------------------------------------------------------------------");

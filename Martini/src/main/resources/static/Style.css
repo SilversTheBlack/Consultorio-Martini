@@ -94,6 +94,10 @@ header input {
     margin-right: 5rem;
 }
 
+.header-nav{
+    display:none;
+    pointer-events: none;
+}
 a {
     text-decoration: none;
     color: #B5EFF0;
@@ -1457,6 +1461,8 @@ body {
         height: auto;
         overflow-y: auto;
         gap: 2rem;
+        min-width:550px;
+        overflow-x: scroll;
     }
 
 
@@ -1471,10 +1477,41 @@ body {
         top: -3.6rem;
         left: 50%;
         transform: translateX(-50%);
-        height: 13rem;
+        height: 10rem;
         object-fit: cover;
         margin-top: 70px;
         z-index: 1;
+    }
+
+    .nav{
+        display: none;
+    }
+    main{
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .header-nav {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+     width: 100%;
+     gap: 1rem;
+     margin-top: 10rem;
+     pointer-events: auto;
+    }
+
+    .header-nav a {
+        color: #D6F1F1;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-family: 'Sora', sans-serif;
+        font-weight: 600;
+        
+    }
+
+    .header-nav a:hover {
+        text-decoration: underline;
+        transition: text-decoration 1s;
     }
 
     .wireframe-1-child2,

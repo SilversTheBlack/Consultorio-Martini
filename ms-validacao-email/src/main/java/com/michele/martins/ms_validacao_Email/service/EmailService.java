@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 
@@ -13,7 +12,6 @@ public class EmailService {
 
     @Autowired
     private JavaMailSender mailSender;
-
     private static final String CONSULTORIO_NOME = "Consultório Martini";
     private static final String CONSULTORIO_EMAIL = "contato@consultoriomartini.com";
 
