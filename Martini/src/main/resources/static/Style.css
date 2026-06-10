@@ -22,6 +22,7 @@ html {
         transform: translateY(12px);
         filter: brightness(1.05);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -60,8 +61,8 @@ body {
     flex-wrap: wrap;
 }
 
-section{
-    margin-top:12rem;
+section {
+    margin-top: 12rem;
 }
 
 .popup-overlay {
@@ -94,10 +95,11 @@ header input {
     margin-right: 5rem;
 }
 
-.header-nav{
-    display:none;
+.header-nav {
+    display: none;
     pointer-events: none;
 }
+
 a {
     text-decoration: none;
     color: #B5EFF0;
@@ -113,7 +115,8 @@ h3 {
 
 /* espaçamento extra entre botões de agenda e o calendário */
 .agenda-actions {
-    margin-bottom: 28px; /* espaço confortável */
+    margin-bottom: 28px;
+    /* espaço confortável */
 }
 
 .nav {
@@ -187,6 +190,7 @@ main {
     margin-top: 9.4rem;
     margin-bottom: 5rem;
 }
+
 button {
     cursor: pointer;
 }
@@ -196,7 +200,8 @@ button {
     height: 2rem;
     flex-basis: 100%;
 }
-.resumo h3{
+
+.resumo h3 {
     height: 1.5rem;
     flex-basis: 100%;
     text-align: center;
@@ -210,7 +215,7 @@ button {
     font-weight: 500;
     text-align: center;
     flex-basis: 100%;
-    
+
 }
 
 .resumo b {
@@ -267,7 +272,7 @@ button {
     width: 15rem;
     height: 3.5rem;
     margin: 0;
-    background-color:#a4dcb9;
+    background-color: #a4dcb9;
     border-radius: 7px;
     border: none;
     color: #D6F1F1;
@@ -315,7 +320,7 @@ button {
     table-layout: fixed;
 }
 
-.agenda > table td {
+.agenda>table td {
     border-color: #D6F1F1;
     border-right: 3px solid;
     width: 16.66%;
@@ -326,7 +331,8 @@ button {
 
 /* Slight shift of event cards to the right for better column alignment */
 .fc .fc-timegrid-event {
-    margin-left: 8px !important;   /* move a bit right inside the column */
+    margin-left: 8px !important;
+    /* move a bit right inside the column */
     margin-right: 0 !important;
 }
 
@@ -342,31 +348,38 @@ button {
 .fc .fc-toolbar {
     align-items: center !important;
 }
+
 .fc .fc-toolbar-chunk {
     display: flex !important;
     align-items: center !important;
     gap: 10px !important;
 }
+
 .fc .fc-button {
     white-space: nowrap !important;
 }
+
 .fc .fc-today-button {
     min-width: 80px !important;
     max-width: 110px !important;
     padding: 6px 12px !important;
     flex: 0 0 auto !important;
 }
+
 .fc .fc-toolbar {
     align-items: center !important;
 }
+
 .fc .fc-toolbar-chunk {
     display: flex !important;
     align-items: center !important;
     gap: 10px !important;
 }
+
 .fc .fc-button {
     white-space: nowrap !important;
 }
+
 .fc .fc-today-button {
     min-width: 80px !important;
     max-width: 110px !important;
@@ -379,6 +392,7 @@ button {
 .fc .fc-col-header-cell:last-child {
     border-right: none !important;
 }
+
 #calendar .fc .fc-timegrid-event,
 #calendar .fc .fc-daygrid-event {
     left: auto !important;
@@ -1134,7 +1148,7 @@ td {
 }
 
 .pacientes td .env {
-    background-color:#50b876 ;
+    background-color: #50b876;
     color: whitesmoke;
     border-radius: 12px;
     border: none;
@@ -1417,55 +1431,56 @@ td {
     }
 
     html {
-    scroll-behavior: smooth;
-}
-
-/* Scroll margin to compensate fixed header */
-#dash,
-#agend,
-#pacient {
-    scroll-margin-top: 170px;
-}
-
-/* Highlight animation for accessed section */
-.section-highlight {
-    animation: sectionFocus 0.7s ease;
-}
-
-@keyframes sectionFocus {
-    0% {
-        opacity: 0.75;
-        transform: translateY(12px);
-        filter: brightness(1.05);
+        scroll-behavior: smooth;
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: brightness(1);
+
+    /* Scroll margin to compensate fixed header */
+    #dash,
+    #agend,
+    #pacient {
+        scroll-margin-top: 170px;
     }
-}
 
-/* Transição suave nos links do menu lateral */
-.nav a,
-.menu-lateral a {
-    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
+    /* Highlight animation for accessed section */
+    .section-highlight {
+        animation: sectionFocus 0.7s ease;
+    }
 
-.nav a:hover,
-.menu-lateral a:hover {
-    transform: translateX(6px);
-}
+    @keyframes sectionFocus {
+        0% {
+            opacity: 0.75;
+            transform: translateY(12px);
+            filter: brightness(1.05);
+        }
 
-.nav a:active,
-.menu-lateral a:active {
-    transform: translateX(4px) scale(0.97);
-}
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+            filter: brightness(1);
+        }
+    }
 
-body {
+    /* Transição suave nos links do menu lateral */
+    .nav a,
+    .menu-lateral a {
+        transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .nav a:hover,
+    .menu-lateral a:hover {
+        transform: translateX(6px);
+    }
+
+    .nav a:active,
+    .menu-lateral a:active {
+        transform: translateX(4px) scale(0.97);
+    }
+
+    body {
         height: auto;
         overflow-y: auto;
         gap: 2rem;
-        min-width:550px;
+        min-width: 550px;
         overflow-x: scroll;
     }
 
@@ -1487,21 +1502,23 @@ body {
         z-index: 1;
     }
 
-    .nav{
+    .nav {
         display: none;
     }
-    main{
-        margin-left:auto;
-        margin-right:auto;
+
+    main {
+        margin-left: auto;
+        margin-right: auto;
     }
+
     .header-nav {
-     display: flex;
-     flex-direction: row;
-     justify-content: space-around;
-     width: 100%;
-     gap: 1rem;
-     margin-top: 10rem;
-     pointer-events: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        gap: 1rem;
+        margin-top: 10rem;
+        pointer-events: auto;
     }
 
     .header-nav a {
@@ -1510,7 +1527,7 @@ body {
         border-radius: 8px;
         font-family: 'Sora', sans-serif;
         font-weight: 600;
-        
+
     }
 
     .header-nav a:hover {
@@ -1518,58 +1535,6 @@ body {
         transition: text-decoration 1s;
     }
 
-    .wireframe-1-child2,
-    .wireframe-1-child5,
-    .wireframe-1-child8 {
-        position: relative;
-        top: 0;
-        left: 0;
-        margin: 1rem auto;
-        transform: none;
-        width: 50%;
-        height: 25%;
-        display: block;
-    }
-
-    .wireframe-1-child5 {
-        margin-top: 20rem;
-    }
-
-    .wireframe-1-inner {
-        position: relative;
-        top: 2rem;
-        left: 0;
-        margin: 2rem auto 5rem auto;
-        transform: none;
-        width: 90%;
-        height: 40%;
-        min-height: 15.063rem;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .rectangle-div,
-    .wireframe-1-child1 {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;
-        z-index: 1;
-    }
-
-    .wireframe-1-child1 {
-        top: 50%;
-    }
-
-    .rectangle-div {
-        top: 75%;
-    }
-
-
-    .maria-julia-santos,
-    .pauta-namoro-faculdade {
-        left: 50%;
-        transform: translateX(-50%);
-    }
 
     .prximo-paciente {
         left: 46%;
@@ -1667,7 +1632,7 @@ body {
 #calendar .fc-scroller,
 #calendar .fc-scroller-liquid-absolute {
     overflow: auto !important;
-    z-index:1;
+    z-index: 1;
 }
 
 #calendar .fc-toolbar.fc-header-toolbar {
