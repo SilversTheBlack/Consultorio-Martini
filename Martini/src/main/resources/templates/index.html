@@ -658,7 +658,7 @@
                             <td>${c.paciente}</td>
                             <td>${c.cpf}</td>
                             <td>${c.valor}</td>
-                            <td><button class="btnVisualizarCons">Visualizar Consulta</button></td>
+                            <td><button class="btnVisualizarCons" data-id="${c.id}">Visualizar Consulta</button></td>
                         `;
                         tbody.appendChild(tr);
                     });
@@ -678,6 +678,28 @@
                 document.querySelectorAll('#histTableBody tr').forEach(tr => {
                     tr.style.display = tr.dataset.busca.includes(termo) ? '' : 'none';
                 });
+            });
+
+            document.getElementById('histTableBody')?.addEventListener('click', async (e) => {
+                const btn = e.target.closest('.btnVisualizarCons');
+                if (!btn) return;
+                const id = btn.dataset.id;
+                if (!id) return;
+                try {
+                    const res = await fetch(`/api/consultas/${id}`);
+                    if (!res.ok) throw new Error('Consulta não encontrada');
+                    const c = await res.json();
+                    consultaSelecionadaId = id;
+                    document.getElementById('detalhePaciente').textContent = c.cliente?.nome || c.paciente || '—';
+                    document.getElementById('detalheData').textContent = c.data ? new Date(c.data + 'T00:00:00').toLocaleDateString('pt-BR') : '—';
+                    document.getElementById('detalheHorario').textContent = `${formatarHora(c.horario) || '—'} - ${formatarHora(c.horarioFim) || '—'}`;
+                    document.getElementById('detalheValor').textContent = formatarMoeda(c.valor);
+                    histContainer.classList.remove('open');
+                    detalheContainer.classList.add('open');
+                } catch (error) {
+                    console.error(error);
+                    toast('Erro ao carregar detalhes da consulta.', 'erro');
+                }
             });
 
             // ─── busca e filtro da tabela de pacientes ───
